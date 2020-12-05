@@ -1,51 +1,44 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import {CONST_REPO_URL, CONST_SITE_URL, CONST_SITE_NAME, CONST_TWITTER_URL, CONST_YOUTUBE_URL, CONST_LAPRAS_URL} from '../lib/constants'
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>{CONST_SITE_NAME}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href={CONST_SITE_URL}>{CONST_SITE_NAME}</a>
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          I'm a student.<br />
+          I have a dream: the future where everyone has equal right to learn anytime, anywhere.
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+          <a href={CONST_REPO_URL} className={styles.card}>
+            <h3>Repository &rarr;</h3>
+            <p>You can view the source code.</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <a href={CONST_YOUTUBE_URL} className={styles.card}>
+            <h3>YouTube &rarr;</h3>
+            <p>Watch my videos on YouTube.</p>
           </a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          <a href={CONST_TWITTER_URL} className={styles.card}>
+            <h3>Twitter &rarr;</h3>
+            <p>Feel free to follow me on Twitter.</p>
           </a>
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+          <a href={CONST_LAPRAS_URL} className={styles.card} >
+            <h3>LAPRAS &rarr;</h3>
+            <p>For more info about me, visit my page onn LAPRAS.</p>
           </a>
         </div>
       </main>
