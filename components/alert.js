@@ -1,6 +1,6 @@
 import Container from './container'
 import cn from 'classnames'
-import {CONST_REPO_URL, CONST_SITE_URL, CONST_SITE_NAME, CONST_TWITTER_URL, CONST_YOUTUBE_URL, CONST_LAPRAS_URL} from '@/libs/constants'
+import {CONST_REPO_URL} from '@/libs/constants'
 
 
 export default function Alert({ preview }) {
@@ -26,7 +26,7 @@ export default function Alert({ preview }) {
             </>
           ) : (
             <>
-              The source code for this blog is{' '}
+              The source code for this website is{' '}
               <a
                 href={CONST_REPO_URL}
                 className="underline hover:text-success duration-200 transition-colors"
