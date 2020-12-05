@@ -3,11 +3,13 @@ You may wonder why the repository name says 'graphql'. Here's answer: **THIS APP
 
 ## Thanks
 
-**I can't thank you enough, the people of vercel.** Your great documentation and helpful examples made this dream possible: I can finnally created my portfolio!
+**I can't thank you enough, the people of vercel.** Your great documentation and helpful examples made my dream possible: I can finnally created my portfolio!
 
 Don't forget that this repository is based on the awesome example below; A very helpful guide included!
 https://github.com/vercel/next.js/tree/canary/examples/cms-contentful
 
+**(Info below is template)**
+---
 ## About create-next-app
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
