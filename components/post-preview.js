@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Avatar from '../components/avatar'
-import DateComponent from '../components/date'
+import Avatar from '@/components/avatar'
+import DateComponent from '@/components/date'
 import CoverImage from './cover-image'
 
 export default function PostPreview({

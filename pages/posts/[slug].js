@@ -1,16 +1,16 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import ErrorPage from 'next/error'
-import Container from '../../components/container'
-import PostBody from '../../components/post-body'
-import MoreStories from '../../components/more-stories'
-import Header from '../../components/header'
-import PostHeader from '../../components/post-header'
-import SectionSeparator from '../../components/section-separator'
-import Layout from '../../components/layout'
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
-import PostTitle from '../../components/post-title'
-import { CMS_NAME } from '../../lib/constants'
+import Container from '@/components/container'
+import PostBody from '@/components/post-body'
+import MoreStories from '@/components/more-stories'
+import Header from '@/components/header'
+import PostHeader from '@/components/post-header'
+import SectionSeparator from '@/components/section-separator'
+import Layout from '@/components/layout'
+import { getAllPostsWithSlug, getPostAndMorePosts } from '@/libs/api'
+import PostTitle from '@/components/post-title'
+import {CONST_REPO_URL, CONST_SITE_URL, CONST_SITE_NAME, CONST_TWITTER_URL, CONST_YOUTUBE_URL, CONST_LAPRAS_URL} from '@/libs/constants'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -30,7 +30,7 @@ export default function Post({ post, morePosts, preview }) {
             <article>
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {post.title} | {CONST_SITE_NAME}
                 </title>
                 <meta property="og:image" content={post.coverImage.url} />
               </Head>
