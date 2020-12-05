@@ -17,7 +17,7 @@ export default function Home() {
 
         <p className={styles.description}>
           I'm a student.<br />
-          I have a dream: the future where everyone has equal right to learn anytime, anywhere.
+          I have a dream: the future where everyone has equal rights to learn anytime, anywhere.
         </p>
 
         <div className={styles.grid}>
