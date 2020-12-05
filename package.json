@@ -11,6 +11,7 @@
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "autoprefixer": "^10.0.4",
     "classnames": "^2.2.6",
+    "contentful": "^8.0.3",
     "date-fns": "^2.16.1",
     "next": "10.0.3",
     "postcss": "^8.1.14",

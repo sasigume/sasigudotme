@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;700&display=swap');
+
 html,
 body {
   padding: 0;
@@ -17,4 +19,10 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+@layer base {
+  .p-card {
+    @apply m-4 flex-auto no-underline p-4 border-2 border-gray-50 rounded-xl;
+  }
 }
