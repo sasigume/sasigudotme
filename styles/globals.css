@@ -22,7 +22,5 @@ a {
 }
 
 @layer base {
-  .p-card {
-    @apply m-4 flex-auto no-underline p-4 border-2 border-gray-50 rounded-xl;
-  }
+
 }
