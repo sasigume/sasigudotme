@@ -1,15 +1,24 @@
+import Container from '@/components/container'
+import MoreStories from '@/components/more-stories'
+import HeroPost from '@/components/hero-post'
+import Intro from '@/components/intro'
+import Layout from '@/components/layout'
+import { getAllPostsForHome } from '@/libs/api'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import {CONST_REPO_URL, CONST_SITE_URL, CONST_SITE_NAME, CONST_TWITTER_URL, CONST_YOUTUBE_URL, CONST_LAPRAS_URL} from '../lib/constants'
+import {CONST_REPO_URL, CONST_SITE_URL, CONST_SITE_NAME, CONST_TWITTER_URL, CONST_YOUTUBE_URL, CONST_LAPRAS_URL} from '@/libs/constants'
 
-export default function Home() {
+export default function Index({ preview, allPosts }) {
+  const heroPost = allPosts[0]
+  const morePosts = allPosts.slice(1)
   return (
-    <div className={styles.container}>
+    <Layout preview={preview}>
       <Head>
         <title>{CONST_SITE_NAME}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Container>
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href={CONST_SITE_URL}>{CONST_SITE_NAME}</a>
@@ -43,6 +52,19 @@ export default function Home() {
         </div>
       </main>
 
+      <Intro />
+          {heroPost && (
+            <HeroPost
+              title={heroPost.title}
+              coverImage={heroPost.coverImage}
+              date={heroPost.date}
+              author={heroPost.author}
+              slug={heroPost.slug}
+              excerpt={heroPost.excerpt}
+            />
+          )}
+          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+
       <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -53,6 +75,14 @@ export default function Home() {
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
-    </div>
+        </Container>
+    </Layout>
   )
+}
+
+export async function getStaticProps({ preview = false }) {
+  const allPosts = (await getAllPostsForHome(preview)) ?? []
+  return {
+    props: { preview, allPosts },
+  }
 }
