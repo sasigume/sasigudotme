@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {CONST_REPO_URL, CONST_SITE_URL, CONST_SITE_NAME, CONST_TWITTER_URL, CONST_YOUTUBE_URL, CONST_LAPRAS_URL, CONST_OG_IMAGE_URL, CONST_LOCALE} from '@/libs/constants'
+import {CONST_SITE_NAME, CONST_SITE_NAME_JP, CONST_OG_IMAGE_URL, CONST_LOCALE, CONST_SITE_NAME_JA} from '@/libs/constants'
 
 
 export default function Meta() {
@@ -36,7 +36,7 @@ export default function Meta() {
       {CONST_LOCALE == 'ja-JP'
       ? <meta
       name="description"
-      content={"さしぐめのポートフォリオへようこそ"}
+      content={`${CONST_SITE_NAME_JA}へようこそ`}
     />
       : <meta
       name="description"
