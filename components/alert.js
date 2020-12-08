@@ -1,9 +1,23 @@
 import Container from './container'
 import cn from 'classnames'
-import {CONST_REPO_URL} from '@/libs/constants'
+import {CONST_LOCALE} from '@/libs/constants'
 
 
 export default function Alert({ preview }) {
+  let thisPage, clickHere, toExit, anotherLang, anotherLink
+  if(CONST_LOCALE == 'ja-JP'){
+    thisPage = <span>このページはプレビューです。</span>
+    clickHere = <span>ここをクリックして</span>
+    toExit = <span>プレビューを終了できます。</span>
+    anotherLang = <span>Switch to English / 英語版へ切り替える</span>
+    anotherLink = "https://sasigu.me"
+  } else {
+    thisPage = <span>This is page is a preview.</span>
+    clickHere = <span>Click here</span>
+    toExit = <span>to exit preview mode.</span>
+    anotherLang = <span>日本語版へ切り替える / Switch to Japanese</span>
+    anotherLink = "https://ja.sasigu.me"
+  }
   return (
     <div
       className={cn('border-b', {
@@ -12,28 +26,21 @@ export default function Alert({ preview }) {
       })}
     >
       <Container>
-        <div className="py-2 text-center text-sm">
+        <div className="py-4 text-center text-sm">
           {preview ? (
             <>
-              This is page is a preview.{' '}
+              {thisPage}{' '}
               <a
                 href="/api/exit-preview"
                 className="underline hover:text-cyan duration-200 transition-colors"
               >
-                Click here
+                {clickHere}
               </a>{' '}
-              to exit preview mode.
+              {toExit}
             </>
           ) : (
             <>
-              The source code for this website is{' '}
-              <a
-                href={CONST_REPO_URL}
-                className="underline hover:text-success duration-200 transition-colors"
-              >
-                available on GitHub
-              </a>
-              .
+             <a href={anotherLink} className="underline hover:text-success duration-200 transition-colors">{anotherLang}</a>
             </>
           )}
         </div>

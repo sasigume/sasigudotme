@@ -54,7 +54,7 @@ export default function Intro() {
   }
   return (
     <>
-    <nav className="flex-col md:flex-row flex items-center md:justify-between mt-12 mb-6 md:mb-4">
+    <nav className="flex-col md:flex-row flex items-center md:justify-between mt-6 mb-6 md:mb-4">
       <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
         {CONST_SITE_NAME}
       </h1>
