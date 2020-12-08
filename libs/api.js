@@ -1,4 +1,5 @@
 import { createClient } from 'contentful'
+import { CONST_LOCALE } from './constants'
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -41,6 +42,7 @@ export async function getPreviewPostBySlug(slug) {
     content_type: 'post',
     limit: 1,
     'fields.slug[in]': slug,
+    locale: CONST_LOCALE
   })
   return parsePostEntries(entries)[0]
 }
@@ -49,6 +51,7 @@ export async function getAllPostsWithSlug() {
   const entries = await client.getEntries({
     content_type: 'post',
     select: 'fields.slug',
+    locale: CONST_LOCALE
   })
   return parsePostEntries(entries, (post) => post.fields)
 }
@@ -57,6 +60,7 @@ export async function getAllPostsForHome(preview) {
   const entries = await getClient(preview).getEntries({
     content_type: 'post',
     order: '-fields.date',
+    locale: CONST_LOCALE
   })
   return parsePostEntries(entries)
 }
@@ -66,12 +70,14 @@ export async function getPostAndMorePosts(slug, preview) {
     content_type: 'post',
     limit: 1,
     'fields.slug[in]': slug,
+    locale: CONST_LOCALE
   })
   const entries = await getClient(preview).getEntries({
     content_type: 'post',
     limit: 2,
     order: '-fields.date',
     'fields.slug[nin]': slug,
+    locale: CONST_LOCALE
   })
   return {
     post: parsePostEntries(entry)[0],
