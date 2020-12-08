@@ -19,7 +19,7 @@ export default function Post({ post, morePosts, preview }) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} nowPost nowSlug={router.isFallback ? "" : post.slug}>
       <Container>
         <Header />
         {router.isFallback ? (
