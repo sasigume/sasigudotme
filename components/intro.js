@@ -28,7 +28,7 @@ export default function Intro() {
       }
     ]
   } else {
-    hello = <span>I'm a student.<br />I have a dream: the future where everyone has equal rights to learn anytime, anywhere."</span>
+    hello = <span>I'm a student.<br />I have a dream: the future where everyone has equal rights to learn anytime, anywhere.</span>
     menuButtons = [
       {
         label: "About me",
@@ -58,7 +58,7 @@ export default function Intro() {
       <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
         {CONST_SITE_NAME}
       </h1>
-      <p className="text-center md:text-left text-lg mt-5 md:pl-8">
+      <p className="text-center md:text-right text-lg mt-5 md:pl-8">
         {hello}
       </p>
       
