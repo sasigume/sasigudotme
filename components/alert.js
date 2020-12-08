@@ -2,20 +2,20 @@ import Container from './container'
 import cn from 'classnames'
 import {CONST_SITE_URL, CONST_SITE_URL_JA, CONST_LOCALE} from '@/libs/constants'
 
-export default function Alert({ preview, slug }) {
+export default function Alert({ preview }) {
   let thisPage, clickHere, toExit, anotherLang, anotherLink
   if(CONST_LOCALE == 'ja-JP'){
     thisPage = <span>このページはプレビューです。</span>
     clickHere = <span>ここをクリックして</span>
     toExit = <span>プレビューを終了できます。</span>
     anotherLang = <span>Switch to English / 英語版へ切り替える</span>
-    anotherLink = CONST_SITE_URL + "/posts/" + slug
+    anotherLink = CONST_SITE_URL
   } else {
     thisPage = <span>This is page is a preview.</span>
     clickHere = <span>Click here</span>
     toExit = <span>to exit preview mode.</span>
     anotherLang = <span>日本語版へ切り替える / Switch to Japanese</span>
-    anotherLink = CONST_SITE_URL_JA + "/posts/" + slug
+    anotherLink = CONST_SITE_URL_JA
   }
   return (
     <div
