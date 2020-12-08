@@ -18,13 +18,6 @@ export default function Post({ post, morePosts, preview }) {
   if (!router.isFallback && !post) {
     return <ErrorPage statusCode={404} />
   }
-  let combinedTitle
-  if(CONST_LOCALE == 'ja-JP') {
-    combinedTitle = post.title + ' | ' + CONST_SITE_NAME_JA
-  } else {
-    combinedTitle = post.title + ' | ' + CONST_SITE_NAME
-  }
-
   return (
     <Layout preview={preview}>
       <Container>
@@ -36,7 +29,7 @@ export default function Post({ post, morePosts, preview }) {
             <article>
               <Head>
                 <title>
-                  {combinedTitle}
+                  {post.title} | {CONST_LOCALE == 'ja-JP' ? CONST_SITE_NAME_JA : CONST_SITE_NAME}
                 </title>
                 <meta property="og:image" content={post.coverImage.url} />
                 <meta name="description" content={post.excerpt} />

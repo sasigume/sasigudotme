@@ -33,10 +33,7 @@ export default function Meta() {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      {CONST_LOCALE == 'ja-JP'
-      ? <meta name="description" content={`${CONST_SITE_NAME_JA}へようこそ`} />
-      : <meta name="description" content={`This is a portfolio website of ${CONST_SITE_NAME}`} />
-      }     
+      {CONST_LOCALE == 'ja-JP' ? <meta name="description" content={`${CONST_SITE_NAME_JA}へようこそ`} /> : <meta name="description" content={`This is a portfolio website of ${CONST_SITE_NAME}`} />}     
       <meta property="og:image" content={CONST_OG_IMAGE_URL} />
     </Head>
   )
