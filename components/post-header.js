@@ -9,7 +9,7 @@ export default function PostHeader({ title, coverImage, date, author }) {
     <>
       <PostTitle>{CONST_LOCALE == 'ja-JP'
       ? <span className="font-noto">{title}</span>
-      : {title}
+      : title
       }</PostTitle>
       <div className="hidden md:block md:mb-12">
         {author && <Avatar name={author.name} picture={author.picture} />}
