@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {CONST_REPO_URL, CONST_SITE_URL, CONST_SITE_NAME, CONST_TWITTER_URL, CONST_YOUTUBE_URL, CONST_LAPRAS_URL, CONST_OG_IMAGE_URL, CONST_LOCALE} from '@/libs/constants'
+import {CONST_SITE_NAME, CONST_SITE_NAME_JP, CONST_OG_IMAGE_URL, CONST_LOCALE, CONST_SITE_NAME_JA} from '@/libs/constants'
 
 
 export default function Meta() {
@@ -33,17 +33,7 @@ export default function Meta() {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      {CONST_LOCALE == 'ja-JP'
-      ? <meta
-      name="description"
-      content={"さしぐめのポートフォリオへようこそ"}
-    />
-      : <meta
-      name="description"
-      content={`This is a portfolio website of ${CONST_SITE_NAME}`}
-    />
-      }
-      
+      {CONST_LOCALE == 'ja-JP' ? <meta name="description" content={`${CONST_SITE_NAME_JA}へようこそ`} /> : <meta name="description" content={`This is a portfolio website of ${CONST_SITE_NAME}`} />}     
       <meta property="og:image" content={CONST_OG_IMAGE_URL} />
     </Head>
   )

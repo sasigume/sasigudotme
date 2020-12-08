@@ -10,7 +10,7 @@ import SectionSeparator from '@/components/section-separator'
 import Layout from '@/components/layout'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '@/libs/api'
 import PostTitle from '@/components/post-title'
-import {CONST_REPO_URL, CONST_SITE_URL, CONST_SITE_NAME, CONST_TWITTER_URL, CONST_YOUTUBE_URL, CONST_LAPRAS_URL} from '@/libs/constants'
+import {CONST_LOCALE, CONST_SITE_NAME, CONST_SITE_NAME_JA} from '@/libs/constants'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -18,9 +18,8 @@ export default function Post({ post, morePosts, preview }) {
   if (!router.isFallback && !post) {
     return <ErrorPage statusCode={404} />
   }
-
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} nowPost nowSlug={router.isFallback ? "" : post.slug}>
       <Container>
         <Header />
         {router.isFallback ? (
@@ -30,9 +29,10 @@ export default function Post({ post, morePosts, preview }) {
             <article>
               <Head>
                 <title>
-                  {post.title} | {CONST_SITE_NAME}
+                  {post.title} | {CONST_LOCALE == 'ja-JP' ? CONST_SITE_NAME_JA : CONST_SITE_NAME}
                 </title>
                 <meta property="og:image" content={post.coverImage.url} />
+                <meta name="description" content={post.excerpt} />
               </Head>
               <PostHeader
                 title={post.title}

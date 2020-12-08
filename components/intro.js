@@ -1,4 +1,4 @@
-import {CONST_LOCALE, CONST_SITE_NAME, CONST_TWITTER_URL, CONST_YOUTUBE_URL, CONST_LAPRAS_URL} from '@/libs/constants'
+import {CONST_LOCALE, CONST_MYNAME, CONST_TWITTER_URL, CONST_YOUTUBE_URL, CONST_LAPRAS_URL} from '@/libs/constants'
 import Menu from '@/components/menu'
 export default function Intro() {
   let hello
@@ -28,7 +28,7 @@ export default function Intro() {
       }
     ]
   } else {
-    hello = <span>I'm a student.<br />I have a dream: the future where everyone has equal rights to learn anytime, anywhere.</span>
+    hello = <span>I'm a student living in Japan.<br />Dreaming the future where everyone has equal rights to learn anytime, anywhere.</span>
     menuButtons = [
       {
         label: "About me",
@@ -54,11 +54,11 @@ export default function Intro() {
   }
   return (
     <>
-    <nav className="flex-col md:flex-row flex items-center md:justify-between mt-6 mb-6 md:mb-4">
+    <nav className="flex-col md:flex-row flex md:justify-between mt-6 mb-6 md:mb-4">
       <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        {CONST_SITE_NAME}
+        {CONST_MYNAME}
       </h1>
-      <p className="text-center md:text-right text-lg mt-5 md:pl-8">
+      <p className="md:text-right text-lg mt-5 md:pl-8">
         {hello}
       </p>
       

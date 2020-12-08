@@ -1,5 +1,9 @@
-export const CONST_SITE_NAME = "Sasigu.me"
+export const CONST_MYNAME = "Sasigume"
+export const CONST_MYNAME_JA = "さしぐめ"
+export const CONST_SITE_NAME = CONST_MYNAME + "'s Portfolio"
+export const CONST_SITE_NAME_JA = CONST_MYNAME_JA + "のポートフォリオ"
 export const CONST_SITE_URL = "https://sasigu.me"
+export const CONST_SITE_URL_JA = "https://ja.sasigu.me"
 export const CONST_REPO_URL = 'https://github.com/sasigume/sasigudotme-graphql'
 export const CONST_TWITTER_URL = 'https://twitter.com/sasigume'
 export const CONST_YOUTUBE_URL = 'https://www.youtube.com/channel/UCBVFh_pGrysolohOzXMGqIA'
