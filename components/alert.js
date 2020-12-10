@@ -1,24 +1,10 @@
 import Container from './container'
 import cn from 'classnames'
-import {CONST_SITE_URL, CONST_SITE_URL_JA, CONST_LOCALE} from '@/libs/constants'
+import {CONST_SITE_URL,} from '@/libs/constants'
 
 // Combining message for each locale
 // isPost and slug is come from layout.js
-export default function Alert({ preview, isPost = false, slug = "" }) {
-  let thisPage, clickHere, toExit, anotherLang, anotherLink
-  if(CONST_LOCALE == 'ja-JP'){
-    thisPage = <span>このページはプレビューです。</span>
-    clickHere = <span>ここをクリックして</span>
-    toExit = <span>プレビューを終了できます。</span>
-    anotherLang = <span>Switch to English / 英語版へ切り替える</span>
-    {isPost ? anotherLink = CONST_SITE_URL + "/posts/" + slug : anotherLink = CONST_SITE_URL}
-  } else {
-    thisPage = <span>This is page is a preview.</span>
-    clickHere = <span>Click here</span>
-    toExit = <span>to exit preview mode.</span>
-    anotherLang = <span>日本語版へ切り替える / Switch to Japanese</span>
-    {isPost ? anotherLink = CONST_SITE_URL_JA + "/posts/" + slug : anotherLink = CONST_SITE_URL_JA}
-  }
+export default function Alert({ preview }) {
   return (
     <div
       className={cn('border-b', {
@@ -30,18 +16,18 @@ export default function Alert({ preview, isPost = false, slug = "" }) {
         <div className="py-4 text-center text-sm">
           {preview ? (
             <>
-              {thisPage}{' '}
+              <span>This is page is a preview.</span>{' '}
               <a
                 href="/api/exit-preview"
                 className="underline hover:text-cyan duration-200 transition-colors"
               >
-                {clickHere}
+                Click here
               </a>{' '}
-              {toExit}
+              to exit preview mode.
             </>
           ) : (
             <>
-             <a href={anotherLink} className="underline hover:text-success duration-200 transition-colors">{anotherLang}</a>
+             <span>Please DM me if there's any problem.</span>
             </>
           )}
         </div>

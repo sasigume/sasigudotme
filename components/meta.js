@@ -1,39 +1,19 @@
 import Head from 'next/head'
-import {CONST_SITE_NAME, CONST_SITE_NAME_JP, CONST_OG_IMAGE_URL, CONST_LOCALE, CONST_SITE_NAME_JA} from '@/libs/constants'
+import {CONST_SITE_NAME, CONST_OG_IMAGE_URL, } from '@/libs/constants'
 
 
 export default function Meta() {
   return (
     <Head>
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/favicon/apple-touch-icon.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon/favicon-32x32.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon/favicon-16x16.png"
-      />
-      <link rel="manifest" href="/favicon/site.webmanifest" />
-      <link
-        rel="mask-icon"
-        href="/favicon/safari-pinned-tab.svg"
-        color="#000000"
-      />
-      <link rel="shortcut icon" href="/favicon/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#000000" />
-      <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#000" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+      <meta name="msapplication-TileColor" content="#ff6600" />
+      <meta name="theme-color" content="#ffffff" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      {CONST_LOCALE == 'ja-JP' ? <meta name="description" content={`${CONST_SITE_NAME_JA}へようこそ`} /> : <meta name="description" content={`This is a portfolio website of ${CONST_SITE_NAME}`} />}     
+      <meta name="description" content={`This is a portfolio website of ${CONST_SITE_NAME}`} />     
       <meta property="og:image" content={CONST_OG_IMAGE_URL} />
     </Head>
   )

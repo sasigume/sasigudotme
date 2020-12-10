@@ -1,20 +1,14 @@
 import Container from './container'
-import {CONST_LOCALE, CONST_REPO_URL, CONST_SITE_URL, CONST_SITE_NAME, CONST_TWITTER_URL, CONST_YOUTUBE_URL, CONST_LAPRAS_URL} from '@/libs/constants'
+import {CONST_REPO_URL, CONST_TWITTER_URL} from '@/libs/constants'
 
 
 export default function Footer() {
-  let genMessage
-  if ( CONST_LOCALE == 'ja-JP') {
-    genMessage = <span>Next.jsで, <span className="font-noto">静的に生成.</span></span>
-  } else {
-    genMessage = <span>Statically Generated with Next.js.</span>
-  }
   return (
     <footer className="bg-accent-1 border-t border-accent-2">
       <Container>
         <div className="py-28 flex flex-col lg:flex-row items-center">
           <h3 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            {genMessage}
+          Statically Generated with Next.js.
           </h3>
           <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
             <a

@@ -5,7 +5,7 @@ import Intro from '@/components/intro'
 import Layout from '@/components/layout'
 import { getAllPostsForHome } from '@/libs/api'
 import Head from 'next/head'
-import {CONST_LOCALE, CONST_SITE_NAME, CONST_SITE_NAME_JA} from '@/libs/constants'
+import {CONST_SITE_NAME} from '@/libs/constants'
 
 export default function Index({ preview, allPosts }) {
   const heroPost = allPosts[0]
@@ -13,10 +13,7 @@ export default function Index({ preview, allPosts }) {
   return (
     <Layout preview={preview}>
       <Head>
-        <title>{CONST_LOCALE == 'ja-JP'
-        ? CONST_SITE_NAME_JA
-        : CONST_SITE_NAME
-        }</title>
+        <title>{CONST_SITE_NAME}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
