@@ -9,6 +9,11 @@
   @apply my-6;
 }
 
+.markdown ul,
+.markdown ol {
+  @apply list-disc ml-4;
+}
+
 .markdown h1 {
   @apply text-4xl font-bold mt-14 mb-4 leading-snug;
 }
