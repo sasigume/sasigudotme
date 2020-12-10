@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
+    "@contentful/rich-text-types": "^14.1.2",
     "autoprefixer": "^10.0.4",
     "classnames": "^2.2.6",
     "contentful": "^8.0.3",

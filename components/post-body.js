@@ -1,7 +1,29 @@
+import React from 'react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { BLOCKS } from '@contentful/rich-text-types';
 import markdownStyles from './markdown-styles.module.css'
 import cn from 'classnames'
 import {CONST_LOCALE} from '@/libs/constants'
+import { Children } from 'react';
+
+const richTextOptions = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: node => {
+      const { file } = node.data.target.fields
+      return <a href={file.url} target="_blank">
+        <img src={file.url} alt={file.title} title={file.title} />
+        </a>
+    },
+    [BLOCKS.UL_LIST]:(node,children) => {
+      return <ul className="list-disc">{children}</ul>
+    }
+  }
+}
+
+let ContentfulRichText = function(content){
+  console.log(content)
+  return documentToReactComponents(content, richTextOptions)
+}
 
 export default function PostBody({ content }) {
   return (
@@ -9,7 +31,7 @@ export default function PostBody({ content }) {
       <div className={cn(markdownStyles['markdown'], {
         'font-noto' : CONST_LOCALE === 'ja-JP'
       })}>
-        {documentToReactComponents(content)}
+        {ContentfulRichText(content)}
       </div>
     </div>
   )
