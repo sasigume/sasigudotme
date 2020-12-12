@@ -2,49 +2,49 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import ErrorPage from 'next/error'
 import Container from '@/components/container'
-import PostBody from '@/components/post-body'
+import WorkBody from '@/components/work-body'
 import MoreStories from '@/components/more-stories'
 import Header from '@/components/header'
-import PostHeader from '@/components/post-header'
+import WorkHeader from '@/components/work-header'
 import SectionSeparator from '@/components/section-separator'
 import Layout from '@/components/layout'
-import { getAllPostsWithSlug, getPostAndMorePosts } from '@/libs/api'
-import PostTitle from '@/components/post-title'
+import { getAllWorksWithSlug, getWorkAndMoreWorks } from '@/libs/api'
+import WorkTitle from '@/components/work-title'
 import {CONST_SITE_NAME} from '@/libs/constants'
 
-export default function Post({ post, morePosts, preview }) {
+export default function Work({ work, moreWorks, preview }) {
   const router = useRouter()
 
-  if (!router.isFallback && !post) {
+  if (!router.isFallback && !work) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <Layout preview={preview} nowPost nowSlug={router.isFallback ? "" : post.slug}>
+    <Layout preview={preview} nowWork nowSlug={router.isFallback ? "" : work.slug}>
       <Container>
         <Header />
         {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
+          <WorkTitle>Loading…</WorkTitle>
         ) : (
           <>
             <article>
               <Head>
                 <title>
-                  {post.title} | {CONST_SITE_NAME}
+                  {work.title} | {CONST_SITE_NAME}
                 </title>
-                <meta property="og:image" content={post.coverImage.url} />
-                <meta name="description" content={post.excerpt} />
+                <meta property="og:image" content={work.coverImage.url} />
+                <meta name="description" content={work.excerpt} />
               </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
+              <WorkHeader
+                title={work.title}
+                coverImage={work.coverImage}
+                date={work.date}
+                creator={work.creator}
               />
-              <PostBody content={post.content} />
+              <WorkBody content={work.content} />
             </article>
             <SectionSeparator />
-            {morePosts && morePosts.length > 0 && (
-              <MoreStories posts={morePosts} />
+            {moreWorks && moreWorks.length > 0 && (
+              <MoreStories works={moreWorks} />
             )}
           </>
         )}
@@ -54,21 +54,21 @@ export default function Post({ post, morePosts, preview }) {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const data = await getPostAndMorePosts(params.slug, preview)
+  const data = await getWorkAndMoreWorks(params.slug, preview)
 
   return {
     props: {
       preview,
-      post: data?.post ?? null,
-      morePosts: data?.morePosts ?? null,
+      work: data?.work ?? null,
+      moreWorks: data?.moreWorks ?? null,
     },
   }
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug()
+  const allWorks = await getAllWorksWithSlug()
   return {
-    paths: allPosts?.map(({ slug }) => `/posts/${slug}`) ?? [],
+    paths: allWorks?.map(({ slug }) => `/works/${slug}`) ?? [],
     fallback: true,
   }
 }

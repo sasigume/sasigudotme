@@ -5,7 +5,6 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'bungee': ['Bungee', defaultTheme.fontFamily.sans]
       },
       colors: {
         'accent-1': '#FAFAFA',

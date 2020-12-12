@@ -17,7 +17,7 @@ export default function CoverImage({ title, url, slug, isHero, isCard }) {
       'max-h-64': isCard
     })}>
       {slug ? (
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <Link as={`/works/${slug}`} href="/works/[slug]">
           <a className="w-full" aria-label={title}>{image}</a>
         </Link>
       ) : (

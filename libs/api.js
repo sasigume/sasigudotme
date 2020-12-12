@@ -13,68 +13,70 @@ const previewClient = createClient({
 
 const getClient = (preview) => (preview ? previewClient : client)
 
-function parseAuthor({ fields }) {
+function parseCreator({ fields }) {
   return {
     name: fields.name,
+    slug: fields.slug,
+    twitter: fields.twitter,
     picture: fields.picture.fields.file,
   }
 }
 
-function parsePost({ fields }) {
+function parseWork({ fields }) {
   return {
     title: fields.title,
     slug: fields.slug,
-    date: fields.date,
+    date: fields.publishedDate,
     content: fields.content,
     excerpt: fields.excerpt ?? [],
     coverImage: fields.coverImage.fields.file,
-    author: parseAuthor(fields.author),
+    creator: parseCreator(fields.creator),
   }
 }
 
-function parsePostEntries(entries, cb = parsePost) {
+function parseWorkEntries(entries, cb = parseWork) {
   return entries?.items?.map(cb)
 }
 
-export async function getPreviewPostBySlug(slug) {
+export async function getPreviewWorkBySlug(slug) {
   const entries = await getClient(true).getEntries({
-    content_type: 'post',
+    content_type: 'work',
     limit: 1,
     'fields.slug[in]': slug,
   })
-  return parsePostEntries(entries)[0]
+  return parseWorkEntries(entries)[0]
 }
 
-export async function getAllPostsWithSlug() {
+export async function getAllWorksWithSlug() {
   const entries = await client.getEntries({
-    content_type: 'post',
+    content_type: 'work',
     select: 'fields.slug',
   })
-  return parsePostEntries(entries, (post) => post.fields)
+  return parseWorkEntries(entries, (work) => work.fields)
 }
 
-export async function getAllPostsForHome(preview) {
+export async function getAllWorksForHome(preview) {
   const entries = await getClient(preview).getEntries({
-    content_type: 'post',
+    content_type: 'work',
     order: '-fields.date',
   })
-  return parsePostEntries(entries)
+  return parseWorkEntries(entries)
 }
 
-export async function getPostAndMorePosts(slug, preview) {
+export async function getWorkAndMoreWorks(slug, preview) {
   const entry = await getClient(preview).getEntries({
-    content_type: 'post',
+    content_type: 'work',
     limit: 1,
     'fields.slug[in]': slug,
   })
   const entries = await getClient(preview).getEntries({
-    content_type: 'post',
+    content_type: 'work',
     limit: 2,
     order: '-fields.date',
     'fields.slug[nin]': slug,
   })
   return {
-    post: parsePostEntries(entry)[0],
-    morePosts: parsePostEntries(entries),
+    work: parseWorkEntries(entry)[0],
+    moreWorks: parseWorkEntries(entries),
   }
 }

@@ -4,7 +4,7 @@ export default function Intro() {
   const menuButtons = [
       {
         label: "About me",
-        path: "/posts/aboutme",
+        path: "/works/aboutme",
         text: "Know more about me."
       },
       {
@@ -26,7 +26,7 @@ export default function Intro() {
   return (
     <>
     <nav className="flex-col md:flex-row flex md:justify-between mt-6 mb-6 md:mb-4">
-      <h1 className="text-6xl md:text-8xl font-bungee font-bold tracking-tighter leading-tight md:pr-8">
+      <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
         {CONST_MYNAME}
       </h1>
       <p className="md:text-right text-lg mt-5 md:pl-8">

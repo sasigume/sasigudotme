@@ -21,7 +21,7 @@ let ContentfulRichText = function(content){
   return documentToReactComponents(content, richTextOptions)
 }
 
-export default function PostBody({ content }) {
+export default function WorkBody({ content }) {
   return (
     <div className="max-w-2xl mx-auto">
       <div className={markdownStyles['markdown']}>

@@ -3,12 +3,12 @@ import Avatar from '@/components/avatar'
 import DateComponent from '@/components/date'
 import CoverImage from './cover-image'
 
-export default function PostPreview({
+export default function WorkPreview({
   title,
   coverImage,
   date,
   excerpt,
-  author,
+  creator,
   slug,
 }) {
   return (
@@ -17,7 +17,7 @@ export default function PostPreview({
         <CoverImage title={title} slug={slug} url={coverImage.url} isCard />
       </div>
       <h3 className="text-3xl mb-3 leading-snug font-bungee">
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <Link as={`/works/${slug}`} href="/works/[slug]">
           <a className="font-bold hover:underline">
           {title}
           </a>
@@ -27,7 +27,7 @@ export default function PostPreview({
         <DateComponent dateString={date} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      {author && <Avatar name={author.name} picture={author.picture} />}
+      {creator && <Avatar name={creator.name} picture={creator.picture} twitter={creator.twitter} />}
     </div>
   )
 }

@@ -3,7 +3,7 @@ import cn from 'classnames'
 import {CONST_SITE_URL,} from '@/libs/constants'
 
 // Combining message for each locale
-// isPost and slug is come from layout.js
+// isWork and slug is come from layout.js
 export default function Alert({ preview }) {
   return (
     <div
