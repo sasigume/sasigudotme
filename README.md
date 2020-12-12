@@ -1,7 +1,4 @@
 
-## ABOUT THE STRANGE REPO NAME
-You may wonder why the repository name says 'graphql'. Here's answer: **THIS APP WAS ORIGINALLY INTENDED TO BE USED WITH GRAPHQL API.** But somehow the API never give me any data :( so currently using normal JS SDK.
-
 ## Thanks
 
 **I can't thank you enough, the people of vercel.** Your great documentation and helpful examples made my dream possible: I can finnally created my portfolio!
