@@ -30,7 +30,7 @@ export default function HeroWork({
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          {creator && <Avatar name={creator.name} picture={creator.picture} twitter={creator.picture} />}
+          {creator && <Avatar name={creator.name} picture={creator.picture} twitter={creator.twitter} />}
         </div>
       </div>
     </section>
