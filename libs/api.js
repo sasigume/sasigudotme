@@ -17,7 +17,7 @@ function parseCreator({ fields }) {
   return {
     name: fields.name,
     slug: fields.slug,
-    twitter: fields.twitter,
+    twitter: fields.twitter ?? [],
     picture: fields.picture.fields.file,
   }
 }
@@ -58,7 +58,7 @@ export async function getAllWorksWithSlug() {
 export async function getAllWorksForHome(preview) {
   const entries = await getClient(preview).getEntries({
     content_type: 'work',
-    order: '-fields.date',
+    order: '-fields.publishedDate',
   })
   return parseWorkEntries(entries)
 }
@@ -72,7 +72,7 @@ export async function getWorkAndMoreWorks(slug, preview) {
   const entries = await getClient(preview).getEntries({
     content_type: 'work',
     limit: 2,
-    order: '-fields.date',
+    order: '-fields.publishedDate',
     'fields.slug[nin]': slug,
   })
   return {
