@@ -13,6 +13,9 @@ export default function HeroWork({
 }) {
   return (
     <section>
+      <h2 className="mb-8 text-6xl md:text-7xl font-bungee font-bold tracking-tighter leading-tight">
+      Works
+      </h2>
       <div className="mb-8 md:mb-16">
         <CoverImage title={title} slug={slug} url={coverImage.url} isHero />
       </div>
