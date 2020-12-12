@@ -38,6 +38,7 @@ export default function Work({ work, moreWorks, preview }) {
                 title={work.title}
                 coverImage={work.coverImage}
                 date={work.date}
+                url={work.url}
                 creator={work.creator}
               />
               <WorkBody content={work.content} />

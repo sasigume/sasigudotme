@@ -29,6 +29,7 @@ function parseWork({ fields }) {
     date: fields.publishedDate,
     content: fields.content,
     excerpt: fields.excerpt ?? [],
+    url: fields.url ?? [],
     coverImage: fields.coverImage.fields.file,
     creator: parseCreator(fields.creator),
   }
