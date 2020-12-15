@@ -6,6 +6,8 @@ const Menu = props => (
       <Button
         key={button.path}
         path={button.path}
+        iconStyle={button.iconStyle}
+        iconName={button.iconName}
         label={button.label}
         text={button.text}
       />
