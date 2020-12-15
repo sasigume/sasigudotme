@@ -1,4 +1,4 @@
-export const CONST_MYNAME = "Ryo Ando"
+export const CONST_MYNAME = "sasigume"
 export const CONST_SITE_NAME = CONST_MYNAME + "'s Website"
 export const CONST_SITE_URL = "https://sasigu.me"
 export const CONST_REPO_URL = 'https://github.com/sasigume/sasigudotme'
