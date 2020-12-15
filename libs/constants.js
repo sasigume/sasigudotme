@@ -1,6 +1,7 @@
 export const CONST_MYNAME = "sasigume"
-export const CONST_SITE_NAME = CONST_MYNAME + "'s Website"
+export const CONST_SITE_NAME = CONST_MYNAME + "'s Works"
 export const CONST_SITE_URL = "https://sasigu.me"
+export const CONST_BLOG_URL = "https://blog.sasigu.me"
 export const CONST_REPO_URL = 'https://github.com/sasigume/sasigudotme'
 export const CONST_TWITTER_URL = 'https://twitter.com/sasigume'
 export const CONST_FB_URL = 'https://facebook.com/sasigume'
