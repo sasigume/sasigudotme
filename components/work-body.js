@@ -17,7 +17,6 @@ const richTextOptions = {
 }
 
 let ContentfulRichText = function(content){
-  console.log(content)
   return documentToReactComponents(content, richTextOptions)
 }
 
