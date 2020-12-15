@@ -19,7 +19,7 @@ export default function Work({ work, moreWorks, preview }) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <Layout preview={preview} nowWork nowSlug={router.isFallback ? "" : work.slug}>
+    <Layout preview={preview}>
       <Container>
         <Header />
         {router.isFallback ? (
