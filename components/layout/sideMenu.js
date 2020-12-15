@@ -10,7 +10,7 @@ const Button = ({path, label, iconStyle, iconName, active}) => (
       {
         'rounded-t-xl md:rounded-l-xl bg-white': active,
       })}>
-          <FontAwesomeIcon className="w-5 mr-2" icon={[iconStyle, iconName]}/>
+          <FontAwesomeIcon className="w-5 h-5 mt-1 mr-2" icon={[iconStyle, iconName]}/>
           <span>{label}</span>
       </a>
     </Link>
