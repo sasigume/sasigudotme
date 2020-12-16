@@ -24,13 +24,13 @@ export function SkillButton({label, iconStyle, iconName, level}) {
 export function SkillMenu({buttons}) {
   return (
       <div className="flex flex-wrap justify-center">
-      {buttons.map(button => (
+      {buttons.map((button) => (
         <SkillButton
         key={button.label}
         iconStyle={button.iconStyle}
         iconName={button.iconName}
-        label={button.label ?? ''}
-        level={button.level ?? ''}
+        label={button.label}
+        level={button.level}
       />
       ))}
       </div>
@@ -39,9 +39,9 @@ export function SkillMenu({buttons}) {
 export function Menu({buttons}) {
   return(
   <div className="flex flex-col justify-center md:flex-row my-4">
-    {buttons.map(button => (
+    {buttons.map((button) => (
       <Button
-        key={button.path}
+        key={button.order}
         path={button.path}
         iconStyle={button.iconStyle}
         iconName={button.iconName}
