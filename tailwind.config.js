@@ -3,6 +3,15 @@ module.exports = {
   purge: ['./pages/**/*.js', './components/**/*.js'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        md: '4rem',
+        xl: '6rem',
+      },
+    },
     boxShadow: {
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
       DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
@@ -22,14 +31,16 @@ module.exports = {
       fontFamily: {
       },
       colors: {
+        // levels are used in skills. 1 is beginner and 4 is master.
+        'level1': '#eeffac',
+        'level2': '#c9daff',
+        'level3': '#f1ceff',
+        'level4': '#ffcee2',
         'accent-1': '#FAFAFA',
         'accent-2': '#EAEAEA',
         'accent-7': '#333',
         success: '#0070f3',
         cyan: '#79FFE1',
-      },
-      boxShadow: {
-        'up': '0 -10px 25px -5px rgba(0, 0, 0, 0.1), 0 -10px 10px -5px rgba(0, 0, 0, 0.04)',
       },
       spacing: {
         28: '7rem',
