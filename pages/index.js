@@ -1,43 +1,34 @@
-import Container from '@/components/container'
-import MoreStories from '@/components/more-stories'
-import HeroWork from '@/components/hero-work'
-import Intro from '@/components/intro'
+import {Menu, SkillMenu} from '@/components/menu'
 import Layout from '@/components/layout'
-import { getAllWorksForHome } from '@/libs/api'
 import Head from 'next/head'
-import {CONST_SITE_NAME} from '@/libs/constants'
+import Container from '@/components/container'
+import {CONST_SITE_NAME, CONST_SKILLS, CONST_LEVELS, CONST_LINKS} from '@/libs/constants'
+import markdownStyles from '@/components/markdown-styles.module.css'
 
-export default function Index({ preview, allWorks }) {
-  const heroWork = allWorks[0]
-  const moreWorks = allWorks.slice(1)
+export default function Index({preview}) {
   return (
     <Layout preview={preview}>
       <Head>
         <title>{CONST_SITE_NAME}</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Container>
-      <Intro />      
-          {heroWork && (
-            <HeroWork
-              title={heroWork.title}
-              coverImage={heroWork.coverImage}
-              date={heroWork.date}
-              creator={heroWork.creator}
-              slug={heroWork.slug}
-              excerpt={heroWork.excerpt}
-            />
-          )}
-          {moreWorks.length > 0 && <MoreStories works={moreWorks} />}
-        </Container>
+        <div className="text-center">
+        <nav className="mt-4 md:mt-6 mb-6 md:mb-8">
+        <h1 className="font-mont text-6xl tracking-tighter leading-tight">
+          {CONST_SITE_NAME}
+        </h1>
+        <Menu buttons={CONST_LINKS} />
+        </nav>     
+        <div className={(`mb-16 ${markdownStyles['markdown']}`)}>
+          <p>学生です。字が綺麗に書けるようになりたい。</p>
+        </div>
+        <h2 className="text-2xl tracking-tighter leading-tigh pb-4 border-b-2 border-gray-200 mb-4">現在習得しているスキル</h2>
+        <SkillMenu buttons={CONST_SKILLS} />
+        <h3 className="mt-4">背景色がスキルの熟練度を表しています。</h3>
+        <SkillMenu buttons={CONST_LEVELS} />
+        </div>
+      </Container>
     </Layout>
   )
-}
-
-export const getStaticProps = async ({ preview = false }) => {
-  const allWorks = (await getAllWorksForHome(preview)) ?? []
-  return {
-    props: { preview, allWorks },
-  };
 }

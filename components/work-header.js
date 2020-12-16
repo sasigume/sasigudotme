@@ -1,12 +1,13 @@
 import Avatar from '@/components/avatar'
 import DateComponent from '@/components/date'
 import CoverImage from '@/components/cover-image'
-import WorkTitle from '@/components/work-title'
 
 export default function WorkHeader({ title, coverImage, date, url, creator }) {
   return (
     <>
-      <WorkTitle>{title}</WorkTitle>
+      <h1 className="font-bold text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12">
+      {title}
+      </h1>
       <div className="hidden md:block md:mb-12">
         {creator && <Avatar name={creator.name} picture={creator.picture} twitter={creator.twitter} />}
       </div>

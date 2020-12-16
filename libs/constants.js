@@ -1,5 +1,5 @@
 export const CONST_MYNAME = "sasigume"
-export const CONST_SITE_NAME = "Hello, I'm " + CONST_MYNAME
+export const CONST_SITE_NAME = "sasigu.me"
 export const CONST_SITE_URL = "https://sasigu.me"
 export const CONST_BLOG_URL = "https://blog.sasigu.me"
 export const CONST_REPO_URL = 'https://github.com/sasigume/sasigudotme'
@@ -27,13 +27,33 @@ export const CONST_SKILLS = [
       iconStyle: "fab",
       iconName: "html5",
       level: 3
+    }
+]
+export const CONST_LEVELS = [
+    {
+      label: "初心者",
+      iconStyle: "fas",
+      iconName: "dizzy",
+      level: 1
     },
     {
-        label: "この色が「初心者」",
-        iconStyle: "fas",
-        iconName: "dizzy",
-        level: 1
-      },
+      label: "中級者",
+      iconStyle: "fas",
+      iconName: "smile",
+      level: 2
+    },
+    {
+      label: "経験豊富",
+      iconStyle: "fas",
+      iconName: "grin-beam",
+      level: 3
+    },
+    {
+      label: "マスター",
+      iconStyle: "fas",
+      iconName: "grin-hearts",
+      level: 4
+    },
 ]
 
 export const CONST_LINKS = [

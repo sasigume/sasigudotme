@@ -14,7 +14,7 @@ export default function Footer() {
             >
               View on GitHub
             </a>
-            <small className="mx-3">&copy; Ryo Ando 2020</small>
+            <small className="mx-3">&copy; Ryo Ando a.k.a. sasigume 2020</small>
           </div>
         </div>
       </Container>

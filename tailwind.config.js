@@ -29,6 +29,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
+        'mont': ['Montserrat Subrayada', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         // levels are used in skills. 1 is beginner and 4 is master.
