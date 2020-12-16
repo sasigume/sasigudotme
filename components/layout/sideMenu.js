@@ -1,23 +1,24 @@
-import {CONST_BLOG_URL, CONST_SITE_URL} from '@/libs/constants'
+import {CONST_BLOG_URL} from '@/libs/constants'
 import cn from 'classnames'
 import Link from 'next/link'
+import{ useRouter } from 'next/router'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Button = ({path, label, iconStyle, iconName, active}) => (
     <Link href={path}>
-      <a className={cn(`z-10 flex justify-around md:justify-start font-bold text-xl mx-2 md:mx-0 md:ml-4 h-full md:h-auto md:w-full no-underline py-4 md:py-4 px-4 mt-2 mb-0 md:mb-2`,
+      <a className={cn(`z-10 flex justify-around items-center text-md mx-1 h-full no-underline py-3 px-4 mt-2 mb-0`,
       {
-        'rounded-t-xl md:rounded-l-xl bg-white': active,
+        'rounded-t-xl bg-white': active,
       })}>
-          <FontAwesomeIcon className="w-5 h-5 mt-1 mr-2" icon={[iconStyle, iconName]}/>
+          <FontAwesomeIcon className="w-5 h-5 mr-3" icon={[iconStyle, iconName]}/>
           <span>{label}</span>
       </a>
     </Link>
 );
 
 const Menu = props => (
-    <div className="flex flex-row justify-center md:flex-col">
+    <div className="flex flex-row justify-center">
       {props.buttons.map(button => (
         <Button
           key={button.path}
@@ -32,21 +33,32 @@ const Menu = props => (
 );
 
 export default function SideMenu({preview}) {
+  const router = useRouter()
+  let isHome, isWork
+  router.pathname == '/' ? isHome = true : isHome = false
+  router.pathname == '/works' ? isWork = true : isWork = false
     const sideButtons = [
-        {
-            path: CONST_BLOG_URL,
-            label: "Blog",
-            iconStyle: "fas",
-            iconName: "book",
-            active: false,
-        },
-        {
-          path: CONST_SITE_URL,
+      {
+        path: "/",
+        label: "Me",
+        iconStyle: "fas",
+        iconName: "user",
+        active: isHome,
+      },
+      {
+          path: "/works",
           label: "Works",
           iconStyle: "fas",
           iconName: "border-all",
-          active: true,
+          active: isWork,
       },
+      {
+        path: CONST_BLOG_URL,
+        label: "Blog",
+        iconStyle: "fas",
+        iconName: "book",
+        active: false,
+  },
     ]
     return (
       <>

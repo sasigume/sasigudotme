@@ -1,18 +1,34 @@
 import Footer from './footer'
 import Meta from './meta'
 import SideMenu from './sideMenu'
+import Link from 'next/link'
+import {CONST_SITE_NAME, CONST_LOGO_SVG} from '@/libs/constants'
 
-// if other than work, "nowWork" is set to false
-export default function Layout({ preview, children}) {
+import cn from 'classnames'
+
+export default function Layout({ preview, children, isHome}) {
+
   return (
     <>
       <Meta />
-      <div className="max-w-screen overflow-hidden min-h-screen flex flex-col md:flex-row bg-yellow-50">
-        <aside className="flex-none w-screen md:py-2 md:top-0 md:left-0 md:w-40">
+      <div className="bg-yellow-50 max-w-screen overflow-y-scroll min-h-screen flex flex-col">
+        <div className={cn('flex justify-center items-center text-center',
+        {
+          "flex-col py-12" : isHome,
+          "flex-row py-8" : !isHome
+        })}>
+          <div className={cn('',
+        {
+          "w-40 mb-4": isHome,
+          "w-20": !isHome
+        })}><Link href="#ロゴで遊ぶな" onClick={console.log("こら! ロゴで遊ぶな")}>{CONST_LOGO_SVG}</Link></div>
+          <h1 className="text-4xl uppercase tracking-widest italic">{CONST_SITE_NAME}</h1>
+        </div>
+        <aside className="">
           <SideMenu preview={preview} />
         </aside>
-        <main className="bg-white shadow-upYellow md:shadow-leftYellow flex-grow">
-          {children}
+        <main className="shadow-upYellow transition shadow-upTransparent duration-300 bg-white flex flex-col flex-grow">
+          <div className="flex-grow">{children}</div>
           <Footer />
         </main>
       </div>

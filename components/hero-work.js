@@ -12,15 +12,15 @@ export default function HeroWork({
   slug,
 }) {
   return (
-    <section>
+    <div className="rounded-xl shadow-xl p-6">
       <div className="mb-8 md:mb-16">
         <CoverImage title={title} slug={slug} url={coverImage.url} isHero />
       </div>
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
+      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8">
         <div>
-          <h3 className="font-bungee font-bold mb-4 text-4xl lg:text-6xl leading-tight">
+          <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
             <Link as={`/works/${slug}`} href="/works/[slug]">
-              <a className="font-bold hover:underline">
+              <a className="hover:underline">
                 {title}</a>
             </Link>
           </h3>
@@ -28,11 +28,11 @@ export default function HeroWork({
             <DateComponent dateString={date} />
           </div>
         </div>
-        <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+        <div className="flex items-center">
+          <p className="text-lg leading-relaxed">{excerpt}</p>
           {creator && <Avatar name={creator.name} picture={creator.picture} twitter={creator.twitter} />}
         </div>
       </div>
-    </section>
+    </div>
   )
 }

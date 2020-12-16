@@ -6,7 +6,7 @@ export default function Avatar({ name, picture, twitter }) {
         className="w-12 h-12 rounded-full mr-4"
         alt={name}
       />
-      <div className="text-xl font-bold">{name} (@{twitter})</div>
+      <div className="text-xl">{name} (@{twitter})</div>
     </div>
   )
 }

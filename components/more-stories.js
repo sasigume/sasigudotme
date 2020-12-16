@@ -3,10 +3,10 @@ import WorkPreview from '@/components/work-preview'
 export default function MoreStories({ works }) {
   return (
     <section>
-      <h2 className="mb-8 text-6xl md:text-7xl font-bungee font-bold tracking-tighter leading-tight">
-      More Works
+      <h2 className="mb-8 text-4xl md:text-4xl">
+      Other works
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-4 lg:gap-x-8 gap-y-14 md:gap-y-20 mb-20">
         {works.map((work) => (
           <WorkPreview
             key={work.slug}
