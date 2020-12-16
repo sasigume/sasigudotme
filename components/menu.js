@@ -14,7 +14,7 @@ export function Button({path, label, iconStyle, iconName}) {
 };
 export function SkillButton({label, iconStyle, iconName, level}) {
   return (
-      <div className={(`inline-block mr-2 my-2 no-underline pt-3 pb-2 px-4 border-2 border-gray-100 rounded-lg ${"bg-level" + level}`)}>
+      <div className={(`inline-block mr-2 my-2 no-underline pt-3 pb-2 px-4 border-2 border-gray-100 rounded-lg ${"bg-level-" + level}`)}>
         <b className="block text-md">
           <FontAwesomeIcon className="w-5 mr-2 mb-1 inline" icon={[iconStyle, iconName]}/>{label}</b>
       </div>
