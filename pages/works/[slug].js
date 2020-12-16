@@ -8,7 +8,6 @@ import WorkHeader from '@/components/work-header'
 import SectionSeparator from '@/components/section-separator'
 import Layout from '@/components/layout'
 import { getAllWorksWithSlug, getWorkAndMoreWorks } from '@/libs/api'
-import WorkTitle from '@/components/work-title'
 import {CONST_SITE_NAME} from '@/libs/constants'
 
 export default function Work({ work, moreWorks, preview }) {
@@ -21,7 +20,7 @@ export default function Work({ work, moreWorks, preview }) {
     <Layout preview={preview}>
       <Container>
         {router.isFallback ? (
-          <WorkTitle>Loading…</WorkTitle>
+          <span>Loading…</span>
         ) : (
           <>
             <article>
