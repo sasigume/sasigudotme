@@ -4,7 +4,6 @@ import ErrorPage from 'next/error'
 import Container from '@/components/container'
 import WorkBody from '@/components/work-body'
 import MoreStories from '@/components/more-stories'
-import Header from '@/components/header'
 import WorkHeader from '@/components/work-header'
 import SectionSeparator from '@/components/section-separator'
 import Layout from '@/components/layout'
@@ -21,7 +20,6 @@ export default function Work({ work, moreWorks, preview }) {
   return (
     <Layout preview={preview}>
       <Container>
-        <Header />
         {router.isFallback ? (
           <WorkTitle>Loading…</WorkTitle>
         ) : (
