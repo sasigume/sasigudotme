@@ -1,10 +1,17 @@
 
 ## Thanks
 
+### Base Templete
+
 **I can't thank you enough, the people of vercel.** Your great documentation and helpful examples made my dream possible: I can finnally created my portfolio!
 
 Don't forget that this repository is based on the awesome example below; A very helpful guide included!
 https://github.com/vercel/next.js/tree/canary/examples/cms-contentful
+
+### Scroll detection
+
+Thank you for the great code, Richard Keller!
+https://codesandbox.io/s/useeffect-scroll-event-oolh6?from-embed=&file=/src/index.js:111-623
 
 **(Info below is template)**
 ---

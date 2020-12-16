@@ -1,6 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
-  purge: ['./pages/**/*.js', './components/**/*.js'],
+  purge: ['./pages/**/*.js', '@/components/**/*.js', '@/libs/**/*.js'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     container: {
@@ -13,6 +13,7 @@ module.exports = {
       },
     },
     boxShadow: {
+      'upTransparent' : '0 -20px 25px -5px transparent, 0 -10px 10px -5px transparent',
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
       DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
       md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
@@ -28,15 +29,14 @@ module.exports = {
       none: 'none',
     },
     extend: {
-      fontFamily: {
-        'mont': ['Montserrat Subrayada', ...defaultTheme.fontFamily.sans],
-      },
       colors: {
-        // levels are used in skills. 1 is beginner and 4 is master.
         'level1': '#eeffac',
         'level2': '#c9daff',
         'level3': '#f1ceff',
         'level4': '#ffcee2',
+        'logo1': '#FF8300',
+        'logo2': '#00f598',
+        'logo3': '#007ca8',
         'accent-1': '#FAFAFA',
         'accent-2': '#EAEAEA',
         'accent-7': '#333',
@@ -67,6 +67,8 @@ module.exports = {
   variants: {
     extend: {
       margin: ['last', 'first'],
+      scale: ['hover'],
+      animation: ['hover', 'focus'],
     }
   },
   plugins: [],

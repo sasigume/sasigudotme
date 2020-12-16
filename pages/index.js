@@ -7,19 +7,15 @@ import markdownStyles from '@/components/markdown-styles.module.css'
 
 export default function Index({preview}) {
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} isHome>
       <Head>
         <title>{CONST_SITE_NAME}</title>
       </Head>
-
       <Container>
-        <div className="text-center">
+        <div className="text-center mb-8">
         <nav className="mt-4 md:mt-6 mb-6 md:mb-8">
-        <h1 className="font-mont text-6xl tracking-tighter leading-tight">
-          {CONST_SITE_NAME}
-        </h1>
         <Menu buttons={CONST_LINKS} />
-        </nav>     
+        </nav>
         <div className={(`mb-16 ${markdownStyles['markdown']}`)}>
           <p>学生です。字が綺麗に書けるようになりたい。</p>
         </div>

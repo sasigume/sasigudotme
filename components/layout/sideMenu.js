@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Button = ({path, label, iconStyle, iconName, active}) => (
     <Link href={path}>
-      <a className={cn(`z-10 flex justify-around md:justify-start items-center text-md mx-2 md:mx-0 md:ml-4 h-full md:h-auto md:w-full no-underline py-3 md:py-4 px-2 mt-2 mb-0 md:mb-2`,
+      <a className={cn(`z-10 flex justify-around items-center text-md mx-1 h-full no-underline py-3 px-4 mt-2 mb-0`,
       {
-        'rounded-t-xl md:rounded-l-xl bg-white': active,
+        'rounded-t-xl bg-white': active,
       })}>
           <FontAwesomeIcon className="w-5 h-5 mr-3" icon={[iconStyle, iconName]}/>
           <span>{label}</span>
@@ -18,7 +18,7 @@ const Button = ({path, label, iconStyle, iconName, active}) => (
 );
 
 const Menu = props => (
-    <div className="flex flex-row justify-center md:flex-col">
+    <div className="flex flex-row justify-center">
       {props.buttons.map(button => (
         <Button
           key={button.path}
@@ -40,7 +40,7 @@ export default function SideMenu({preview}) {
     const sideButtons = [
       {
         path: "/",
-        label: "About",
+        label: "Me",
         iconStyle: "fas",
         iconName: "user",
         active: isHome,

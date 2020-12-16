@@ -24,9 +24,9 @@ export default function AllWorks({ preview, allWorks }) {
       </Head>
 
       <Container>
-        <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8">
+        <h2 className="text-4xl font-md:text-6xl mb-20 mt-8">
         <Link href="/">
-            <a className="hover:underline">{CONST_MYNAME} 's Works</a>
+            <a className="hover:underline">Works</a>
         </Link>
         </h2>
         {router.isFallback ? (

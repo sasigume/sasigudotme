@@ -12,13 +12,13 @@ export default function WorkPreview({
   slug,
 }) {
   return (
-    <div className="shadow-xl p-6 rounded-xl">
-      <div className="mb-5">
+    <div className="flex flex-col justify-between shadow-xl p-6 rounded-xl">
+      <div className="flex h-40 mb-5">
         <CoverImage title={title} slug={slug} url={coverImage.url} isCard />
       </div>
-      <h3 className="text-3xl mb-3 leading-snug font-bungee">
+      <h3 className="text-3xl mb-3 leading-snug">
         <Link as={`/works/${slug}`} href="/works/[slug]">
-          <a className="font-bold hover:underline">
+          <a className="hover:underline">
           {title}
           </a>
         </Link>
