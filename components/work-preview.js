@@ -12,7 +12,7 @@ export default function WorkPreview({
   slug,
 }) {
   return (
-    <div>
+    <div className="shadow-xl p-6 rounded-xl">
       <div className="mb-5">
         <CoverImage title={title} slug={slug} url={coverImage.url} isCard />
       </div>
