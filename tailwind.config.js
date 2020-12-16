@@ -1,6 +1,11 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
-  purge: ['./pages/**/*.js', './components/**/*.js'],
+  purge: {
+    content: ['./pages/**/*.js', './components/**/*.js'],
+    options: {
+      safelist: ['bg-level-1','bg-level-2','bg-level-3','bg-level-4'],
+    }
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     container: {
@@ -34,9 +39,6 @@ module.exports = {
         'level-2': '#c9daff',
         'level-3': '#f1ceff',
         'level-4': '#ffcee2',
-        'logo-1': '#FF8300',
-        'logo-2': '#00f598',
-        'logo-3': '#007ca8',
         'accent-1': '#FAFAFA',
         'accent-2': '#EAEAEA',
         'accent-7': '#333',
