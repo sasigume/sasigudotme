@@ -1,7 +1,6 @@
 import Footer from './footer'
 import Meta from './meta'
 import SideMenu from './sideMenu'
-import Link from 'next/link'
 import {CONST_SITE_NAME, CONST_LOGO_SVG} from '@/libs/constants'
 
 import cn from 'classnames'
@@ -21,7 +20,7 @@ export default function Layout({ preview, children, isHome}) {
         {
           "w-40 mb-4": isHome,
           "w-20": !isHome
-        })}><Link href="#ロゴで遊ぶな" onClick={console.log("こら! ロゴで遊ぶな")}>{CONST_LOGO_SVG}</Link></div>
+        })}>{CONST_LOGO_SVG}</div>
           <h1 className="text-4xl uppercase tracking-widest italic">{CONST_SITE_NAME}</h1>
         </div>
         <aside className="">
