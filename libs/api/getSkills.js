@@ -5,7 +5,7 @@ function parseSkill({ fields }) {
   return {
     label: fields.label,
     iconStyle: fields.iconStyle ?? 'fas',
-    iconName: fields.iconName ?? 'hand-peace',
+    iconName: fields.iconName ?? 'check-square',
     level: fields.level ?? 1
   }
 }

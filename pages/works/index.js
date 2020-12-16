@@ -24,7 +24,7 @@ export default function AllWorks({ preview, allWorks }) {
       </Head>
 
       <Container>
-        <h2 className="text-4xl font-md:text-6xl mb-20 mt-8">
+        <h2 className="text-4xl font-md:text-6xl mb-6 mt-14">
         <Link href="/">
             <a className="hover:underline">Works</a>
         </Link>

@@ -3,9 +3,9 @@ import React from 'react'
 import '../styles/globals.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faExternalLinkAlt, faBook, faBorderAll, faUser, faDizzy, faSmile, faGrinBeam, faGrinHearts, faHandPeace} from '@fortawesome/free-solid-svg-icons'
-library.add(fab, faExternalLinkAlt, faBook, faBorderAll, faUser, faDizzy, faSmile, faGrinBeam, faGrinHearts, faHandPeace)
+import { faGithub, faTwitter, faFacebook, faHtml5, faCss3Alt, faGitAlt, faWordpress, faJsSquare, faReact} from '@fortawesome/free-brands-svg-icons'
+import { faExternalLinkAlt, faBook, faBorderAll, faUser, faDizzy, faSmile, faGrinBeam, faGrinHearts, faCheckSquare, faImages, faFilm} from '@fortawesome/free-solid-svg-icons'
+library.add(faGithub, faTwitter, faFacebook, faHtml5, faCss3Alt, faGitAlt, faWordpress, faJsSquare, faReact, faExternalLinkAlt, faBook, faBorderAll, faUser, faDizzy, faSmile, faGrinBeam, faGrinHearts, faCheckSquare, faImages, faFilm)
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />

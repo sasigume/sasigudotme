@@ -40,7 +40,7 @@ export default function Work({ work, moreWorks, preview }) {
               />
               <WorkBody content={work.content} />
             </article>
-            <SectionSeparator />
+            <SectionSeparator m={['20','24']} />
             {moreWorks && moreWorks.length > 0 && (
               <MoreStories works={moreWorks} />
             )}
