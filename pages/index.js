@@ -19,7 +19,7 @@ export default function Index({preview, allSkills, allLinks}) {
         </div>
         <h2 className="text-2xl tracking-tighter leading-tigh pb-4 mb-4">SNS</h2>
         <Menu buttons={allLinks} />
-        <SectionSeparator m={['10','12']} />
+        <SectionSeparator />
         <h2 className="text-2xl tracking-tighter leading-tigh pb-4 mb-4">現在習得しているスキル</h2>
         <SkillMenu buttons={allSkills} />
         <h3 className="mt-4">背景色がスキルの熟練度を表しています。</h3>
