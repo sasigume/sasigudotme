@@ -40,7 +40,7 @@ export default function SideMenu({preview}) {
     const sideButtons = [
       {
         path: "/",
-        label: "Me",
+        label: "Top",
         iconStyle: "fas",
         iconName: "user",
         active: isHome,
@@ -67,13 +67,13 @@ export default function SideMenu({preview}) {
         {preview ? (
           <div className={cn('border-b mt-4 py-4 px-2 text-sm',
           {
-            'bg-accent-7 border-accent-7 text-white': preview,
-            'bg-accent-1 border-accent-2': !preview,
+            'bg-gray-700 border-black text-white': preview,
+            'bg-gray-100 border-gray-400': !preview,
           })}>
             <span>This is page is a preview.</span>{' '}
             <a
               href="/api/exit-preview"
-              className="underline hover:text-cyan duration-200 transition-colors"
+              className="underline hover:text-blue-600 duration-200 transition-colors"
             >
               Click here
             </a>{' '}

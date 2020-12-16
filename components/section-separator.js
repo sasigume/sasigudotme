@@ -1,3 +1,3 @@
 export default function SectionSeparator() {
-  return <hr className="border-accent-2 mt-20 mb-16" />
+  return <hr className="mt-16 mb-16 border-2 border-gray-200" />
 }
