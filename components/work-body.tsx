@@ -29,10 +29,8 @@ let ContentfulRichText = function(content){
 
 export default function WorkBody({ work }:WorkBodyProps):ReactElement {
   return (
-    <div className="max-w-2xl mx-auto">
-      <div className={markdownStyles['markdown']}>
+    <div className={markdownStyles['markdown']}>
         {ContentfulRichText(work.content)}
-      </div>
     </div>
   )
 }

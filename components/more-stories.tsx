@@ -13,11 +13,12 @@ export default function MoreStories({ works, }
       <h2 className="mb-8 text-4xl md:text-4xl">
       Other works
       </h2>
-      <div className="grid grid-cols-1 gap-y-14 mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-10 gap-y-14 mb-20">
         {works.map((work) => (
           <WorkPreview
             key={work.slug}
             work={work}
+            first={false}
           />
         ))}
       </div>
