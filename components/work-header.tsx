@@ -19,12 +19,7 @@ export default function WorkHeader({ work }:WorkHeaderProps):ReactElement {
         {work.creator && <Avatar creator={work.creator} />}
       </div>
       <div className="mb-6 md:mb-12 sm:mx-0">
-        <CoverImage work={work} isHero={false} isCard={false} />
-      </div>
-      <div className="mb-8 md:mb-16 sm:mx-0">
-        <a target="_blank" href={work.url} className="flex text-xl bg-black hover:bg-white hover:text-black border border-black text-white py-4 justify-center duration-200 transition-colors mb-0">
-          VIEW THIS WORK &rarr;
-          </a>
+        <CoverImage work={work} />
       </div>
       <div className="max-w-2xl mx-auto">
         <div className="block md:hidden mb-6">

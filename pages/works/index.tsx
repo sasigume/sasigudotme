@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import Container from '../../components/container'
 import ErrorPage from 'next/error'
 import MoreStories from '../../components/more-stories'
-import HeroWork from '../../components/hero-work'
+import WorkPreview from '../../components/work-preview'
 import Layout from '../../components/layout'
 import { ReactElement } from 'react'
 import { Work , WorkApi} from '../../services'
@@ -49,8 +49,9 @@ export default function AllWorks({
           <>
           <div className="mb-16 md:mb-24">
             {heroWork && (
-              <HeroWork
+              <WorkPreview
                 work={heroWork}
+                first={true}
             />
             )}
           </div>
