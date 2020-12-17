@@ -33,7 +33,8 @@ export class LinkApi {
   async fetchLinkEntries(): Promise<Link[]> {
     return await this.client
       .getEntries({
-        content_type: "link"
+        content_type: "link",
+        order: "fields.order"
       })
       .then(entries => {
         if (entries && entries.items && entries.items.length > 0) {

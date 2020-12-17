@@ -25,7 +25,8 @@ export class SkillApi {
   async fetchSkillEntries(): Promise<Skill[]> {
     return await this.client
       .getEntries({
-        content_type: "skill"
+        content_type: "skill",
+        order: "-fields.level"
       })
       .then(entries => {
         if (entries && entries.items && entries.items.length > 0) {
