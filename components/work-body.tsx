@@ -1,6 +1,13 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS } from '@contentful/rich-text-types';
 import markdownStyles from './markdown-styles.module.css'
+import { ReactElement } from 'react'
+import { Work } from '../services'
+
+type WorkBodyProps = {
+  work: Work
+}
+
 
 const richTextOptions = {
   renderNode: {
@@ -20,11 +27,11 @@ let ContentfulRichText = function(content){
   return documentToReactComponents(content, richTextOptions)
 }
 
-export default function WorkBody({ content }) {
+export default function WorkBody({ work }:WorkBodyProps):ReactElement {
   return (
     <div className="max-w-2xl mx-auto">
       <div className={markdownStyles['markdown']}>
-        {ContentfulRichText(content)}
+        {ContentfulRichText(work.content)}
       </div>
     </div>
   )

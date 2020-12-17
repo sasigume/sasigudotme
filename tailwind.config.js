@@ -1,7 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   purge: {
-    content: ['./pages/**/*.js', './components/**/*.js'],
+    content: ['./pages/**/*.js', './components/**/*.js','./pages/**/*.ts', './components/**/*.ts','./pages/**/*.tsx', './components/**/*.tsx'],
     options: {
       safelist: ['bg-level-1','bg-level-2','bg-level-3','bg-level-4'],
     }

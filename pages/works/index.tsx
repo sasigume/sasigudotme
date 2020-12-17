@@ -1,14 +1,27 @@
 import { useRouter } from 'next/router'
-import Container from '@/components/container'
-import MoreStories from '@/components/more-stories'
-import HeroWork from '@/components/hero-work'
-import Layout from '@/components/layout'
-import { getAllWorksForHome } from '@/libs/api'
+import Container from '../../components/container'
+import ErrorPage from 'next/error'
+import MoreStories from '../../components/more-stories'
+import HeroWork from '../../components/hero-work'
+import Layout from '../../components/layout'
+import { ReactElement } from 'react'
+import { Work , WorkApi} from '../../services'
 import Head from 'next/head'
 import Link from 'next/link'
-import {CONST_MYNAME,CONST_SITE_NAME} from '@/libs/constants'
+import { CONST_SITE_NAME } from '../../libs/constants'
+import { GetStaticProps } from 'next'
 
-export default function AllWorks({ preview, allWorks }) {
+type AllWorksProps = {
+  preview: boolean,
+  isHome: boolean,
+  allWorks: Work[]
+}
+
+export default function AllWorks({
+  preview = false,
+  isHome = false,
+  allWorks,
+}: AllWorksProps): ReactElement {
   const heroWork = allWorks[0]
   const moreWorks = allWorks.slice(1)
 
@@ -17,8 +30,9 @@ export default function AllWorks({ preview, allWorks }) {
   if (!router.isFallback && !allWorks) {
     return <ErrorPage statusCode={404} />
   }
+
   return (
-    <Layout preview={preview}>
+    <Layout isHome={isHome} preview={preview}>
       <Head>
         <title>Works | {CONST_SITE_NAME}</title>
       </Head>
@@ -35,13 +49,8 @@ export default function AllWorks({ preview, allWorks }) {
           <>
           <div className="mb-16 md:mb-24">
             {heroWork && (
-                <HeroWork
-              title={heroWork.title}
-              coverImage={heroWork.coverImage}
-              date={heroWork.date}
-              creator={heroWork.creator}
-              slug={heroWork.slug}
-              excerpt={heroWork.excerpt}
+              <HeroWork
+                work={heroWork}
             />
             )}
           </div>
@@ -54,9 +63,10 @@ export default function AllWorks({ preview, allWorks }) {
   )
 }
 
-export const getStaticProps = async ({ preview = false }) => {
-  const allWorks = (await getAllWorksForHome(preview)) ?? []
+export const getStaticProps: GetStaticProps  = async () => {
+  const api = new WorkApi();
+  const allWorks = await api.fetchWorkEntries();
   return {
-    props: { preview, allWorks },
+    props: { allWorks },
   };
 }
