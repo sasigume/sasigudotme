@@ -14,3 +14,7 @@
 
 Don't forget that this repository is based on the awesome example below; A very helpful guide included!
 https://github.com/vercel/next.js/tree/canary/examples/cms-contentful
+
+### TypeScript fetch script
+
+https://github.com/lorenzogm/blog
