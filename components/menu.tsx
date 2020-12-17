@@ -23,7 +23,7 @@ export function SkillButton({label, iconStyle, iconName, level}) {
 
 export function SkillMenu({buttons}) {
   return (
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap">
       {buttons.map((button) => (
         <SkillButton
         key={button.label}
@@ -38,7 +38,7 @@ export function SkillMenu({buttons}) {
 };
 export function Menu({buttons}) {
   return(
-  <div className="flex flex-wrap justify-center">
+  <div className="flex flex-wrap">
     {buttons.map((button) => (
       <Button
         key={button.order}
