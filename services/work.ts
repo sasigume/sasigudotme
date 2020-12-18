@@ -1,6 +1,5 @@
 import { ContentfulClientApi, createClient } from "contentful";
 import { Creator, CreatorImage, CoverImage, Work } from "./work.types";
-
 export class WorkApi {
   client: ContentfulClientApi;
   previewClient: ContentfulClientApi;
@@ -21,7 +20,9 @@ export class WorkApi {
   convertCreatorImage = (rawImage): CreatorImage => {
     if (rawImage) {
       return {
-        imageUrl: rawImage.fields.file.url ?? null
+        imageUrl: 'https://' +rawImage.fields.file.url ?? null,
+        width: rawImage.fields.file.details.image.width ?? null,
+        height: rawImage.fields.file.details.image.height ?? null,
       };
     }
     return null;
@@ -30,7 +31,9 @@ export class WorkApi {
   convertCoverImage = (rawImage): CoverImage => {
     if (rawImage) {
       return {
-        imageUrl: rawImage.fields.file.url ?? null
+        imageUrl: 'https://' + rawImage.fields.file.url ?? null,
+        width: rawImage.fields.file.details.image.width ?? null,
+        height: rawImage.fields.file.details.image.height ?? null,
       };
     }
     return null;
@@ -56,7 +59,7 @@ export class WorkApi {
       id: rawData.sys.id,
       slug: rawWork.slug,
       content: rawWork.content,
-      excerpt: rawWork.excerpt ?? '',
+      excerpt: rawWork.excerpt ?? 'Workの詳細ページです。',
       date: rawWork.publishedDate,
       url: rawWork.url,
       title: rawWork.title,

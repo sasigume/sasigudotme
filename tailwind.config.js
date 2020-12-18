@@ -1,9 +1,9 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   purge: {
-    content: ['./pages/**/*.js', './components/**/*.js','./pages/**/*.ts', './components/**/*.ts','./pages/**/*.tsx', './components/**/*.tsx'],
+    content: ['./pages/**/*.ts', './components/**/*.ts', './pages/**/*.tsx', './components/**/*.tsx'],
     options: {
-      safelist: ['bg-level-1','bg-level-2','bg-level-3','bg-level-4'],
+      safelist: ['bg-level-1', 'bg-level-2', 'bg-level-3', 'bg-level-4'],
     }
   },
   darkMode: false, // or 'media' or 'class'
@@ -12,13 +12,12 @@ module.exports = {
       center: true,
       padding: {
         DEFAULT: '1rem',
-        sm: '2rem',
-        md: '4rem',
-        xl: '6rem',
+        sm: '3rem',
+        md: '5rem',
+        xl: '8rem',
       },
     },
     boxShadow: {
-      'upTransparent' : '0 -20px 25px -5px transparent, 0 -10px 10px -5px transparent',
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
       DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
       md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
@@ -26,8 +25,7 @@ module.exports = {
       xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
       '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
       '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
-      'upYellow': '0 -20px 25px -5px rgb(255 232 64 / 25%), 0 -10px 10px -5px rgb(255 213 0 / 21%)',
-      'leftYellow': '-20px 0 25px -5px rgb(255 232 64 / 25%), -10px 0 10px -5px rgb(255 213 0 / 21%)',
+      'upYellow': '0 0px 25px 20px rgb(255 232 64 / 40%), 0 0px 10px 0px rgb(255 213 0 / 21%)',
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
       focus: '0 0 0 3px rgba(66, 153, 225, 0.5)',
@@ -36,9 +34,14 @@ module.exports = {
     extend: {
       colors: {
         'level-1': '#eeffac',
-        'level-2': '#c9daff',
+        'level-2': '#cbffaa',
         'level-3': '#f1ceff',
         'level-4': '#ffcee2',
+        'sasibg': '#f7fcff'
+      },
+      minHeight: {
+        '0': '0',
+        '40': '10rem',
       },
       spacing: {
         28: '7rem',
@@ -64,8 +67,6 @@ module.exports = {
   variants: {
     extend: {
       margin: ['last', 'first'],
-      scale: ['hover'],
-      animation: ['hover', 'focus'],
     }
   },
   plugins: [],

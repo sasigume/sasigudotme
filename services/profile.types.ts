@@ -4,5 +4,6 @@ export type Profile = {
   label: string,
   iconStyle: string,
   iconName: string,
-  date: string
+  date: string,
+  isMessage: boolean
 };

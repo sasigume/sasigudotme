@@ -1,4 +1,4 @@
-import {CONST_BLOG_URL} from '../../libs/constants'
+import {CONST_BLOG_URL} from '../../services/constants'
 import cn from 'classnames'
 import Link from 'next/link'
 import{ useRouter } from 'next/router'
@@ -9,7 +9,7 @@ const Button = ({path, label, iconStyle, iconName, active}) => (
     <Link href={path}>
       <a className={cn(`z-10 flex justify-around items-center text-md mx-1 h-full no-underline py-3 px-4 mt-2 mb-0`,
       {
-        'rounded-t-xl bg-white': active,
+        'rounded-t-xl bg-sasibg': active,
       })}>
           <FontAwesomeIcon className="w-5 h-5 mr-3" icon={[iconStyle, iconName]}/>
           <span>{label}</span>
@@ -32,11 +32,11 @@ const Menu = props => (
     </div>
 );
 
-export default function SideMenu({preview}) {
+export default function Nav({preview}) {
   const router = useRouter()
   let isHome, isWork
   router.pathname == '/' ? isHome = true : isHome = false
-  router.pathname == '/works' ? isWork = true : isWork = false
+  router.pathname.includes('/works') ? isWork = true : isWork = false
     const sideButtons = [
       {
         path: "/",

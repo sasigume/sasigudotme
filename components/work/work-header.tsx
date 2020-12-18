@@ -2,7 +2,7 @@ import Avatar from './avatar'
 import DateComponent from './date'
 import CoverImage from './cover-image'
 import { ReactElement } from 'react'
-import { Work } from '../services'
+import { Work } from '../../services'
 
 type WorkHeaderProps = {
   work: Work
@@ -19,7 +19,7 @@ export default function WorkHeader({ work }:WorkHeaderProps):ReactElement {
         {work.creator && <Avatar creator={work.creator} />}
       </div>
       <div className="mb-6 md:mb-12 sm:mx-0">
-        <CoverImage work={work} />
+        <CoverImage fixHeight={true} work={work} />
       </div>
       <div className="max-w-2xl mx-auto">
         <div className="block md:hidden mb-6">

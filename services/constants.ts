@@ -1,7 +1,12 @@
+const domain = "sasigu.me"
+const blog = "blog"
+
 export const CONST_MYNAME = "sasigume"
-export const CONST_SITE_NAME = "sasigu.me"
-export const CONST_SITE_URL = "https://sasigu.me"
-export const CONST_BLOG_URL = "https://blog.sasigu.me"
+export const CONST_SITE_NAME = CONST_MYNAME + "のポートフォリオ"
+export const CONST_SITE_URL = "https://" + domain
+export const CONST_BLOG_URL = "https://" + blog + "." + domain
+export const CONST_MESSAGE = "健康になりたい"
+export const CONST_SITE_META = CONST_MYNAME + "は" + CONST_MESSAGE
 export const CONST_REPO_URL = 'https://github.com/sasigume/sasigudotme'
 export const CONST_OG_IMAGE_URL = '/ogp_1200x.png'
 
