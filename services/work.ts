@@ -20,7 +20,7 @@ export class WorkApi {
   convertCreatorImage = (rawImage): CreatorImage => {
     if (rawImage) {
       return {
-        imageUrl: 'https://' +rawImage.fields.file.url ?? null,
+        imageUrl: 'https:' + rawImage.fields.file.url ?? null,
         width: rawImage.fields.file.details.image.width ?? null,
         height: rawImage.fields.file.details.image.height ?? null,
       };
@@ -31,7 +31,7 @@ export class WorkApi {
   convertCoverImage = (rawImage): CoverImage => {
     if (rawImage) {
       return {
-        imageUrl: 'https://' + rawImage.fields.file.url ?? null,
+        imageUrl: 'https:' + rawImage.fields.file.url ?? null,
         width: rawImage.fields.file.details.image.width ?? null,
         height: rawImage.fields.file.details.image.height ?? null,
       };

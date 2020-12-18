@@ -24,7 +24,7 @@ export default function CoverImage({ work, fixHeight }: CoverImageProps): ReactE
       {
         "max-h-64": fixHeight
       })}>
-      <Link href={`/works/${work.slug}`}><a>{image}</a></Link>
+      <Link href={`/works/${work.slug}`}><a className="flex">{image}</a></Link>
     </div>
   )
 }
