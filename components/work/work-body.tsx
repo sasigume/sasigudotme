@@ -1,8 +1,8 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS } from '@contentful/rich-text-types';
-import markdownStyles from './markdown-styles.module.css'
+import markdownStyles from '../markdown-styles.module.css'
 import { ReactElement } from 'react'
-import { Work } from '../services'
+import { Work } from '../../services'
 
 type WorkBodyProps = {
   work: Work

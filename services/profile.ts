@@ -20,6 +20,7 @@ export class ProfileApi {
       label: rawProfile.label,
       iconStyle: rawProfile.iconStyle ? rawProfile.iconStyle : 'fas',
       iconName: rawProfile.iconName ? rawProfile.iconName : 'clock',
+      isMessage: rawProfile.isMessage ?? false
     };
   };
 
@@ -37,4 +38,4 @@ export class ProfileApi {
         return [];
       });
   }
-}
+};

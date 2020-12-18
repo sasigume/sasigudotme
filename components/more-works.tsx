@@ -1,13 +1,13 @@
-import WorkPreview from '../components/work-preview'
+import WorkPreview from './work/work-preview'
 import { ReactElement } from 'react'
 import { Work } from '../services'
 
-type MoreStoriesProps = {
+type MoreWorksProps = {
   works: Work[]
 }
 
-export default function MoreStories({ works, }
-  : MoreStoriesProps):ReactElement {
+export default function MoreWorks({ works, }
+  : MoreWorksProps):ReactElement {
   return (
     <section>
       <h2 className="mb-8 text-4xl md:text-4xl">

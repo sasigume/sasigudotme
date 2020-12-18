@@ -1,15 +1,17 @@
+import { ReactElement } from 'react'
+import Head from 'next/head'
+
+import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
+import { Work , WorkApi} from '../../services'
+
+import { CONST_SITE_NAME } from '../../services/constants'
+
 import Container from '../../components/container'
 import ErrorPage from 'next/error'
-import MoreStories from '../../components/more-stories'
-import WorkPreview from '../../components/work-preview'
+import MoreWorks from '../../components/more-works'
+import WorkPreview from '../../components/work/work-preview'
 import Layout from '../../components/layout'
-import { ReactElement } from 'react'
-import { Work , WorkApi} from '../../services'
-import Head from 'next/head'
-import Link from 'next/link'
-import { CONST_SITE_NAME } from '../../libs/constants'
-import { GetStaticProps } from 'next'
 
 type AllWorksProps = {
   preview: boolean,
@@ -38,16 +40,12 @@ export default function AllWorks({
       </Head>
 
       <Container>
-        <h2 className="text-4xl font-md:text-6xl mb-6 mt-14">
-        <Link href="/">
-            <a className="hover:underline">Works</a>
-        </Link>
-        </h2>
+        <h2 className="text-4xl font-md:text-6xl mb-6">The most recent one</h2>
         {router.isFallback ? (
           <span>Loading…</span>
         ) : (
           <>
-          <div className="mb-16 md:mb-24">
+          <div className="mb-16">
             {heroWork && (
               <WorkPreview
                 work={heroWork}
@@ -55,7 +53,7 @@ export default function AllWorks({
             />
             )}
           </div>
-          {moreWorks.length > 0 && <MoreStories works={moreWorks} />}
+          {moreWorks.length > 0 && <MoreWorks works={moreWorks} />}
           </> )
             }
         
@@ -66,7 +64,7 @@ export default function AllWorks({
 
 export const getStaticProps: GetStaticProps  = async () => {
   const api = new WorkApi();
-  const allWorks = await api.fetchWorkEntries();
+  const allWorks = (await api.fetchWorkEntries()) ?? []
   return {
     props: { allWorks },
   };

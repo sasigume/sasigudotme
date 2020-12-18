@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { Creator } from '../services'
+import { Creator } from '../../services'
 
 type AvaterProps = {
   creator: Creator

@@ -6,10 +6,14 @@ export type Creator = {
 
 export type CreatorImage = {
   imageUrl: string;
+  width: number;
+  height: number;
 };
 
 export type CoverImage = {
   imageUrl: string;
+  width: number;
+  height: number;
 };
 
 export type Work = {
