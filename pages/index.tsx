@@ -51,7 +51,7 @@ export const getStaticProps = async () => {
   const allWorks = (await workApi.fetchWorkEntries()) ?? []
   const allSkills = (await skillApi.fetchSkillEntries()) ?? []
   const allProfiles = (await profileApi.fetchProfileEntries()) ?? []
-  publishRss(allWorks);
+  publishRss(allWorks,allProfiles);
   return {
     props: {
       allWorks,
