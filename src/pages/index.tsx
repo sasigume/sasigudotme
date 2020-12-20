@@ -8,7 +8,6 @@ import { ProfileList } from '../components/profile-list'
 import Layout from '../components/layout'
 import Head from 'next/head'
 import Container from '../components/container'
-import Image from 'next/image'
 
 type HomeProps = {
   preview: boolean,
