@@ -1,3 +1,5 @@
+![Screenshot on 12-20-2020](https://github.com/sasigume/sasigudotme/blob/main/screenshots/2020-12-20.png?raw=true)
+
 ## Content models required
 
 * The app after [v4.2.0-rc2](https://github.com/sasigume/sasigudotme/releases/tag/v4.2.0-rc2) **requires these content models on your Contentful space** to run :
