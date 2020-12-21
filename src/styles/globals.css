@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+:root {
+  --color-sasigume: #f7fcff;
+  --color-sasifont: #00062b;
+}
 
 @layer base {
   html,body {
@@ -10,6 +13,8 @@
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-weight: 300;
+    color: var(--color-sasifont);
+    background-color: #fff;
   }
 
   a  {

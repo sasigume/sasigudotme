@@ -10,7 +10,7 @@ export function Profile({slug, title, content, iconStyle, iconName }) {
     <ReactMarkdown children={content} renderers={{ list: Ul }} />
   )
   return (
-    <div id={slug} className="bg-white rounded-xl shadow-xl p-6">
+    <div id={slug} className="bg-sasibg rounded-xl shadow-xl px-6 pt-8 pb-6">
       <div className="mb-2 font-bold text-lg"><FontAwesomeIcon className="w-5 mr-2 mb-1 inline" icon={[iconStyle, iconName]} />{title}</div>
       <div>{parsedContent}</div>
     </div>

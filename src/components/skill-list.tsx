@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export function SkillButton({label, iconStyle, iconName, level}) {
   return (
-      <div className={(`shadow-lg inline-block font-bold italic mr-2 my-2 no-underline pt-3 pb-2 px-4 rounded-lg ${"bg-level-" + level}`)}>
+      <div className={(`shadow-lg inline-block font-bold mr-2 my-2 no-underline pt-3 pb-2 px-4 rounded-lg ${"bg-level-" + level}`)}>
       <FontAwesomeIcon className="w-5 mr-2 mb-1 inline" icon={[iconStyle, iconName]}/>{label}
       </div>
     )
