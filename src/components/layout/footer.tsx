@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="mt-auto">
       <Container>
-        <div className="my-14 mx-auto max-w-md text-center grid grid-cols-1 md:grid-cols-3 gap-x-1 gap-y-4">
+        <div className="text-white my-14 mx-auto max-w-md text-center grid grid-cols-1 md:grid-cols-3 gap-x-1 gap-y-4">
           <div><a
             href={CONST_REPO_URL}
             className="inline hover:underline"

@@ -1,19 +1,18 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { profile } from 'console'
 import ReactMarkdown from 'react-markdown'
 
 function Ul(props) {
   return <ul className="ml-4 my-2 list-disc">{props.children}</ul>
 }
 
-export function Profile({slug, label, date, iconStyle, iconName }) {
-  const parsedLabel = (
-    <ReactMarkdown children={label} renderers={{ list: Ul }} />
+export function Profile({slug, title, content, iconStyle, iconName }) {
+  const parsedContent = (
+    <ReactMarkdown children={content} renderers={{ list: Ul }} />
   )
   return (
     <div id={slug} className="bg-white rounded-xl shadow-xl p-6">
-      <div className="mb-2"><FontAwesomeIcon className="w-5 mr-2 mb-1 inline" icon={[iconStyle, iconName]} />{date}</div>
-      <div>{parsedLabel}</div>
+      <div className="mb-2 font-bold text-lg"><FontAwesomeIcon className="w-5 mr-2 mb-1 inline" icon={[iconStyle, iconName]} />{title}</div>
+      <div>{parsedContent}</div>
     </div>
   )
 };
@@ -25,10 +24,10 @@ export function ProfileList({ profiles }) {
         <Profile
           key={profile.id}
           slug={profile.slug}
-          label={profile.label}
+          title={profile.title}
+          content={profile.content}
           iconStyle={profile.iconStyle}
           iconName={profile.iconName}
-          date={profile.date}
         />
       ))}
     </div>

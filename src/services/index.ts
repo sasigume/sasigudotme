@@ -1,5 +1,3 @@
-export * from './work'
-export * from './work.types'
 export * from './skill'
 export * from './skill.types'
 export * from './profile'

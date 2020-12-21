@@ -1,7 +1,8 @@
 export type Profile = {
   id: string,
   slug: string,
-  label: string,
+  title: string,
+  content: string,
   iconStyle: string,
   iconName: string,
   date: string,

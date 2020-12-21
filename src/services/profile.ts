@@ -17,9 +17,10 @@ export class ProfileApi {
       id: rawData.sys.id,
       slug: rawProfile.slug,
       date: rawProfile.date,
-      label: rawProfile.label,
+      title: rawProfile.title ?? rawProfile.slug,
+      content: rawProfile.content ?? rawProfile.slug,
       iconStyle: rawProfile.iconStyle ? rawProfile.iconStyle : 'fas',
-      iconName: rawProfile.iconName ? rawProfile.iconName : 'clock',
+      iconName: rawProfile.iconName ? rawProfile.iconName : 'check-square',
       isMessage: rawProfile.isMessage ?? false
     };
   };

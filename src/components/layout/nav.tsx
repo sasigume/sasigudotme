@@ -1,4 +1,4 @@
-import {CONST_BLOG_URL} from '../../services/constants'
+import {CONST_BLOG_URL, CONST_LAPRAS_URL} from '../../services/constants'
 import cn from 'classnames'
 import Link from 'next/link'
 import{ useRouter } from 'next/router'
@@ -7,9 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Button = ({path, label, iconStyle, iconName, active}) => (
     <Link href={path}>
-      <a className={cn(`z-10 flex justify-around items-center text-md mx-1 h-full no-underline py-3 px-4 mt-2 mb-0`,
+      <a className={cn(`font-faster italic z-10 flex justify-around items-center text-lg mx-1 h-full no-underline py-3 px-4 mt-2 mb-0`,
       {
-        'rounded-t-xl bg-sasibg': active,
+        'rounded-t-xl bg-sasibg text-black': active,
+        'text-white' : !active
       })}>
           <FontAwesomeIcon className="w-5 h-5 mr-3" icon={[iconStyle, iconName]}/>
           <span>{label}</span>
@@ -32,11 +33,10 @@ const Menu = props => (
     </div>
 );
 
-export default function Nav({preview}) {
+export default function Nav({}) {
   const router = useRouter()
-  let isHome, isWork
+  let isHome
   router.pathname == '/' ? isHome = true : isHome = false
-  router.pathname.includes('/works') ? isWork = true : isWork = false
     const sideButtons = [
       {
         path: "/",
@@ -46,11 +46,11 @@ export default function Nav({preview}) {
         active: isHome,
       },
       {
-          path: "/works",
-          label: "Works",
+          path: CONST_LAPRAS_URL,
+          label: "Lapras",
           iconStyle: "fas",
           iconName: "border-all",
-          active: isWork,
+          active: false,
       },
       {
         path: CONST_BLOG_URL,
@@ -63,26 +63,6 @@ export default function Nav({preview}) {
     return (
       <>
         <Menu buttons={sideButtons} />
-        
-        {preview ? (
-          <div className={cn('border-b mt-4 py-4 px-2 text-sm',
-          {
-            'bg-gray-700 border-black text-white': preview,
-            'bg-gray-100 border-gray-400': !preview,
-          })}>
-            <span>This is page is a preview.</span>{' '}
-            <a
-              href="/api/exit-preview"
-              className="underline hover:text-blue-600 duration-200 transition-colors"
-            >
-              Click here
-            </a>{' '}
-            to exit preview mode.
-          </div>
-        ) : (
-          <> </>
-        )
-        }
       </>
     )
 }
