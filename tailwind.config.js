@@ -32,15 +32,13 @@ module.exports = {
       none: 'none',
     },
     extend: {
-      fontFamily: {
-        'faster': ['Faster one', ...defaultTheme.fontFamily.sans]
-      },
       colors: {
         'level-1': '#eeffac',
         'level-2': '#cbffaa',
         'level-3': '#f1ceff',
         'level-4': '#ffcee2',
-        'sasibg': '#f7fcff'
+        'sasibg': 'var(--color-sasigume)',
+        'sasifont': 'var(--color-sasifont)'
       },
       minHeight: {
         '0': '0',
