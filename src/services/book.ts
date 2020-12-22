@@ -22,10 +22,10 @@ export class BookApi {
     const rawBook = rawData.fields
 
     // それぞれのチャプターの合計
-    const redAllC = rawBook.data.map(function(c){ return c.count[0] }).reduce((a, b) => a + b, 0);
-    const redAllT = rawBook.data.map(function(c){ return c.count[1] }).reduce((a, b) => a + b, 0);
-    const blackAllC = rawBook.data.map(function(c){ return c.count[2] }).reduce((a, b) => a + b, 0);
-    const blackAllT = rawBook.data.map(function(c){ return c.count[3] }).reduce((a, b) => a + b, 0);
+    const redAllC = rawBook.data.map(function(c){ return c.count[0] }).reduce((a, b) => a + b, 0) ?? 30;
+    const redAllT = rawBook.data.map(function(c){ return c.count[1] }).reduce((a, b) => a + b, 0) ?? 60;
+    const blackAllC = rawBook.data.map(function(c){ return c.count[2] }).reduce((a, b) => a + b, 0) ?? 20;
+    const blackAllT = rawBook.data.map(function(c){ return c.count[3] }).reduce((a, b) => a + b, 0) ?? 40;
     const rate = (redAllC + blackAllC) / (redAllT + redAllT)
     const percent = Math.floor(rate * 10000) / 100
     return {
