@@ -49,6 +49,7 @@ export default function AllBooks({
     <Layout isHome={isHome} preview={preview}>
       <Head>
         <title>{book.title} | {CONST_SITE_NAME}</title>
+        <meta name="description" content={book.md} />
       </Head>
 
       <Container>
