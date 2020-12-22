@@ -1,5 +1,5 @@
-import { CONST_SITE_NAME, CONST_LEVELS} from '../services/constants'
-import { SkillApi, Skill, ProfileApi, Profile } from '../services'
+import { CONST_SITE_NAME, CONST_LEVELS} from '../libs/constants'
+import { SkillApi, Skill, ProfileApi, Profile, BookApi } from '../services'
 import { ReactElement } from 'react'
 import { publishRss } from '../services/rss'
 
@@ -19,7 +19,7 @@ export default function Home({
   preview, allSkills, allProfiles
 }: HomeProps): ReactElement {
   return (
-    <Layout>
+    <Layout preview={false} isHome={true}>
       <Head>
         <title>{CONST_SITE_NAME}</title>
       </Head>
@@ -28,7 +28,7 @@ export default function Home({
           <div>
             <h2 className="text-4xl pb-4">My Skills</h2>
             <SkillMenu buttons={allSkills} />
-            <h3 className="mt-6 mb-2 font-bold">Colors indicates skill level.</h3>
+            <h3 className="mt-6 mb-2 font-bold">Each color indicates skill level.</h3>
             <SkillMenu buttons={CONST_LEVELS} />
           </div>
           <div>
@@ -44,10 +44,12 @@ export default function Home({
 
 export const getStaticProps = async () => {
   const skillApi = new SkillApi()
+  const bookApi = new BookApi()
   const profileApi = new ProfileApi()
   const allSkills = (await skillApi.fetchSkillEntries()) ?? []
+  const allBooks = (await bookApi.fetchBookEntries()) ?? []
   const allProfiles = (await profileApi.fetchProfileEntries()) ?? []
-  publishRss(allProfiles);
+  publishRss(allProfiles,allBooks);
   return {
     props: {
       allSkills,

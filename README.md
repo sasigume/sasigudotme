@@ -1,12 +1,13 @@
-![Screenshot on 12-20-2020](https://github.com/sasigume/sasigudotme/blob/main/screenshots/2020-12-20.png?raw=true)
+![Screenshot on 12-20-2020](https://github.com/sasigume/sasigudotme/blob/main/screenshots/2020-12-22.png?raw=true)
 
 ## Content models required
 
-* The app after [v4.2.0-rc2](https://github.com/sasigume/sasigudotme/releases/tag/v4.2.0-rc2) **requires these content models on your Contentful space** to run :
-  * 'skill'
+* The app after [v5.2.0](https://github.com/sasigume/sasigudotme/releases/tag/v5.2.0) **requires these content models on your Contentful space** to run :
+  * 'book'
   * 'profile'
-* Optimized layout structure: more features, fewer files.
-* Note that PostCSS purge is ignoring 'bg-level-(1~4)' to display skill level.
+  * 'skill'
+
+* Note that PostCSS purge is ignoring 'bg-level-(1~4)' to display book level.
 
 ## Thanks
 
