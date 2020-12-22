@@ -66,14 +66,14 @@ export default function AllBooks({
               <div className="mb-12">
                 <div className="flex flex-nowrap mb-6">{subjectList}</div>
                 <div className="mb-6">{parsedContent}</div>
-                <div className="font-bold mb-12">
+                <div className="mb-12">
                   <h3 className="mb-4 text-2xl">全体の進捗: {book.percent}%</h3>
                   <Progress number={book.count} />
                 </div>
-                <div className="font-bold">
-                <h3 className="mb-4 text-2xl">章ごとの進捗</h3>
+                <div className="">
+                  <h3 className="mb-4 text-2xl">章ごとの進捗</h3>
                   <BookData
-                    data={book.chapters} />
+                    chapters={book.chapters} />
                 </div>
               </div>
             </div>
