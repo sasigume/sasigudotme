@@ -17,9 +17,9 @@ const generateProfileItem = (profile: Profile): string => {
 const generateBookItem = (book: Book): string => {
     return (`
 <item>
-    <guid>${CONST_SITE_URL}/#${book.slug}</guid>
+    <guid>${CONST_SITE_URL}/books/${book.slug}</guid>
     <title>${book.title}</title>
-    <link>${CONST_SITE_URL}/#${book.slug}</link>
+    <link>${CONST_SITE_URL}/books/${book.slug}</link>
     <pubDate>${new Date(book.date).toUTCString()}</pubDate>
 </item>
     `)
