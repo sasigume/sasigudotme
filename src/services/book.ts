@@ -42,9 +42,11 @@ export class BookApi {
       id: rawData.sys.id,
       title: rawBook.title,
       slug: rawBook.slug,
+      md: rawBook.md ?? "本の説明文",
       show: rawBook.show ?? true,
       subjects: rawBook.subjects ?? ['教科名1', '教科名2'],
       data: rawBook.data.map(chapter => this.convertChapter(chapter)) ?? null,
+      chapters: rawBook.chapters.map(chapter => this.convertChapter(chapter)) ?? null,
       date: rawData.sys.createdAt,
       count: [redAllC,redAllT,blackAllC,blackAllT],
       percent: percent
