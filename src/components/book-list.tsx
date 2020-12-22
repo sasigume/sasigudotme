@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import cn from 'classnames'
+import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 
 type chapterProps = {
@@ -9,6 +10,10 @@ type chapterProps = {
 
 type progressProps = {
   number: number[]
+}
+
+function Ul(props) {
+  return <ul className="ml-4 my-2 list-disc">{props.children}</ul>
 }
 
 export function Progress({number}:progressProps) {
@@ -55,10 +60,13 @@ export function BookData({ data }) {
   )
 };
 
-export function BookEl({ slug, title, show, subjects, count, percent }) {
+export function BookEl({ slug, title, show, subjects, md, count, percent }) {
   const subjectList = subjects.map((subject) => (
     <div key={subject} className="inline-block mr-2 px-3 py-2 bg-gray-300 rounded-md">{subject}</div>
   ))
+  const parsedMd = (
+    <ReactMarkdown children={md} renderers={{ list: Ul }} />
+  )
   return (
     <Link href={(`/books/${slug}`)}>
       <a>
@@ -70,6 +78,7 @@ export function BookEl({ slug, title, show, subjects, count, percent }) {
             <h2><FontAwesomeIcon className="w-5 mr-2 mb-2 inline" icon={['fas', 'book']} />{title} (達成度: {percent}%)</h2>
 
             <div className="flex flex-nowrap my-3">{subjectList}</div>
+            <div className="">{parsedMd}</div>
             <Progress number={count} />
           </div>
         </div>
@@ -86,6 +95,7 @@ export function BookMenu({ books }) {
           key={book.id}
           slug={book.slug}
           title={book.title}
+          md={book.md}
           show={book.show}
           subjects={book.subjects}
           count={book.count}
