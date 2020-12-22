@@ -36,7 +36,7 @@ export default function AllBooks({
   }
 
   const subjectList = heroBook.subjects.map((subject) => (
-    <div className="inline-block mr-2 px-3 py-1 bg-gray-300 rounded-md">{subject}</div>
+    <div key={subject} className="inline-block mr-2 px-3 py-1 bg-gray-300 rounded-md">{subject}</div>
   ))
 
   return (

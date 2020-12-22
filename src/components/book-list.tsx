@@ -45,10 +45,10 @@ export function BookData({ data }) {
 
 export function BookEl({ slug, title, show, subjects }) {
   const subjectList = subjects.map((subject) => (
-    <div className="inline-block mr-2 px-3 py-1 bg-gray-300 rounded-md">{subject}</div>
+    <div key={subject} className="inline-block mr-2 px-3 py-1 bg-gray-300 rounded-md">{subject}</div>
   ))
   return (
-    <div id={slug} className={cn('font-bold bg-sasibg shadow-lg mr-2 my-2 pt-3 pb-2 px-4 rounded-lg', {
+    <div id={slug} className={cn('font-bold bg-sasibg shadow-lg pt-3 pb-2 px-4 rounded-lg', {
       "hidden": !show
     })}>
       <div>
@@ -65,7 +65,7 @@ export function BookEl({ slug, title, show, subjects }) {
 
 export function BookMenu({ books }) {
   return (
-    <div className="">
+    <div className="grid gric-cols-1 lg:grid-cols-2 gap-x-10 gap-y-6">
       {books.map((book) => (
         <BookEl
           key={book.id}

@@ -21,7 +21,7 @@ export default function BookIndex({
         <title>{CONST_SITE_NAME}</title>
       </Head>
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-12 gap-x-10 gap-y-4">
+        <div className="">
           <div>
             <h2 className="text-4xl pb-4">My Books</h2>
             <BookMenu books={allBooks} />

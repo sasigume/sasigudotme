@@ -28,7 +28,7 @@ export default function Home({
           <div>
             <h2 className="text-4xl pb-4">My Skills</h2>
             <SkillMenu buttons={allSkills} />
-            <h3 className="mt-6 mb-2 font-bold">Colors indicates skill level.</h3>
+            <h3 className="mt-6 mb-2 font-bold">Each color indicates skill level.</h3>
             <SkillMenu buttons={CONST_LEVELS} />
           </div>
           <div>
