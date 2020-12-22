@@ -3,7 +3,7 @@ import Meta from './meta'
 import Nav from './nav'
 import Container from '../container'
 import cn from 'classnames'
-import { CONST_MYNAME, CONST_MESSAGE } from '../../services/constants'
+import { CONST_MYNAME, CONST_MESSAGE } from '../../libs/constants'
 
 export default function Layout({ children }) {
 

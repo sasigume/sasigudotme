@@ -1,4 +1,4 @@
-import {CONST_BLOG_URL, CONST_LAPRAS_URL} from '../../services/constants'
+import {CONST_BLOG_URL, CONST_LAPRAS_URL} from '../../libs/constants'
 import cn from 'classnames'
 import Link from 'next/link'
 import{ useRouter } from 'next/router'
