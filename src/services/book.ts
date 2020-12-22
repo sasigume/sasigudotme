@@ -14,7 +14,7 @@ export class BookApi {
   convertChapter = (chapter): Chapter => {
     return {
       name: chapter.name ?? "章のタイトル",
-      count: chapter.count ?? [30,60,20,40],
+      count: chapter.count ?? [0,0,0,0],
     }
   }
 
@@ -22,10 +22,16 @@ export class BookApi {
     const rawBook = rawData.fields
 
     // それぞれのチャプターの合計
-    const redAllC = rawBook.data.map(function(c){ return c.count[0] }).reduce((a, b) => a + b, 0) ?? 30;
-    const redAllT = rawBook.data.map(function(c){ return c.count[1] }).reduce((a, b) => a + b, 0) ?? 60;
-    const blackAllC = rawBook.data.map(function(c){ return c.count[2] }).reduce((a, b) => a + b, 0) ?? 20;
-    const blackAllT = rawBook.data.map(function(c){ return c.count[3] }).reduce((a, b) => a + b, 0) ?? 40;
+    let redAllC, redAllT, blackAllC, blackAllT
+    if(rawBook.data.some(chapter => chapter.count)) {
+      redAllC = rawBook.data.map(function(c){ return c.count[0] }).reduce((a, b) => a + b, 0);
+      redAllT = rawBook.data.map(function(c){ return c.count[1] }).reduce((a, b) => a + b, 0);
+      blackAllC = rawBook.data.map(function(c){ return c.count[2] }).reduce((a, b) => a + b, 0);
+      blackAllT = rawBook.data.map(function(c){ return c.count[3] }).reduce((a, b) => a + b, 0);
+    } else {
+      console.log("この本進捗のデータがないやん! とりあえず0にするで");
+      [redAllC,redAllT,blackAllC,blackAllT] = [0,0,0,0]
+    }
     const rate = (redAllC + blackAllC) / (redAllT + redAllT)
     const percent = Math.floor(rate * 10000) / 100
     return {
