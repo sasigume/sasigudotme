@@ -12,14 +12,17 @@ type progressProps = {
 }
 
 export function Progress({number}:progressProps) {
+  const redPercent = number[0] == 0 ? 0 : (number[0]/number[1])*100 
+  const blackPercent = number[2] == 0 ? 0 : (number[2]/number[3])*100
+  console.log(redPercent,blackPercent)
   return (
     <div className="overflow-hidden shadow-lg">
       <div className="bg-gray-500 rounded-t-lg w-full shadow-lg">
-        <div className="bg-blue-600 rounded-tl-lg" style={{ width: (`${(number[0]/number[1])*100}%`) }}>
+        <div className="bg-blue-600 rounded-tl-lg" style={{ width: (`${redPercent}%`) }}>
           <span className="text-white block whitespace-nowrap px-2 py-3">基本問題: {number[0]}/{number[1]}</span></div>
       </div>
       <div className="bg-gray-500 rounded-b-lg w-full shadow-lg">
-        <div className="bg-red-600 rounded-bl-lg" style={{ width: (`${(number[2]/number[3])*100}%`) }}>
+        <div className="bg-red-600 rounded-bl-lg" style={{ width: (`${blackPercent}%`) }}>
           <span className="text-white block whitespace-nowrap px-2 py-3">応用問題: {number[2]}/{number[3]}</span></div>
       </div>
     </div>
