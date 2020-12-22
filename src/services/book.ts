@@ -23,12 +23,12 @@ export class BookApi {
 
     // それぞれのチャプターの合計
     let redAllC, redAllT, blackAllC, blackAllT
-    if (rawBook.chapters.some(chapter => chapter.count)) {
+    if (rawBook.chapters) {
       console.log("data found");
-      redAllC = rawBook.chapters.map(function (c) { return c.count[0] }).reduce((a, b) => a + b, 0);
-      redAllT = rawBook.chapters.map(function (c) { return c.count[1] }).reduce((a, b) => a + b, 0);
-      blackAllC = rawBook.chapters.map(function (c) { return c.count[2] }).reduce((a, b) => a + b, 0);
-      blackAllT = rawBook.chapters.map(function (c) { return c.count[3] }).reduce((a, b) => a + b, 0);
+      redAllC = rawBook.chapters.map(function (c) { return c.fields.count[0] }).reduce((a, b) => a + b, 0);
+      redAllT = rawBook.chapters.map(function (c) { return c.fields.count[1] }).reduce((a, b) => a + b, 0);
+      blackAllC = rawBook.chapters.map(function (c) { return c.fields.count[2] }).reduce((a, b) => a + b, 0);
+      blackAllT = rawBook.chapters.map(function (c) { return c.fields.count[3] }).reduce((a, b) => a + b, 0);
     } else {
       console.log("この本進捗のデータがないやん! とりあえず0にするで");
       redAllC = 0
