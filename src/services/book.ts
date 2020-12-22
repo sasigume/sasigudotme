@@ -15,13 +15,19 @@ export class BookApi {
     return {
       name: chapter.name ?? "章のタイトル",
       count: chapter.count ?? [30,60,20,40],
-      total: (chapter.count[1] + chapter.count[3]),
-      current: (chapter.count[0] + chapter.count[2])
     }
   }
 
   convertBook = (rawData): Book => {
     const rawBook = rawData.fields
+
+    // それぞれのチャプターの合計
+    const redAllC = rawBook.data.map(function(c){ return c.count[0] }).reduce((a, b) => a + b, 0);
+    const redAllT = rawBook.data.map(function(c){ return c.count[1] }).reduce((a, b) => a + b, 0);
+    const blackAllC = rawBook.data.map(function(c){ return c.count[2] }).reduce((a, b) => a + b, 0);
+    const blackAllT = rawBook.data.map(function(c){ return c.count[3] }).reduce((a, b) => a + b, 0);
+    const rate = (redAllC + blackAllC) / (redAllT + redAllT)
+    const percent = Math.floor(rate * 10000) / 100
     return {
       id: rawData.sys.id,
       title: rawBook.title,
@@ -29,7 +35,9 @@ export class BookApi {
       show: rawBook.show ?? true,
       subjects: rawBook.subjects ?? ['教科名1', '教科名2'],
       data: rawBook.data.map(chapter => this.convertChapter(chapter)) ?? null,
-      date: rawData.sys.createdAt
+      date: rawData.sys.createdAt,
+      count: [redAllC,redAllT,blackAllC,blackAllT],
+      percent: percent
     }
   }
 
@@ -42,7 +50,14 @@ export class BookApi {
       .then(entries => {
         if (entries && entries.items && entries.items.length > 0) {
           const books = entries.items.map(entry => this.convertBook(entry));
-          return books;
+          return books.sort((a, b) => {
+            // 達成度が低い順にソート
+            if ((a.count[0]+ a.count[2]) > (b.count[0]+b.count[1])) {
+              return 1
+            } else {
+              return -1
+            }
+          })
         }
         return [];
       });

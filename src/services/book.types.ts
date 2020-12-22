@@ -5,12 +5,12 @@ export type Book = {
   show: boolean,
   subjects: string[],
   data: object,
-  date: string
+  date: string,
+  count: number[],
+  percent: number
 };
 
 export type Chapter = {
   name: string,
-  count: number[],
-  total: number,
-  current: number,
+  count: number[]
 }
