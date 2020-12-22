@@ -18,7 +18,8 @@ export default function BookIndex({
   return (
     <Layout preview={false} isHome={false}>
       <Head>
-        <title>{CONST_SITE_NAME}</title>
+        <title>Books | {CONST_SITE_NAME}</title>
+        <meta name="description" content="本の一覧。"/>
       </Head>
       <Container>
         <div className="">

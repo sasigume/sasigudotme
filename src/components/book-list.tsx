@@ -1,14 +1,19 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import cn from 'classnames'
+import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 
 type chapterProps = {
   name: string,
-  count: number[]
+  countC: number[]
 }
 
 type progressProps = {
   number: number[]
+}
+
+function Ul(props) {
+  return <ul className="ml-4 my-2 list-disc">{props.children}</ul>
 }
 
 export function Progress({number}:progressProps) {
@@ -28,26 +33,33 @@ export function Progress({number}:progressProps) {
   )
 }
 
-export function ChapterEL({ name, count }: chapterProps) {
-  const rate = (count[0] + count[2]) / (count[1] + count[3])
+export function ChapterEL({ name, countC }: chapterProps) {
+  let rate
+  if (countC[1] == 0 && countC[3] == 0) {
+    rate = 0
+  } else {
+    rate = (countC[0] + countC[2]) / (countC[1] + countC[3])
+  }
+  console.log(countC[0]+countC[2])
   const percent = Math.floor(rate * 1000) / 10
   return (
     <div className="p-4 rounded-xl bg-white overflow-hidden">
       <h3 className="text-2xl mb-3 font-bold border-l-4 pl-3 border-gray-600">{name} ({percent}%)</h3>
-      <Progress number={count} />
+      <Progress number={countC} />
     </div>
   )
 }
 
-export function BookData({ data }) {
+export function BookData({ chapters }) {
+  console.log(chapters)
   return (
     <div className="font-bold">
       <div className="grid grid-cols-1 gap-y-2">
-        {data.map((chapter) => (
+        {chapters.map((chapter) => (
           <ChapterEL
             key={chapter.name}
             name={chapter.name}
-            count={chapter.count}
+            countC={chapter.count}
           />
         ))}
       </div>
@@ -55,14 +67,17 @@ export function BookData({ data }) {
   )
 };
 
-export function BookEl({ slug, title, show, subjects, count, percent }) {
+export function BookEl({ slug, title, show, subjects, md, count, percent }) {
   const subjectList = subjects.map((subject) => (
     <div key={subject} className="inline-block mr-2 px-3 py-2 bg-gray-300 rounded-md">{subject}</div>
   ))
+  const parsedMd = (
+    <ReactMarkdown children={md} renderers={{ list: Ul }} />
+  )
   return (
     <Link href={(`/books/${slug}`)}>
       <a>
-        <div id={slug} className={cn('hover:shadow-xl transition duration-300 font-bold bg-sasibg shadow-lg py-6 px-4 rounded-lg', {
+        <div id={slug} className={cn('hover:shadow-xl transition duration-300 bg-sasibg shadow-lg py-6 px-4 rounded-lg', {
           "hidden": !show
         })}>
           <div>
@@ -70,6 +85,7 @@ export function BookEl({ slug, title, show, subjects, count, percent }) {
             <h2><FontAwesomeIcon className="w-5 mr-2 mb-2 inline" icon={['fas', 'book']} />{title} (達成度: {percent}%)</h2>
 
             <div className="flex flex-nowrap my-3">{subjectList}</div>
+            <div className="my-3">{parsedMd}</div>
             <Progress number={count} />
           </div>
         </div>
@@ -86,6 +102,7 @@ export function BookMenu({ books }) {
           key={book.id}
           slug={book.slug}
           title={book.title}
+          md={book.md}
           show={book.show}
           subjects={book.subjects}
           count={book.count}
