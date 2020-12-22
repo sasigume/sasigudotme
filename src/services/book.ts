@@ -24,13 +24,17 @@ export class BookApi {
     // それぞれのチャプターの合計
     let redAllC, redAllT, blackAllC, blackAllT
     if(rawBook.data.some(chapter => chapter.count)) {
+      console.log("data found");
       redAllC = rawBook.data.map(function(c){ return c.count[0] }).reduce((a, b) => a + b, 0);
       redAllT = rawBook.data.map(function(c){ return c.count[1] }).reduce((a, b) => a + b, 0);
       blackAllC = rawBook.data.map(function(c){ return c.count[2] }).reduce((a, b) => a + b, 0);
       blackAllT = rawBook.data.map(function(c){ return c.count[3] }).reduce((a, b) => a + b, 0);
     } else {
       console.log("この本進捗のデータがないやん! とりあえず0にするで");
-      [redAllC,redAllT,blackAllC,blackAllT] = [0,0,0,0]
+      redAllC = 0
+      redAllT = 0
+      blackAllC = 0
+      blackAllT = 0
     }
     const rate = (redAllC + blackAllC) / (redAllT + redAllT)
     const percent = Math.floor(rate * 10000) / 100
