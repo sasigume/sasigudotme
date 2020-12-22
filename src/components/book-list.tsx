@@ -11,7 +11,7 @@ type chapterPprops = {
 export function ChapterEL({ isSingle, name, count }: chapterPprops) {
   const rate = (count[0] + count[2]) / (count[1] + count[3])
   return (
-    <div className="p-4 rounded-xl bg-white">
+    <div className="p-4 rounded-xl bg-white overflow-hidden">
       {isSingle ? <h3>{name}</h3> : <h4>{name}</h4>}
       <span>達成度: {rate * 100}%</span>
       <div className="bg-gray-500 w-full">
