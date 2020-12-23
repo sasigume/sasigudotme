@@ -2,7 +2,7 @@
 
 ## Content models required
 
-* The app after [v5.2.0](https://github.com/sasigume/sasigudotme/releases/tag/v5.2.0) **requires these content models on your Contentful space** to run :
+* The app  **requires these content models on your Contentful space** to run :
   * 'book''
     * 'chapter' : linked to 'book'
   * 'profile'
