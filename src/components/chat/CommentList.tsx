@@ -13,7 +13,9 @@ interface Props {
 export const CommentList: FunctionComponent<Props> = ({ comments, onDelete }) => (
   <>
     <div className={(`p-3 text-white`)}>
-      {comments.length == 0 ? "-" : null}
+      {comments.length == 0 ? (
+        <div className="italic text-gray-500">チャットに参加してみましょう!</div>
+      ) : null}
       {comments.map((comment, _i) => (
         <CommentListItem key={_i} comment={comment} onDelete={onDelete} />
       ))}

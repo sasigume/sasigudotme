@@ -3,6 +3,11 @@
   min-height: 20rem;
 }
 
-.screen {
+.screenArea {
   min-height: 5rem;
+  min-width: 20rem;
+}
+
+.commentArea {
+  
 }

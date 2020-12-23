@@ -75,7 +75,7 @@ export default function Index({
         defaultValue={isCompletedListActive.toString()}
         id="completedListActive"
       />
-      <label htmlFor="completedListActive">削除されたコメントを見る</label>
+      <label className="ml-2" htmlFor="completedListActive">削除したコメントを見る</label>
     </div>
   );
 
@@ -85,11 +85,22 @@ export default function Index({
         <title>{CONST_SITE_NAME}</title>
       </Head>
       <Container>
-        <div className="flex flex-col sm:flex-row sm:justify-center">
-          <div className={(`mb-4 flex justify-center ${chatstyle.screen}`)}>
-            <video></video>
+        <div className="flex flex-col md:items-start md:flex-row justify-center">
+          <div className={(`flex-grow md:mb-0 mb-8 ${chatstyle.screenArea}`)}>
+            <div className="relative mb-6">
+              <video className={chatstyle.video} autoPlay loop muted>
+                <source src="mv1-m.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent">
+                <b className="m-3 text-3xl"><span>🔴</span> LIVE</b>
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <h2 className="text-3xl mb-2">24時間勉強生配信！</h2>
+              <span className="text-gray-400">2687人が視聴中・2020年12月24日にライブ配信開始</span>
+            </div>
           </div>
-          <div className="sm:ml-8 mb-10">
+          <div className={(`md:ml-8 mb-10 ${chatstyle.commentArea}`)}>
             <div className="p-2 bg-gray-900">コメント</div>
             <div className={(`flex flex-col-reverse content-end relative bg-gray-800 overflow-y-scroll overflow-x-hidden ${chatstyle.list}`)}>
               <CommentList comments={comments} onDelete={deleteComment} />
