@@ -88,7 +88,7 @@ export default function Index({
         <div className="flex flex-col md:items-start md:flex-row justify-center">
           <div className={(`flex-grow md:mb-0 mb-8 ${chatstyle.screenArea}`)}>
             <div className="relative mb-6">
-              <video className={chatstyle.video} autoPlay loop muted>
+              <video className={(`object-cover ${chatstyle.video}`)} autoPlay playsInline loop muted>
                 <source src="mv1-m.mp4" type="video/mp4" />
               </video>
               <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent">
