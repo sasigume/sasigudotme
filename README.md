@@ -24,3 +24,7 @@ https://medium.com/better-programming/create-a-blog-app-with-nextjs-and-contentf
 ### RSS Feed
 
 https://blog.kasorin.work/posts/rss_for_nextjs_ssg
+
+### Chat UI
+
+https://github.com/tlehwalder/next-todo

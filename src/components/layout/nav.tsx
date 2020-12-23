@@ -34,16 +34,17 @@ const Menu = props => (
 
 export default function Nav({preview}) {
   const router = useRouter()
-  let isHome, isBook
+  let isHome, isBook, isAbout
   router.pathname == '/' ? isHome = true : isHome = false
   router.pathname.includes('/books') ? isBook = true : isBook = false
+  router.pathname.includes('/about') ? isAbout = true : isAbout = false
     const sideButtons = [
       {
-        path: "/",
-        label: "Skills",
+        path: "/about",
+        label: "About",
         iconStyle: "fas",
         iconName: "user",
-        active: isHome,
+        active: isAbout,
       },
       {
           path: "/books",
