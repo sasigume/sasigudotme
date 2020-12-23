@@ -85,28 +85,28 @@ export default function Index({
         <title>{CONST_SITE_NAME}</title>
       </Head>
       <Container>
-        <div className="flex flex-col lg:flex-row justify-center">
-          <div className="lg:flex-grow flex justify-center">
-            <div className="w-64 h-full bg-white"></div>
+        <div className="flex flex-col sm:flex-row sm:justify-center">
+          <div className={(`mb-4 flex justify-center ${chatstyle.screen}`)}>
+            <video></video>
           </div>
-          <div className="flex-none">
-          <h2>コメント</h2>
-          <div className={(`my-3 overflow-scroll ${chatstyle.list}`)}>
-            <CommentList comments={comments} onDelete={deleteComment} />
-            {isCompletedListActive ? (
-              <CompletedCommentList comments={completedComments} onDelete={undoComment} />
-            ) : null}
+          <div className={(`sm:ml-8 mb-10 ${chatstyle.list}`)}>
+            <div className={(`overflow-scroll`)}>
+              <div className="p-2 bg-purple-900">コメント</div>
+              <CommentList comments={comments} onDelete={deleteComment} />
+              {isCompletedListActive ? (
+                <CompletedCommentList comments={completedComments} onDelete={undoComment} />
+              ) : null}
+            </div>
+            <div className="">
+              <CommentForm
+                disabled={newComment.name.length == 0}
+                comment={newComment}
+                onAdd={addComment}
+                onChange={handleCommentChange}
+              />
+            </div>
+            {completeListActiveElement}
           </div>
-          <div className="">
-            <CommentForm
-              disabled={newComment.name.length == 0}
-              comment={newComment}
-              onAdd={addComment}
-              onChange={handleCommentChange}
-            />
-          </div>
-          {completeListActiveElement}
-        </div>
         </div>
       </Container>
     </Layout>
@@ -118,7 +118,7 @@ export const getStaticProps = async () => {
   const profileApi = new ProfileApi()
   const allBooks = (await bookApi.fetchBookEntries()) ?? []
   const allProfiles = (await profileApi.fetchProfileEntries()) ?? []
-  publishRss(allProfiles,allBooks);
+  publishRss(allProfiles, allBooks);
   return {
     props: {
       allProfiles

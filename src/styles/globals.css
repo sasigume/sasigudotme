@@ -22,7 +22,7 @@
   text-decoration: none;
   }
 
-  strong {
+  b,strong {
     font-weight: bold;
   }
 }

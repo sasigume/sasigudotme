@@ -1,3 +1,11 @@
 .list {
   max-height: 15rem;
 }
+
+.listInner {
+  min-height: 10rem
+}
+
+.screen {
+  min-height: 5rem;
+}
