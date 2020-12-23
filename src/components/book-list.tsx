@@ -75,7 +75,7 @@ export function BookData({ chapters }) {
 
 export function BookEl({ slug, title, show, subjects, md, count, percent }) {
   const subjectList = subjects.map((subject) => (
-    <div key={subject} className="inline-block mr-2 px-3 py-2 bg-gray-300 rounded-md">{subject}</div>
+    <div key={subject} className="inline-block mr-2 mb-2 px-3 py-2 bg-gray-300 rounded-md">{subject}</div>
   ))
   const parsedMd = (
     <ReactMarkdown children={md} renderers={{ list: Ul }} />
@@ -90,7 +90,7 @@ export function BookEl({ slug, title, show, subjects, md, count, percent }) {
 
             <h2 className="text-xl font-bold"><FontAwesomeIcon className="w-5 mr-2 mb-1 inline" icon={['fas', 'book']} />{title}<br />(達成度: {percent}%)</h2>
 
-            <div className="flex flex-nowrap my-3">{subjectList}</div>
+            <div className="flex flex-wrap my-3">{subjectList}</div>
             <div className={(`my-3, ${markdownStyles.markdown}`)}>{parsedMd}</div>
             <Progress number={count} />
           </div>

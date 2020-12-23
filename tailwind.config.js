@@ -68,6 +68,7 @@ module.exports = {
   variants: {
     extend: {
       margin: ['last', 'first'],
+      borderWidth: ['last', 'first']
     }
   },
   plugins: [],
