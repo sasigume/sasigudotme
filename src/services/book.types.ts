@@ -6,7 +6,9 @@ export type Book = {
   show: boolean,
   subjects: string[],
   chapters: object,
-  date: string,
+  dateCreated: string,
+  dateGet: string,
+  bought: boolean,
   count: number[],
   percent: number
 };

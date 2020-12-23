@@ -20,7 +20,8 @@ const generateBookItem = (book: Book): string => {
     <guid>${CONST_SITE_URL}/books/${book.slug}</guid>
     <title>${book.title}</title>
     <link>${CONST_SITE_URL}/books/${book.slug}</link>
-    <pubDate>${new Date(book.date).toUTCString()}</pubDate>
+    <pubDate>${new Date(book.dateCreated).toUTCString()}</pubDate>
+    <summary>${book.dateGet}に` + book.bought ? "買った" : "もらった" + `本。${book.md}</summary>
 </item>
     `)
 }

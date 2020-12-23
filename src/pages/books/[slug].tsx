@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { Book, BookApi } from '../../services'
 import { createClient, EntryCollection } from 'contentful'
 import ReactMarkdown from 'react-markdown'
+import markdownStyles from '../../components/markdown-styles.module.css'
 
 import { CONST_SITE_NAME } from '../../libs/constants'
 
@@ -38,7 +39,7 @@ export default function AllBooks({
   }
 
   const subjectList = book.subjects.map((subject) => (
-    <div key={subject} className="inline-block mr-2 px-3 py-2 bg-gray-300 rounded-md">{subject}</div>
+    <div key={subject} className="font-bold inline-block mr-2 px-3 py-2 bg-gray-300 rounded-md">{subject}</div>
   ))
 
   const parsedContent = (
@@ -49,7 +50,7 @@ export default function AllBooks({
     <Layout isHome={isHome} preview={preview}>
       <Head>
         <title>{book.title} | {CONST_SITE_NAME}</title>
-        <meta name="description" content={book.md} />
+        <meta name="description" content={(`${book.dateGet}に${book.bought ? "買った" : "もらった"}本。${book.md}`)} />
       </Head>
 
       <Container>
@@ -60,18 +61,18 @@ export default function AllBooks({
               <div className="mb-8 tracking-wider">
                 <Link href="/books"><a className="hover:underline">Books</a></Link>{" "}&gt;{" "}<span>{book.title}</span>
               </div>
-              <h2 className="mb-4 text-4xl">
+              <h2 className="mb-4 font-bold text-5xl border-b border-gray-400">
                 {book.title}
               </h2>
               <div className="mb-12">
                 <div className="flex flex-nowrap mb-6">{subjectList}</div>
-                <div className="mb-6">{parsedContent}</div>
+                <div className={(`mb-8 ${markdownStyles.markdown}`)}>{book.dateGet}に{book.bought ? "買った" : "もらった"}本。<br />{parsedContent}</div>
                 <div className="mb-12">
-                  <h3 className="mb-4 text-2xl">全体の進捗: {book.percent}%</h3>
+                  <h3 className="mb-4 text-3xl">全体の進捗: {book.percent}%</h3>
                   <Progress number={book.count} />
                 </div>
                 <div className="">
-                  <h3 className="mb-4 text-2xl">章ごとの進捗</h3>
+                  <h3 className="mb-4 text-3xl">章ごとの進捗</h3>
                   <BookData
                     chapters={book.chapters} />
                 </div>
@@ -85,10 +86,11 @@ export default function AllBooks({
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const api = new BookApi();
-  const allBooks = (await api.fetchBookEntries()) ?? []
+  const book = (await api.fetchBookEntryBySlug(params.slug)) ?? null
+  console.log("本の個別データを取得しました:",book)
   return {
     props: {
-      book: allBooks.filter(book => book.slug == params.slug)[0]
+      book
     }
   };
 }

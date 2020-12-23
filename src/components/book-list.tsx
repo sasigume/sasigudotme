@@ -3,6 +3,8 @@ import cn from 'classnames'
 import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 
+import markdownStyles from './markdown-styles.module.css'
+
 type chapterProps = {
   name: string,
   countC: number[]
@@ -18,15 +20,21 @@ function Ul(props) {
 
 export function Progress({number}:progressProps) {
   const redPercent = number[0] == 0 ? 0 : (number[0]/number[1])*100 
-  const blackPercent = number[2] == 0 ? 0 : (number[2]/number[3])*100
+  const bluePercent = number[2] == 0 ? 0 : (number[2]/number[3])*100
   return (
     <div className="overflow-hidden shadow-lg">
-      <div className="bg-gray-500 rounded-t-lg w-full shadow-lg">
-        <div className="bg-blue-600 rounded-tl-lg" style={{ width: (`${redPercent}%`) }}>
+      <div className="bg-gray-600 rounded-t-lg w-full shadow-lg">
+        <div className={cn('bg-red-600',{
+          'rounded-tl-lg': redPercent !== 100,
+          'rounded-t-lg': redPercent == 100
+        })} style={{ width: (`${redPercent}%`) }}>
           <span className="text-white block whitespace-nowrap px-2 py-3">基本問題: {number[0]}/{number[1]}</span></div>
       </div>
-      <div className="bg-gray-500 rounded-b-lg w-full shadow-lg">
-        <div className="bg-red-600 rounded-bl-lg" style={{ width: (`${blackPercent}%`) }}>
+      <div className="bg-gray-800 rounded-b-lg w-full shadow-lg">
+        <div className={cn('bg-blue-600 rounded-bl-lg',{
+          'rounded-bl-lg': bluePercent !== 100,
+          'rounded-b-lg': bluePercent == 100
+        })} style={{ width: (`${bluePercent}%`) }}>
           <span className="text-white block whitespace-nowrap px-2 py-3">応用問題: {number[2]}/{number[3]}</span></div>
       </div>
     </div>
@@ -40,20 +48,18 @@ export function ChapterEL({ name, countC }: chapterProps) {
   } else {
     rate = (countC[0] + countC[2]) / (countC[1] + countC[3])
   }
-  console.log(countC[0]+countC[2])
   const percent = Math.floor(rate * 1000) / 10
   return (
-    <div className="p-4 rounded-xl bg-white overflow-hidden">
-      <h3 className="text-2xl mb-3 font-bold border-l-4 pl-3 border-gray-600">{name} ({percent}%)</h3>
+    <div className="my-3 rounded-lg bg-white overflow-hidden">
+      <h3 className="text-2xl my-3 pl-3 border-l-4 border-gray-600">{name} ({percent}%)</h3>
       <Progress number={countC} />
     </div>
   )
 }
 
 export function BookData({ chapters }) {
-  console.log(chapters)
   return (
-    <div className="font-bold">
+    <div className="">
       <div className="grid grid-cols-1 gap-y-2">
         {chapters.map((chapter) => (
           <ChapterEL
@@ -82,10 +88,10 @@ export function BookEl({ slug, title, show, subjects, md, count, percent }) {
         })}>
           <div>
 
-            <h2><FontAwesomeIcon className="w-5 mr-2 mb-2 inline" icon={['fas', 'book']} />{title} (達成度: {percent}%)</h2>
+            <h2 className="text-xl font-bold"><FontAwesomeIcon className="w-5 mr-2 mb-1 inline" icon={['fas', 'book']} />{title}<br />(達成度: {percent}%)</h2>
 
             <div className="flex flex-nowrap my-3">{subjectList}</div>
-            <div className="my-3">{parsedMd}</div>
+            <div className={(`my-3, ${markdownStyles.markdown}`)}>{parsedMd}</div>
             <Progress number={count} />
           </div>
         </div>

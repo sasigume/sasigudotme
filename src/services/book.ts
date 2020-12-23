@@ -23,21 +23,20 @@ export class BookApi {
     const rawBook = rawData.fields
 
     // それぞれのチャプターの合計
-    let rate, percent, redAllC, redAllT, blackAllC, blackAllT
+    let rate, percent, redAllC, redAllT, blueAllC, blueAllT
     if (rawBook.chapters) {
-      console.log("data found");
       redAllC = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[0] }).reduce((a, b) => a + b, 0);
       redAllT = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[1] }).reduce((a, b) => a + b, 0);
-      blackAllC = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[2] }).reduce((a, b) => a + b, 0);
-      blackAllT = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[3] }).reduce((a, b) => a + b, 0);
-      rate = (redAllC + blackAllC) / (redAllT + redAllT)
+      blueAllC = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[2] }).reduce((a, b) => a + b, 0);
+      blueAllT = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[3] }).reduce((a, b) => a + b, 0);
+      rate = (redAllC + blueAllC) / (redAllT + blueAllT)
       percent = Math.floor(rate * 10000) / 100
     } else {
       console.log("この本進捗のデータがないやん! とりあえず0にするで");
       redAllC = 0
       redAllT = 0
-      blackAllC = 0
-      blackAllT = 0
+      blueAllC = 0
+      blueAllT = 0
       percent = 0
     }
     
@@ -56,8 +55,10 @@ export class BookApi {
       show: rawBook.show ?? true,
       subjects: rawBook.subjects ?? ['教科名1', '教科名2'],
       chapters: rawBook.chapters ? rawBook.chapters.map(chapter => this.convertChapter(chapter.fields)) : placeHolder,
-      date: rawData.sys.createdAt,
-      count: [redAllC, redAllT, blackAllC, blackAllT],
+      dateCreated: rawData.sys.createdAt,
+      dateGet: rawBook.dateGet ?? 'いつか覚えてないけれど、新しい本が手に入るような陽気な日',
+      bought: rawBook.bought ?? true,
+      count: [redAllC, redAllT, blueAllC, blueAllT],
       percent: percent
     }
   }
@@ -73,7 +74,7 @@ export class BookApi {
           const books = entries.items.map(entry => this.convertBook(entry));
           return books.sort((a, b) => {
             // 達成度が低い順にソート
-            if ((a.count[0] + a.count[2]) > (b.count[0] + b.count[1])) {
+            if ((a.percent) > (b.percent)) {
               return 1
             } else {
               return -1
@@ -81,6 +82,23 @@ export class BookApi {
           })
         }
         return [];
+      });
+  }
+
+  async fetchBookEntryBySlug(slug): Promise<Book> {
+    return await this.client
+      .getEntries({
+        content_type: "book",
+        limit: 1,
+        "fields.slug[match]": slug
+      })
+      .then(entries => {
+        if (entries && entries.items && entries.items.length > 0) {
+          const books = entries.items.map(entry => this.convertBook(entry));
+          const book = books.filter(book => book.slug == slug)[0]
+          return book;
+        }
+        return null;
       });
   }
 }

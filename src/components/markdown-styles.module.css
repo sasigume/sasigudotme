@@ -11,7 +11,7 @@
 
 .markdown ul,
 .markdown ol {
-  @apply list-disc ml-4;
+  @apply list-disc ml-6;
 }
 
 .markdown h1 {
