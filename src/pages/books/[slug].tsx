@@ -66,7 +66,7 @@ export default function AllBooks({
               </h2>
               <div className="mb-12">
                 <div className="flex flex-nowrap mb-6">{subjectList}</div>
-                <div className={(`mb-8 ${markdownStyles.markdown}`)}>{parsedContent}</div>
+                <div className={(`mb-8 ${markdownStyles.markdown}`)}>{book.dateGet}に{book.bought ? "買った" : "借りた"}本。<br />{parsedContent}</div>
                 <div className="mb-12">
                   <h3 className="mb-4 text-3xl">全体の進捗: {book.percent}%</h3>
                   <Progress number={book.count} />

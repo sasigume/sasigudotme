@@ -55,7 +55,9 @@ export class BookApi {
       show: rawBook.show ?? true,
       subjects: rawBook.subjects ?? ['教科名1', '教科名2'],
       chapters: rawBook.chapters ? rawBook.chapters.map(chapter => this.convertChapter(chapter.fields)) : placeHolder,
-      date: rawData.sys.createdAt,
+      dateCreated: rawData.sys.createdAt,
+      dateGet: rawBook.dateGet ?? 'いつか覚えてないけれど、新しい本が手に入るような陽気な日',
+      bought: rawBook.bought ?? true,
       count: [redAllC, redAllT, blueAllC, blueAllT],
       percent: percent
     }
