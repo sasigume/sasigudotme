@@ -30,7 +30,7 @@ export class BookApi {
       redAllT = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[1] }).reduce((a, b) => a + b, 0);
       blackAllC = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[2] }).reduce((a, b) => a + b, 0);
       blackAllT = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[3] }).reduce((a, b) => a + b, 0);
-      rate = (redAllC + blackAllC) / (redAllT + redAllT)
+      rate = (redAllC + blackAllC) / (redAllT + blackAllT)
       percent = Math.floor(rate * 10000) / 100
     } else {
       console.log("この本進捗のデータがないやん! とりあえず0にするで");
@@ -73,7 +73,7 @@ export class BookApi {
           const books = entries.items.map(entry => this.convertBook(entry));
           return books.sort((a, b) => {
             // 達成度が低い順にソート
-            if ((a.count[0] + a.count[2]) > (b.count[0] + b.count[1])) {
+            if ((a.percent) > (b.percent)) {
               return 1
             } else {
               return -1
