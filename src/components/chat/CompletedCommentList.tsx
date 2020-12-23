@@ -13,7 +13,7 @@ export const CompletedCommentList: FunctionComponent<Props> = ({
   onDelete
 }) => (
   <>
-    <div className="py-3">
+    <div className="p-3">
       <h3>削除されたコメント</h3>
       {comments.length == 0 ? "-" : null}
       <ul>

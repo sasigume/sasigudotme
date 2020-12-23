@@ -89,13 +89,22 @@ export default function Index({
           <div className={(`mb-4 flex justify-center ${chatstyle.screen}`)}>
             <video></video>
           </div>
-          <div className={(`sm:ml-8 mb-10 ${chatstyle.list}`)}>
-            <div className={(`overflow-scroll`)}>
-              <div className="p-2 bg-purple-900">コメント</div>
+          <div className="sm:ml-8 mb-10">
+            <div className="p-2 bg-gray-900">コメント</div>
+            <div className={(`flex flex-col-reverse content-end relative bg-gray-800 overflow-y-scroll overflow-x-hidden ${chatstyle.list}`)}>
               <CommentList comments={comments} onDelete={deleteComment} />
               {isCompletedListActive ? (
                 <CompletedCommentList comments={completedComments} onDelete={undoComment} />
               ) : null}
+              <div className="z-10 absolute left-3 right-3 top-3 bg-purple-700 rounded-lg shadow-xl">
+                <div className="p-3 flex items-center">
+                  <span className="mr-2 text-4xl">👳‍♂️</span>
+                  <span>石油王<br /><b>¥5,000,000,000,000,000</b></span>
+                </div>
+                <div className="p-3 flex items-center rounded-b-lg bg-purple-500">
+                  <b>أبقه مرتفعا</b>
+                </div>
+              </div>
             </div>
             <div className="">
               <CommentForm

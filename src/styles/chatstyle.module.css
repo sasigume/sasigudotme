@@ -1,9 +1,6 @@
 .list {
-}
-
-.listInner {
   max-height: 24rem;
-  min-height: 10rem
+  min-height: 20rem;
 }
 
 .screen {
