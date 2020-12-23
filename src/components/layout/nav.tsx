@@ -10,6 +10,7 @@ const Button = ({path, label, iconStyle, iconName, active}) => (
       <a className={cn(`z-10 flex justify-around items-center text-md mx-1 h-full no-underline py-3 px-4 mt-2 mb-0`,
       {
         'rounded-t-xl bg-white': active,
+        //'text-white rounded-t-xl bg-black': black
       })}>
           <FontAwesomeIcon className="w-5 h-5 mr-3" icon={[iconStyle, iconName]}/>
           <span>{label}</span>
@@ -36,8 +37,8 @@ export default function Nav({preview}) {
   const router = useRouter()
   let isHome, isBook, isAbout
   router.pathname == '/' ? isHome = true : isHome = false
-  router.pathname.includes('/books') ? isBook = true : isBook = false
   router.pathname.includes('/about') ? isAbout = true : isAbout = false
+  router.pathname.includes('/books') ? isBook = true : isBook = false
     const sideButtons = [
       {
         path: "/about",

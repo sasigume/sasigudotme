@@ -1,6 +1,6 @@
 {
   "name": "sasigudotme",
-  "version": "6.0.0",
+  "version": "6.0.1-alpha",
   "private": true,
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",

@@ -24,7 +24,7 @@ type HomeProps = {
   preview: boolean,
 }
 
-export default function Home({
+export default function Index({
   preview,
 }: HomeProps): ReactElement {
   const [isCompletedListActive, setCompletedListActive] = useState(false);
@@ -80,7 +80,7 @@ export default function Home({
   );
 
   return (
-    <Layout preview={false} isHome={true}>
+    <Layout preview={false} isBlack={true}>
       <Head>
         <title>{CONST_SITE_NAME}</title>
       </Head>

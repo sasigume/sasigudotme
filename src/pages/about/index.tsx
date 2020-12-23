@@ -19,7 +19,7 @@ export default function Home({
   preview, allSkills, allProfiles
 }: HomeProps): ReactElement {
   return (
-    <Layout preview={false} isHome={true}>
+    <Layout preview={false} isBlack={false}>
       <Head>
         <title>{CONST_SITE_NAME}</title>
       </Head>
