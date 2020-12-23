@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { Book, BookApi } from '../../services'
 import { createClient, EntryCollection } from 'contentful'
 import ReactMarkdown from 'react-markdown'
+import markdownStyles from '../../components/markdown-styles.module.css'
 
 import { CONST_SITE_NAME } from '../../libs/constants'
 
@@ -65,7 +66,7 @@ export default function AllBooks({
               </h2>
               <div className="mb-12">
                 <div className="flex flex-nowrap mb-6">{subjectList}</div>
-                <div className="mb-6">{parsedContent}</div>
+                <div className={(`mb-6 ${markdownStyles.markdown}`)}>{parsedContent}</div>
                 <div className="mb-12">
                   <h3 className="mb-4 text-2xl">全体の進捗: {book.percent}%</h3>
                   <Progress number={book.count} />

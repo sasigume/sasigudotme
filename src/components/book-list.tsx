@@ -3,6 +3,8 @@ import cn from 'classnames'
 import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 
+import markdownStyles from './markdown-styles.module.css'
+
 type chapterProps = {
   name: string,
   countC: number[]
@@ -85,7 +87,7 @@ export function BookEl({ slug, title, show, subjects, md, count, percent }) {
             <h2><FontAwesomeIcon className="w-5 mr-2 mb-2 inline" icon={['fas', 'book']} />{title} (達成度: {percent}%)</h2>
 
             <div className="flex flex-nowrap my-3">{subjectList}</div>
-            <div className="my-3">{parsedMd}</div>
+            <div className={(`my-3, ${markdownStyles.markdown}`)}>{parsedMd}</div>
             <Progress number={count} />
           </div>
         </div>

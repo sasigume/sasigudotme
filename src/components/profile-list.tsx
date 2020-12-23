@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ReactMarkdown from 'react-markdown'
+import markdownStyles from './markdown-styles.module.css'
 
 function Ul(props) {
   return <ul className="ml-4 my-2 list-disc">{props.children}</ul>
@@ -12,7 +13,7 @@ export function Profile({slug, title, content, iconStyle, iconName }) {
   return (
     <div id={slug} className="bg-sasibg rounded-xl shadow-xl px-6 pt-8 pb-6">
       <div className="mb-2 font-bold text-lg"><FontAwesomeIcon className="w-5 mr-2 mb-1 inline" icon={[iconStyle, iconName]} />{title}</div>
-      <div>{parsedContent}</div>
+      <div className={markdownStyles.markdown}>{parsedContent}</div>
     </div>
   )
 };
