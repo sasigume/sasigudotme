@@ -50,7 +50,7 @@ export default function AllBooks({
     <Layout isHome={isHome} preview={preview}>
       <Head>
         <title>{book.title} | {CONST_SITE_NAME}</title>
-        <meta name="description" content={book.md} />
+        <meta name="description" content={(`${book.dateGet}に${book.bought ? "買った" : "もらった"}本。${book.md}`)} />
       </Head>
 
       <Container>
