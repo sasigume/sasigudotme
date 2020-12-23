@@ -48,7 +48,6 @@ export function ChapterEL({ name, countC }: chapterProps) {
   } else {
     rate = (countC[0] + countC[2]) / (countC[1] + countC[3])
   }
-  console.log(countC[0]+countC[2])
   const percent = Math.floor(rate * 1000) / 10
   return (
     <div className="my-3 rounded-lg bg-white overflow-hidden">
@@ -59,7 +58,6 @@ export function ChapterEL({ name, countC }: chapterProps) {
 }
 
 export function BookData({ chapters }) {
-  console.log(chapters)
   return (
     <div className="">
       <div className="grid grid-cols-1 gap-y-2">

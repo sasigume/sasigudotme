@@ -25,7 +25,6 @@ export class BookApi {
     // それぞれのチャプターの合計
     let rate, percent, redAllC, redAllT, blueAllC, blueAllT
     if (rawBook.chapters) {
-      console.log("data found");
       redAllC = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[0] }).reduce((a, b) => a + b, 0);
       redAllT = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[1] }).reduce((a, b) => a + b, 0);
       blueAllC = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[2] }).reduce((a, b) => a + b, 0);
@@ -81,6 +80,23 @@ export class BookApi {
           })
         }
         return [];
+      });
+  }
+
+  async fetchBookEntryBySlug(slug): Promise<Book> {
+    return await this.client
+      .getEntries({
+        content_type: "book",
+        limit: 1,
+        "fields.slug[match]": slug
+      })
+      .then(entries => {
+        if (entries && entries.items && entries.items.length > 0) {
+          const books = entries.items.map(entry => this.convertBook(entry));
+          const book = books.filter(book => book.slug == slug)[0]
+          return book;
+        }
+        return null;
       });
   }
 }

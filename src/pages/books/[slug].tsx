@@ -86,10 +86,11 @@ export default function AllBooks({
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const api = new BookApi();
-  const allBooks = (await api.fetchBookEntries()) ?? []
+  const book = (await api.fetchBookEntryBySlug(params.slug)) ?? null
+  console.log("本の個別データを取得しました:",book)
   return {
     props: {
-      book: allBooks.filter(book => book.slug == params.slug)[0]
+      book
     }
   };
 }
