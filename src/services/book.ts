@@ -23,21 +23,21 @@ export class BookApi {
     const rawBook = rawData.fields
 
     // それぞれのチャプターの合計
-    let rate, percent, redAllC, redAllT, blackAllC, blackAllT
+    let rate, percent, redAllC, redAllT, blueAllC, blueAllT
     if (rawBook.chapters) {
       console.log("data found");
       redAllC = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[0] }).reduce((a, b) => a + b, 0);
       redAllT = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[1] }).reduce((a, b) => a + b, 0);
-      blackAllC = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[2] }).reduce((a, b) => a + b, 0);
-      blackAllT = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[3] }).reduce((a, b) => a + b, 0);
-      rate = (redAllC + blackAllC) / (redAllT + blackAllT)
+      blueAllC = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[2] }).reduce((a, b) => a + b, 0);
+      blueAllT = rawBook.chapters.map(function (c) { return c.fields.count.map(Number)[3] }).reduce((a, b) => a + b, 0);
+      rate = (redAllC + blueAllC) / (redAllT + blueAllT)
       percent = Math.floor(rate * 10000) / 100
     } else {
       console.log("この本進捗のデータがないやん! とりあえず0にするで");
       redAllC = 0
       redAllT = 0
-      blackAllC = 0
-      blackAllT = 0
+      blueAllC = 0
+      blueAllT = 0
       percent = 0
     }
     
@@ -57,7 +57,7 @@ export class BookApi {
       subjects: rawBook.subjects ?? ['教科名1', '教科名2'],
       chapters: rawBook.chapters ? rawBook.chapters.map(chapter => this.convertChapter(chapter.fields)) : placeHolder,
       date: rawData.sys.createdAt,
-      count: [redAllC, redAllT, blackAllC, blackAllT],
+      count: [redAllC, redAllT, blueAllC, blueAllT],
       percent: percent
     }
   }
