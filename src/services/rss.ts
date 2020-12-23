@@ -1,13 +1,22 @@
 import fs from "fs"
 
-import {Profile,Book} from './'
-import {CONST_SITE_URL, CONST_SITE_NAME, CONST_SITE_META} from '../libs/constants'
+import { Profile, Book } from './'
+import { CONST_SITE_URL, CONST_SITE_NAME, CONST_SITE_META } from '../libs/constants'
+
+const escapeString = (unsafe: string) => {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
 const generateProfileItem = (profile: Profile): string => {
     return (`
 <item>
     <guid>${CONST_SITE_URL}/#${profile.slug}</guid>
-    <title>${profile.title}</title>
+    <title>${escapeString(profile.title)}</title>
     <link>${CONST_SITE_URL}/#${profile.slug}</link>
     <pubDate>${new Date(profile.date).toUTCString()}</pubDate>
 </item>
@@ -15,19 +24,25 @@ const generateProfileItem = (profile: Profile): string => {
 }
 
 const generateBookItem = (book: Book): string => {
+    let summary = ""
+    if (book.bought) {
+        summary = (`${book.dateGet}に買った本。${book.md}`);
+    } else {
+        summary = (`${book.dateGet}にもらった本。${book.md}`)
+    }
     return (`
 <item>
     <guid>${CONST_SITE_URL}/books/${book.slug}</guid>
-    <title>${book.title}</title>
+    <title>${escapeString(book.title)}</title>
     <link>${CONST_SITE_URL}/books/${book.slug}</link>
     <pubDate>${new Date(book.dateCreated).toUTCString()}</pubDate>
-    <summary>${book.dateGet}に` + book.bought ? "買った" : "もらった" + `本。${book.md}</summary>
+    <summary>${summary}</summary>
 </item>
     `)
 }
 
 
-const generateRss = (profiles:Profile[], books:Book[]): string => {
+const generateRss = (profiles: Profile[], books: Book[]): string => {
     return (`<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>${CONST_SITE_NAME}</title>
@@ -42,7 +57,7 @@ const generateRss = (profiles:Profile[], books:Book[]): string => {
 }
 const publishRss = async (profiles: Profile[], books: Book[]) => {
     const PATH = './public/rss.xml'
-    const rss = generateRss(profiles,books)
+    const rss = generateRss(profiles, books)
     fs.writeFileSync(PATH, rss)
 }
 
