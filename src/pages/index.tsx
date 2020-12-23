@@ -85,7 +85,11 @@ export default function Index({
         <title>{CONST_SITE_NAME}</title>
       </Head>
       <Container>
-        <div className="flex flex-col justify-start">
+        <div className="flex flex-col lg:flex-row justify-center">
+          <div className="lg:flex-grow flex justify-center">
+            <div className="w-64 h-full bg-white"></div>
+          </div>
+          <div className="flex-none">
           <h2>コメント</h2>
           <div className={(`my-3 overflow-scroll ${chatstyle.list}`)}>
             <CommentList comments={comments} onDelete={deleteComment} />
@@ -102,6 +106,7 @@ export default function Index({
             />
           </div>
           {completeListActiveElement}
+        </div>
         </div>
       </Container>
     </Layout>

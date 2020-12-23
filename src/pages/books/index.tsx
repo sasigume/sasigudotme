@@ -16,7 +16,7 @@ export default function BookIndex({
   preview, allBooks
 }: HomeProps): ReactElement {
   return (
-    <Layout preview={false} isHome={false}>
+    <Layout preview={false} isBlack={false}>
       <Head>
         <title>Books | {CONST_SITE_NAME}</title>
         <meta name="description" content="本の一覧。"/>

@@ -29,7 +29,6 @@ function Ul(props) {
 export default function AllBooks({
   book,
   preview = false,
-  isHome = false,
 }: AllBooksProps): ReactElement {
 
   const router = useRouter()
@@ -47,7 +46,7 @@ export default function AllBooks({
   )
 
   return (
-    <Layout isHome={isHome} preview={preview}>
+    <Layout isBlack={false} preview={preview}>
       <Head>
         <title>{book.title} | {CONST_SITE_NAME}</title>
         <meta name="description" content={(`${book.dateGet}に${book.bought ? "買った" : "もらった"}本。${book.md}`)} />
