@@ -10,7 +10,7 @@ export default function Layout({ preview, children, isBlack }) {
   return (
     <>
       <Meta />
-      <div id="#" className={cn('max-w-screen overflow-y-scroll min-h-screen flex flex-col',
+      <div id="#" className={cn('overflow-hidden max-w-screen overflow-y-scroll min-h-screen flex flex-col',
         {
           'text-white bg-black': isBlack,
           'text-black bg-sasibg': !isBlack
