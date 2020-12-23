@@ -36,3 +36,4 @@ yarn-error.log*
 
 # rss generated on dev
 /public/rss.xml
+.stylelintrc
