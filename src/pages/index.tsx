@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 
-import { CONST_SITE_NAME, CONST_LEVELS } from '../libs/constants'
-import { SkillApi, Skill, ProfileApi, Profile, BookApi } from '../services'
+import { CONST_SITE_NAME, } from '../libs/constants'
+import { ProfileApi, BookApi } from '../services'
 import { ReactElement } from 'react'
 import { publishRss } from '../services/rss'
 
@@ -111,4 +111,17 @@ export default function Index({
       </Container>
     </Layout>
   );
+}
+
+export const getStaticProps = async () => {
+  const bookApi = new BookApi()
+  const profileApi = new ProfileApi()
+  const allBooks = (await bookApi.fetchBookEntries()) ?? []
+  const allProfiles = (await profileApi.fetchProfileEntries()) ?? []
+  publishRss(allProfiles,allBooks);
+  return {
+    props: {
+      allProfiles
+    },
+  };
 }
