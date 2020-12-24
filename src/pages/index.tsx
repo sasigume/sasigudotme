@@ -1,5 +1,5 @@
 import { CONST_SITE_NAME, CONST_LEVELS} from '../libs/constants'
-import { SkillApi, Skill, ProfileApi, Profile } from '../services'
+import { SkillApi, Skill, ProfileApi, Profile, publishRss, BookApi} from '../services'
 import { ReactElement } from 'react'
 
 import { SkillMenu } from '../components/skill-list'
@@ -44,8 +44,11 @@ export default function Home({
 export const getStaticProps = async () => {
   const skillApi = new SkillApi()
   const profileApi = new ProfileApi()
+  const bookApi = new BookApi()
   const allSkills = (await skillApi.fetchSkillEntries()) ?? []
   const allProfiles = (await profileApi.fetchProfileEntries()) ?? []
+  const allBooks = (await bookApi.fetchBookEntries()) ?? []
+  publishRss(allProfiles,allBooks)
   return {
     props: {
       allSkills,
