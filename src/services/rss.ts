@@ -35,7 +35,7 @@ const generateBookItem = (book: Book): string => {
     <guid>${CONST_SITE_URL}/books/${book.slug}</guid>
     <title>${escapeString(book.title)}</title>
     <link>${CONST_SITE_URL}/books/${book.slug}</link>
-    <pubDate>${new Date(book.dateCreated).toUTCString()}</pubDate>
+    <pubDate>${book.dateGet}</pubDate>
     <summary>${summary}</summary>
 </item>
     `)
