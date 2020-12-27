@@ -1,5 +1,5 @@
 import Container from '../container'
-import { CONST_MYNAME, CONST_REPO_URL} from '../../libs/constants'
+import { CONST_MYNAME, CONST_REPO_URL, CONST_TWITTER_URL} from '../../libs/constants'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Footer() {
@@ -14,10 +14,10 @@ export default function Footer() {
             <FontAwesomeIcon className="w-4 mb-1 mr-1 inline" icon={['fab', 'github']} />View on GitHub
             </a></div>
           <div><a
-            href="/rss.xml"
+            href={CONST_TWITTER_URL} target="_blank"
             className="inline hover:underline"
           >
-            <FontAwesomeIcon className="w-4 mb-1 mr-1 inline" icon={['fas', 'rss']} />RSS
+            <FontAwesomeIcon className="w-4 mb-1 mr-1 inline" icon={['fab', 'twitter']} />Twitter
             </a>
           </div>
           <span className="">&copy; {CONST_MYNAME} 2020</span>

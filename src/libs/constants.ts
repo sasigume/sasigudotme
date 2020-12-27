@@ -5,10 +5,11 @@ export const CONST_MYNAME = "Sasigume"
 export const CONST_SITE_NAME = CONST_MYNAME + "'s Portfolio"
 export const CONST_SITE_URL = "https://" + domain
 export const CONST_BLOG_URL = "https://" + blog + "." + domain
-export const CONST_MESSAGE = "wanna fly"
+export const CONST_MESSAGE = "Student / Web Developer"
 export const CONST_SITE_META = CONST_MYNAME + ", " + CONST_MESSAGE
 export const CONST_REPO_URL = 'https://github.com/sasigume/sasigudotme'
 export const CONST_LAPRAS_URL = 'https://lapras.com/public/NG9RFWQ'
+export const CONST_TWITTER_URL = 'https://twitter.com/sasigume'
 export const CONST_OG_IMAGE_URL = '/ogp_1200x.png'
 
 export const CONST_LEVELS = [
