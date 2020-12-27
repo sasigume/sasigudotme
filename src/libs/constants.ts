@@ -9,6 +9,7 @@ export const CONST_MESSAGE = "Student / Web Developer"
 export const CONST_SITE_META = CONST_MYNAME + ", " + CONST_MESSAGE
 export const CONST_REPO_URL = 'https://github.com/sasigume/sasigudotme'
 export const CONST_LAPRAS_URL = 'https://lapras.com/public/NG9RFWQ'
+export const CONST_TWITTER_URL = 'https://twitter.com/sasigume'
 export const CONST_OG_IMAGE_URL = '/ogp_1200x.png'
 
 export const CONST_LEVELS = [

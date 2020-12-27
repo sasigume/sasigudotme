@@ -30,9 +30,6 @@ export default function Layout({ preview, children }) {
             </section>
             <div className="text-center">
               {children}
-              <div className="text-center mt-8"><a href="#" className="hover:underline">
-                &#8679; BACK TO TOP</a>
-              </div>
             </div>
           </Container>
         </main>
