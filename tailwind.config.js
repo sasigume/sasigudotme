@@ -31,6 +31,11 @@ module.exports = {
       focus: '0 0 0 3px rgba(66, 153, 225, 0.5)',
       none: 'none',
     },
+    borderRadius : {
+      'skill': '1rem',
+      'lg': '5rem',
+      'xl': '8rem'
+    },
     extend: {
       colors: {
         'level-1': '#eeffac',
