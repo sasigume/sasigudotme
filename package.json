@@ -1,6 +1,6 @@
 {
   "name": "sasigudotme",
-  "version": "7.0.1",
+  "version": "7.1.0",
   "private": true,
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
@@ -23,6 +23,8 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-markdown": "^5.0.3",
+    "react-mathjax": "^1.0.1",
+    "remark-math": "^4.0.0",
     "tailwindcss": "^2.0.1"
   },
   "devDependencies": {
