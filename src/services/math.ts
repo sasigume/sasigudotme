@@ -15,7 +15,7 @@ export class MathApi {
     const rawMath = rawData.fields
     return {
       id: rawData.sys.id ?? 1,
-      bun: rawMath.bun ?? '以下の定積分を求めよ',
+      bun: rawMath.bun ?? '以下を計算し答えを求めよ。',
       tex: `$ ` + rawMath.tex + ` $` ?? `$ \int_{1}^{2}(2x-1)^3dx $`,
       syutten: rawMath.syutten ?? 'ニューアクションレジェンド数学II+B',
       level: rawMath.level ?? 2
@@ -26,7 +26,7 @@ export class MathApi {
     return await this.client
       .getEntries({
         content_type: "math",
-        order: "-fields.level"
+        order: "fields.level"
       })
       .then(entries => {
         if (entries && entries.items && entries.items.length > 0) {
