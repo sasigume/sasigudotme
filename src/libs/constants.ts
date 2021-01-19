@@ -9,7 +9,9 @@ export const CONST_MESSAGE = "Student / Web Developer"
 export const CONST_SITE_META = CONST_MYNAME + ", " + CONST_MESSAGE
 export const CONST_REPO_URL = 'https://github.com/sasigume/sasigudotme'
 export const CONST_YOUTUBE_URL = 'https://www.youtube.com/channel/UCBVFh_pGrysolohOzXMGqIA'
-export const CONST_OG_IMAGE_URL = '/ogp_1200x.png'
+
+export const CONST_OG_IMAGE_URL = 'https://og-image.vercel.app/**sasigu**.me.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg&images=https%3A%2F%2Fd21buns5ku92am.cloudfront.net%2F41748%2Fimages%2F347966-contentful-logo-wordmark-dark%2520%25281%2529-4cd185-large-1582664935.png&widths=350&widths=auto&heights=undefined&heights=auto'
+
 
 export const CONST_LEVELS = [
   {
