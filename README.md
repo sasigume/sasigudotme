@@ -1,5 +1,3 @@
-![Screenshot on 12-20-2020](https://github.com/and0ry0/andoryocom/blob/main/screenshots/2020-12-22.png?raw=true)
-
 ## Content models required
 
 * This app  **requires these content models on your Contentful space** to run :
