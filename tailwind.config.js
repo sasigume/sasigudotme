@@ -42,7 +42,7 @@ module.exports = {
         'level-2': '#cbffaa',
         'level-3': '#f1ceff',
         'level-4': '#ffcee2',
-        'sasibg': 'var(--color-sasigume)',
+        'sasibg': 'var(--color-and0ry0)',
         'sasifont': 'var(--color-sasifont)'
       },
       minHeight: {
