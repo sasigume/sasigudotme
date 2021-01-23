@@ -11,7 +11,7 @@ export default function Layout({ preview, children }) {
     <>
       <Meta />
       <div id="#" className={cn('overflow-hidden max-w-screen overflow-y-scroll min-h-screen flex flex-col')}>
-        <main className="lg:mx-40 lg:mt-20 lg:rounded-xl shadow-up flex flex-grow items-center">
+        <main className="lg:mx-40 lg:mt-20 lg:rounded-8 shadow-up flex flex-grow items-center">
           <Container>
             <section className="flex justify-center items-center text-center flex-col mb-8">
               <Link href="/">

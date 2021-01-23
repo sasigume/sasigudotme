@@ -33,8 +33,9 @@ module.exports = {
     },
     borderRadius : {
       'skill': '1rem',
-      'lg': '5rem',
-      'xl': '8rem'
+      'lg': '2rem',
+      '5': '5rem',
+      '8': '8rem'
     },
     extend: {
       colors: {

@@ -31,7 +31,6 @@ export class MathApi {
       .then(entries => {
         if (entries && entries.items && entries.items.length > 0) {
           const maths = entries.items.map(entry => this.convertMath(entry));
-          console.log(maths)
           return maths;
         }
         return [];
