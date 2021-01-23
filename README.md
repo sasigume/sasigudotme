@@ -1,3 +1,5 @@
+![Screenshot on 1-23-2021](https://github.com/and0ry0/andoryocom/blob/main/screenshots/2021-1-23.png?raw=true)
+
 ## Content models required
 
 * This app  **requires these content models on your Contentful space** to run :
@@ -6,11 +8,6 @@
 * Note that PostCSS purge is ignoring 'bg-level-(1~4)' to display book level.
 
 ## Thanks
-
-### Base Templete
-
-Tthis repository is based on the awesome example below; A very helpful guide included!
-https://github.com/vercel/next.js/tree/canary/examples/cms-contentful
 
 ### Math
 
