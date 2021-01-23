@@ -34,20 +34,19 @@ function MarkdownRender(props) {
 
 
 export function Question({i, bun, tex, syutten, level }: Qprops) {
-  console.log(tex)
   return (
-    <div className={(`overflow-hidden w-auto text-left shadow-lg mr-2 my-2 no-underline p-3`)}>
+    <div className={(`overflow-hidden w-auto text-left rounded-lg shadow-lg mr-2 my-2 no-underline p-6`)}>
       <h2 className="text-xl font-bold mb-4">
       <FontAwesomeIcon className="w-5 mr-2 mb-1 inline" icon={['fas', 'check-square']} />
       問題{i}</h2>
       
-      <p className="mb-4">{bun}</p>
-      <p className="text-xl">
+      <div className="mb-4">{bun}</div>
+      <div className="text-xl">
         <MarkdownRender source={tex} />
-      </p>
+      </div>
 
       <hr className="border-gray-400 my-3" />
-      <p>出典: {syutten} / 難易度: {level}</p>
+      <div>出典: {syutten} / 難易度: {level}</div>
     </div>
   )
 };
