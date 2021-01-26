@@ -1,6 +1,6 @@
 {
   "name": "andoryocom",
-  "version": "7.5.7",
+  "version": "7.5.8",
   "private": true,
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
@@ -14,7 +14,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.13",
-    "@sendgrid/mail": "^7.4.2",
     "autoprefixer": "^10.0.4",
     "classnames": "^2.2.6",
     "contentful": "^8.0.3",
