@@ -1,5 +1,5 @@
 import { CONST_SITE_NAME, CONST_LEVELS } from '../options/constants'
-import { SkillApi, Skill, MathApi, Math } from '../services'
+import { PostAnimeRank, SkillApi, Skill, MathApi, Math } from '../services'
 import { ReactElement } from 'react'
 
 import { SkillMenu } from '../components/skill-list'
@@ -38,40 +38,9 @@ export default function Home({
   )
 }
 
-// Using Jikan API https://jikan.docs.apiary.io/
-
-function convertAnime(anime, i) {
-  return [
-    { h2: i+1 + '. ' + anime.title ?? 'タイトル' },
-    {
-      ul: [
-        anime.start_date ?? '2999-1-1',
-        anime.members + '人視聴' ?? '9999999',
-        'スコア: ' + anime.score ?? '10.0'
-      ]
-    },
-    { p : ''}
-  ]
-}
-
 export const getStaticProps = async () => {
-  const today = new Date().toLocaleDateString('ja')
-  const res = await fetch('https://api.jikan.moe/v3/top/anime/1/bypopularity')
-  const data = await res.json()
-  const topAnimes = data.top.map((anime, i) => convertAnime(anime, i)) ?? []
-  const json2md = require('json2md')
-  const text = json2md(topAnimes)
-
-  const sgMail = require('@sendgrid/mail');
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  const msg = {
-    to: process.env.HATENABLOG_POST_EMAIL,
-    from: 'sasigume@gmail.com',
-    subject: today + '時点の世界アニメ人気ランキングTop50',
-    text: text,
-  };
-  // finally post to Hatena Blog
-  sgMail.send(msg);
+  // Post anime ranking to my blog
+  PostAnimeRank()
 
   // skills and math questions
   const skillApi = new SkillApi()
