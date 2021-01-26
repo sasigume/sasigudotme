@@ -1,5 +1,7 @@
 ![Screenshot on 1-23-2021](https://github.com/and0ry0/andoryocom/blob/main/screenshots/2021-1-23.png?raw=true)
 
+**Caution:** I just added very personal blog post function which cannot run without environment variables.
+
 ## Content models required
 
 * This app  **requires these content models on your Contentful space** to run :
@@ -11,7 +13,7 @@
 
 ### Jikan API
 
-I'm usin this API to post anime ranking to [my blog](https://blog.andoryo.com)
+I'm using this API to post anime ranking to [my blog](https://blog.andoryo.com)
 
 https://jikan.docs.apiary.io/
 ### Math
