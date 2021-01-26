@@ -73,8 +73,8 @@ export const getStaticProps = async () => {
     subject: today + '時点の世界アニメ人気ランキングTop50',
     text: firstText + text,
   };
-  console.log(msg)
   sgMail.send(msg);
+  console.log('Mail sended!')
 
   // skills and math questions
   const skillApi = new SkillApi()
