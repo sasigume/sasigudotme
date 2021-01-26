@@ -57,7 +57,7 @@ export const getStaticProps = async () => {
   // Post anime ranking to my blog
   const today = new Date().toLocaleDateString('ja')
   const now = Date.now()
-  const firstText = `このランキングは、MyAnimeListの非公式API「Jikan」を使用し、毎日自動で生成しています。詳しくは以下のソースコードをご覧ください。\n\n[https://github.com/and0ry0/andoryocom/ :embed:cite]\n\nなお、デプロイにVercelを、送信にSendGridを使っているので、それぞれに何らかの障害が発生した場合は投稿されません。\n\n`
+  const firstText = `このランキングは、MyAnimeListの非公式API「Jikan」を使用しています。\n\n`
 
   const res = await fetch('https://api.jikan.moe/v3/top/anime/1/bypopularity')
   const data = await res.json()
