@@ -2,7 +2,7 @@ import Footer from './footer'
 import Meta from './meta'
 import Link from 'next/link'
 import cn from 'classnames'
-import { CONST_MYNAME, CONST_MESSAGE } from '../../libs/constants'
+import { CONST_MYNAME, CONST_MESSAGE } from '../../options/constants'
 import Container from 'components/container'
 
 export default function Layout({ preview, children }) {

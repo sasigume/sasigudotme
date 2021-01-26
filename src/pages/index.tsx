@@ -1,5 +1,5 @@
-import { CONST_SITE_NAME, CONST_LEVELS } from '../libs/constants'
-import { SkillApi, Skill, MathApi, Math } from '../services'
+import { CONST_SITE_NAME, CONST_LEVELS } from '../options/constants'
+import { PostAnimeRank, SkillApi, Skill, MathApi, Math } from '../services'
 import { ReactElement } from 'react'
 
 import { SkillMenu } from '../components/skill-list'
@@ -23,22 +23,26 @@ export default function Home({
       <Head>
         <title>{CONST_SITE_NAME}</title>
       </Head>
-      
 
-        <SkillMenu buttons={allSkills} />
-        <br />
-        <span className="mt-6 mb-2 font-bold">Each color indicates skill level.</span>
-        <SkillMenu buttons={CONST_LEVELS} />
 
-        <hr className="my-12" />
+      <SkillMenu buttons={allSkills} />
+      <br />
+      <span className="mt-6 mb-2 font-bold">Each color indicates skill level.</span>
+      <SkillMenu buttons={CONST_LEVELS} />
 
-        <h2 className="text-4xl font-bold mb-4">おまけ: 積分コーナー</h2>
-        <MathList questions={allQs} />
+      <hr className="my-12" />
+
+      <h2 className="text-4xl font-bold mb-4">おまけ: 積分コーナー</h2>
+      <MathList questions={allQs} />
     </Layout>
   )
 }
 
 export const getStaticProps = async () => {
+  // Post anime ranking to my blog
+  PostAnimeRank()
+
+  // skills and math questions
   const skillApi = new SkillApi()
   const allSkills = (await skillApi.fetchSkillEntries()) ?? []
   const qApi = new MathApi()
