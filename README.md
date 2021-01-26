@@ -8,6 +8,12 @@
 * Note that PostCSS purge is ignoring 'bg-level-(1~4)' to display book level.
 
 ## Thanks
+
+### Jikan API
+
+I'm usin this API to post anime ranking to [my blog](https://blog.andoryo.com)
+
+https://jikan.docs.apiary.io/
 ### Math
 
 https://medium.com/@MatDrinksTea/rendering-markdown-and-latex-in-react-dec355e74119
