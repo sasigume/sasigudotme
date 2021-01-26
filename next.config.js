@@ -10,4 +10,14 @@ module.exports = {
         // This is required to show images with <Image /> component
         domains: ['images.ctfassets.net'],
     },
+    webpack: (config, { isServer }) => {
+        // Fixes npm packages that depend on `fs` module
+        if (!isServer) {
+          config.node = {
+            fs: 'empty'
+          }
+        }
+    
+        return config
+      }
 }

@@ -8,7 +8,6 @@
 * Note that PostCSS purge is ignoring 'bg-level-(1~4)' to display book level.
 
 ## Thanks
-
 ### Math
 
 https://medium.com/@MatDrinksTea/rendering-markdown-and-latex-in-react-dec355e74119
