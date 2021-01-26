@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {CONST_SITE_META, CONST_OG_IMAGE_URL, CONST_SITE_URL, } from '../../libs/constants'
+import {CONST_SITE_META, CONST_OG_IMAGE_URL, CONST_SITE_URL, } from '../../options/constants'
 
 
 export default function Meta() {

@@ -1,5 +1,5 @@
 import Container from '../container'
-import { CONST_MYNAME, CONST_REPO_URL, CONST_BLOG_URL, CONST_YOUTUBE_URL} from '../../libs/constants'
+import { CONST_MYNAME, CONST_REPO_URL, CONST_BLOG_URL, CONST_YOUTUBE_URL} from '../../options/constants'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Footer() {
