@@ -69,7 +69,7 @@ export const getStaticProps = async () => {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
     to: process.env.HATENABLOG_POST_EMAIL,
-    from: 'sasigume@gmail.com',
+    from: 'sendgrid@andoryo.com ',
     subject: today + '時点の世界アニメ人気ランキングTop50',
     text: firstText + text,
   };
