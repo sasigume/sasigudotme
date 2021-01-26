@@ -65,13 +65,15 @@ export const getStaticProps = async () => {
   const sgMail = require('@sendgrid/mail');
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
-    to: 'sasigume@gmail.com',
+    to: process.env.HATENABLOG_POST_EMAIL,
     from: 'sasigume@gmail.com',
     subject: today + '時点の世界アニメ人気ランキングTop50',
     text: text,
   };
+  // finally post to Hatena Blog
   sgMail.send(msg);
 
+  // skills and math questions
   const skillApi = new SkillApi()
   const allSkills = (await skillApi.fetchSkillEntries()) ?? []
   const qApi = new MathApi()

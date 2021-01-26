@@ -4,7 +4,8 @@ module.exports = {
         CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
         CONTENTFUL_PREVIEW_ACCESS_TOKEN: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
         CONTENTFUL_PREVIEW_SECRET: process.env.CONTENTFUL_PREVIEW_SECRET,
-        SENDGRID_API_KEY: process.env.SENDGRID_API_KEY
+        SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
+        HATENABLOG_POST_EMAIL: process.env.HATENABLOG_POST_EMAIL
     },
     images: {
         // This is required to show images with <Image /> component
