@@ -3,5 +3,6 @@ export type Skill = {
   label: string,
   iconStyle: string,
   iconName: string,
-  level: number
+  level: number,
+  slot: string
 };

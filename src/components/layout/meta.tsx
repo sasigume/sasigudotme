@@ -1,10 +1,11 @@
 import Head from 'next/head'
-import {CONST_SITE_META, CONST_OG_IMAGE_URL, CONST_SITE_URL, } from '../../options/constants'
+import {CONST_SITE_NAME,CONST_SITE_META, CONST_OG_IMAGE_URL, CONST_SITE_URL, } from '../../options/constants'
 
 
 export default function Meta() {
   return (
     <Head>
+      <title>{CONST_SITE_NAME}</title>
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

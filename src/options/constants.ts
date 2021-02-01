@@ -20,27 +20,31 @@ export const CONST_LEVELS = [
     label: "Expert",
     iconStyle: "fas",
     iconName: "grin-hearts",
-    level: 4
+    level: 4,
+    slot: undefined
   },
   {
     id: "default3",
     label: "Advanced",
     iconStyle: "fas",
     iconName: "grin-beam",
-    level: 3
+    level: 3,
+    slot: undefined
   },
   {
     id: "default2",
     label: "Intermediate",
     iconStyle: "fas",
     iconName: "smile",
-    level: 2
+    level: 2,
+    slot: undefined
   },
   {
     id: "default1",
     label: "Novice",
     iconStyle: "fas",
     iconName: "dizzy",
-    level: 1
+    level: 1,
+    slot: undefined
   }
 ]

@@ -36,7 +36,7 @@ export const Tooltip = (props) => {
     >
       {props.children}
       {active && (
-        <div className={`${direction} absolute bg-gray-700 p-3 text-left uppercase font-bold`}>
+        <div className={`${direction} z-30 shadow-lg absolute bg-gray-700 p-3 text-left uppercase font-bold`}>
           {/* Content */}
           {props.content}
         </div>

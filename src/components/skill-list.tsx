@@ -21,7 +21,7 @@ type SkillMenuProps = {
 
 export function SkillMenu({ direction, buttons }:SkillMenuProps) {
   return (
-    <div className="flex flex-wrap justify-end">
+    <div className="flex flex-wrap">
       {buttons.map((button) => (
         <SkillButton
           direction={direction}
