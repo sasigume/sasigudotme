@@ -16,24 +16,28 @@ export const CONST_OG_IMAGE_URL = 'https://og-image.vercel.app/**andoryo**.com.p
 
 export const CONST_LEVELS = [
   {
+    id: "default4",
     label: "Expert",
     iconStyle: "fas",
     iconName: "grin-hearts",
     level: 4
   },
   {
-      label: "Advanced",
-      iconStyle: "fas",
-      iconName: "grin-beam",
-      level: 3
+    id: "default3",
+    label: "Advanced",
+    iconStyle: "fas",
+    iconName: "grin-beam",
+    level: 3
   },
   {
+    id: "default2",
     label: "Intermediate",
     iconStyle: "fas",
     iconName: "smile",
     level: 2
   },
   {
+    id: "default1",
     label: "Novice",
     iconStyle: "fas",
     iconName: "dizzy",

@@ -25,7 +25,6 @@ export default function Footer() {
         <FontAwesomeIcon className="w-4 mr-1 inline" icon={['fas', 'pen']} />Hatena Blog
             </a>
       </div>
-      <span className="md:col-span-3">&copy; {CONST_MYNAME} 2021</span>
     </footer>
   )
 }
