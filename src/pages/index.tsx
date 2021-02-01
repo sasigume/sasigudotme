@@ -26,7 +26,7 @@ export default function Home({
 
       <SkillMenu buttons={allSkills} />
       <br />
-      <span className="mt-6 mb-2 font-bold">Each color indicates skill level.</span>
+      <div className="text-right mt-6 mb-2 font-bold">Each color indicates skill level.</div>
       <SkillMenu buttons={CONST_LEVELS} />
     </Layout>
   )

@@ -2,15 +2,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export function SkillButton({label, iconStyle, iconName, level}) {
   return (
-      <div className={(`shadow-lg inline-block font-bold mr-2 my-2 no-underline pt-3 pb-2 px-4 rounded-skill ${"bg-level-" + level}`)}>
-      <FontAwesomeIcon className="w-5 mr-2 mb-1 inline" icon={[iconStyle, iconName]}/>{label}
+      <div className={(`w-20 h-20 flex justify-center align-middle items-center shadow-lg font-bold ml-4 my-2 no-underline ${"bg-level-" + level}`)}>
+      <FontAwesomeIcon className="text-icon" icon={[iconStyle, iconName]}/>
       </div>
     )
 };
 
 export function SkillMenu({buttons}) {
   return (
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-end">
       {buttons.map((button) => (
         <SkillButton
         key={button.label}
