@@ -1,6 +1,4 @@
-![Screenshot on 1-23-2021](https://github.com/and0ry0/andoryocom/blob/main/screenshots/2021-1-23.png?raw=true)
-
-**Caution:** I just added very personal blog post function which cannot run without environment variables.
+![Screenshot on 2-1-2021](https://github.com/and0ry0/andoryocom/blob/main/screenshots/2021-2-1.png?raw=true)
 
 ## Content models required
 
@@ -10,12 +8,9 @@
 * Note that PostCSS purge is ignoring 'bg-level-(1~4)' to display book level.
 
 ## Thanks
+### react-spring
 
-### Jikan API
+https://codesandbox.io/embed/r5x34869vq
+### Tooltip
 
-I'm using this API to post anime ranking to [my blog](https://blog.andoryo.com)
-
-https://jikan.docs.apiary.io/
-### Math
-
-https://medium.com/@MatDrinksTea/rendering-markdown-and-latex-in-react-dec355e74119
+https://dev.to/vtrpldn/how-to-make-an-extremely-reusable-tooltip-component-with-react-and-nothing-else-3pnk
