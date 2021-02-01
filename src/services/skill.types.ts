@@ -4,5 +4,10 @@ export type Skill = {
   iconStyle: string,
   iconName: string,
   level: number,
-  slot: string
+  slot: string,
+  type: string,
+  power: number,
+  start: string,
+  lastUsed: string,
+  description: string
 };

@@ -1,4 +1,3 @@
-import { CONST_LEVELS } from '../options/constants'
 import { SkillApi, Skill } from '../services'
 import { ReactElement } from 'react'
 
@@ -25,7 +24,7 @@ export default function Inventory({
       <Head>
         <title>Inventory | {CONST_SITE_NAME}</title>
       </Head>
-      <SkillMenu direction="bottom" buttons={allSkills} />
+      <SkillMenu buttons={allSkills} />
     </Layout>
   )
 }

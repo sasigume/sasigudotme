@@ -1,4 +1,4 @@
-import { CONST_LEVELS, CONST_CHARACTER_IMAGE} from '../options/constants'
+import { CONST_CHARACTER_IMAGE } from '../options/constants'
 import { SkillApi, Skill } from '../services'
 import { ReactElement } from 'react'
 import Image from 'next/image'
@@ -20,22 +20,38 @@ export default function Home({
   sortedSkills
 }: HomeProps): ReactElement {
 
+  let powerArray: number[] = [100, 100, 100, 100]
+  let totalPower: number
+  if (sortedSkills.head && sortedSkills.arm && sortedSkills.body && sortedSkills.leg) {
+    powerArray = [sortedSkills.head[0].power, sortedSkills.arm[0].power, sortedSkills.body[0].power, sortedSkills.leg[0].power]
+    totalPower = powerArray.reduce((a, b) => a + b, 0)
+  }
+
   return (
     <Layout page="index" preview={false}>
       <div className="flex items-center justify-around">
         <div className="">
-          <SkillMenu direction="bottom" buttons={sortedSkills.weapon1 ? sortedSkills.weapon1.slice(0, 1) : []} />
-          <SkillMenu direction="bottom" buttons={sortedSkills.weapon2 ? sortedSkills.weapon2.slice(0, 1) : []} />
-          <SkillMenu direction="bottom" buttons={sortedSkills.weapon3 ? sortedSkills.weapon3.slice(0, 1) : []} />
-          <SkillMenu direction="bottom" buttons={sortedSkills.weapon4 ? sortedSkills.weapon4.slice(0, 1) : []} />
+          <SkillMenu buttons={sortedSkills.weapon1 ? sortedSkills.weapon1.slice(0, 1) : []} />
+          <SkillMenu buttons={sortedSkills.weapon2 ? sortedSkills.weapon2.slice(0, 1) : []} />
+          <SkillMenu buttons={sortedSkills.weapon3 ? sortedSkills.weapon3.slice(0, 1) : []} />
+          <SkillMenu buttons={sortedSkills.weapon4 ? sortedSkills.weapon4.slice(0, 1) : []} />
         </div>
-        <div className="w-64">
-          <Image layout="responsive" width={500} height={800} src={CONST_CHARACTER_IMAGE} className="" />
+        <div className="w-60 ml-6">
+          <Image layout="responsive" width={250} height={400} src={CONST_CHARACTER_IMAGE} className="" />
+        </div>
+        <div className="mt-5 self-start text-xl font-bold text-blue-200">
+          <div>POWER</div>
+          <div className="text-5xl">
+            {totalPower}
+          </div>
+        </div>
+        <div className="">
+          <SkillMenu buttons={sortedSkills.head ? sortedSkills.head.slice(0, 1) : []} />
+          <SkillMenu buttons={sortedSkills.arm ? sortedSkills.arm.slice(0, 1) : []} />
+          <SkillMenu buttons={sortedSkills.body ? sortedSkills.body.slice(0, 1) : []} />
+          <SkillMenu buttons={sortedSkills.leg ? sortedSkills.leg.slice(0, 1) : []} />
         </div>
       </div>
-      <br />
-      <div className="my-6 mb-2 font-bold">Each color indicates skill level.</div>
-      <SkillMenu direction="bottom" buttons={CONST_LEVELS} />
     </Layout>
   )
 }
