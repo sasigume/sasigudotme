@@ -1,6 +1,6 @@
 {
   "name": "andoryocom",
-  "version": "7.6.0",
+  "version": "7.7.1",
   "private": true,
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
@@ -19,13 +19,13 @@
     "contentful": "^8.0.3",
     "date-fns": "^2.16.1",
     "json2md": "^1.9.2",
+    "moment": "^2.29.1",
     "next": "10.0.3",
     "postcss": "^8.1.14",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-markdown": "^5.0.3",
-    "react-mathjax": "^1.0.1",
-    "remark-math": "^4.0.0",
+    "react-spring": "^8.0.27",
     "tailwindcss": "^2.0.1"
   },
   "devDependencies": {

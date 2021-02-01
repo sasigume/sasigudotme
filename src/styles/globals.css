@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --color-and0ry0: #f7fcff;
-  --color-sasifont: #00062b;
+  --color-globalfont: #ffffff;
+  --color-globalbg: #39393B;
 }
 
 @layer base {
@@ -15,8 +15,8 @@
     margin          : 0;
     font-family     : -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-weight     : 300;
-    color           : var(--color-sasifont);
-    background-color: #fff;
+    color           : var(--color-globalfont);
+    background-color: var(--color-globalbg)
   }
 
   a {
@@ -28,14 +28,13 @@
   strong {
     font-weight: bold;
   }
+
+  .will-change-transform {
+    will-change: transform;
+  }
 }
 
-.mjx-chtml{
-  white-space: break-spaces!important;
-}
-.MJXc-TeX-unknown-R {
-  font-family     : -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif!important;
-}
+
 
 
 * {

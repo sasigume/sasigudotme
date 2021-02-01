@@ -1,39 +1,33 @@
-import { CONST_SITE_NAME, CONST_LEVELS } from '../options/constants'
-import { SkillApi, Skill, MathApi, Math } from '../services'
+import { CONST_LEVELS } from '../options/constants'
+import { SkillApi, Skill } from '../services'
 import { ReactElement } from 'react'
 
-import { SkillMenu } from '../components/skill-list'
-import { MathList } from '../components/math-list'
-import Layout from '../components/layout'
+import { CONST_SITE_NAME } from '../options/constants'
+
 import Head from 'next/head'
+
+import { SkillMenu } from '../components/skill-list'
+import Layout from '../components/layout'
 
 type HomeProps = {
   preview: boolean,
   allSkills: Skill[],
-  allQs: Math[]
 }
 
 export default function Home({
   preview,
   allSkills,
-  allQs
 }: HomeProps): ReactElement {
   return (
-    <Layout preview={false}>
+    <Layout page="index" preview={false}>
+      <div dangerouslySetInnerHTML={{ __html: "<!-- This design is just parody of Destiny2 UI. Original Design Material : https://www.behance.net/gallery/60073341/Destiny-2-UI-Visual-Design -->" }} />
       <Head>
         <title>{CONST_SITE_NAME}</title>
       </Head>
-
-
-      <SkillMenu buttons={allSkills} />
+      <SkillMenu direction="bottom" buttons={allSkills} />
       <br />
-      <span className="mt-6 mb-2 font-bold">Each color indicates skill level.</span>
-      <SkillMenu buttons={CONST_LEVELS} />
-
-      <hr className="my-12" />
-
-      <h2 className="text-4xl font-bold mb-4">おまけ: 積分コーナー</h2>
-      <MathList questions={allQs} />
+      <div className="text-right mt-6 mb-2 font-bold">Each color indicates skill level.</div>
+      <SkillMenu direction="top" buttons={CONST_LEVELS} />
     </Layout>
   )
 }
@@ -42,12 +36,9 @@ export const getStaticProps = async () => {
   // skills and math questions
   const skillApi = new SkillApi()
   const allSkills = (await skillApi.fetchSkillEntries()) ?? []
-  const qApi = new MathApi()
-  const allQs = (await qApi.fetchMathEntries()) ?? []
   return {
     props: {
       allSkills,
-      allQs
     },
   };
 }

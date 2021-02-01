@@ -39,12 +39,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        'level-1': '#eeffac',
-        'level-2': '#cbffaa',
-        'level-3': '#f1ceff',
-        'level-4': '#ffcee2',
-        'sasibg': 'var(--color-and0ry0)',
-        'sasifont': 'var(--color-sasifont)'
+        'level-1': '#43864C', // UNCOMMON
+        'level-2': '#5177A4', // RARE
+        'level-3': '#2A1B34', // LEGENDARY
+        'level-4': '#CEAE33', // EXOTIC
+        'globalbg': 'var(--color-globalbg)',
+        'globalfont': 'var(--color-globalfont)'
       },
       minHeight: {
         '0': '0',
@@ -64,6 +64,7 @@ module.exports = {
         '6xl': '3.75rem',
         '7xl': '4.5rem',
         '8xl': '6.25rem',
+        'icon': '3.4rem'
       },
       boxShadow: {
         small: '0 5px 10px rgba(0, 0, 0, 0.12)',

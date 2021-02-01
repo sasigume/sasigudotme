@@ -1,25 +1,37 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export function SkillButton({label, iconStyle, iconName, level}) {
+import Tooltip from './tooltip'
+import {Skill} from '../services'
+
+export function SkillButton({ direction, label, iconStyle, iconName, level }) {
+
   return (
-      <div className={(`shadow-lg inline-block font-bold mr-2 my-2 no-underline pt-3 pb-2 px-4 rounded-skill ${"bg-level-" + level}`)}>
-      <FontAwesomeIcon className="w-5 mr-2 mb-1 inline" icon={[iconStyle, iconName]}/>{label}
+    <Tooltip content={label} direction={direction}>
+      <div className={(`w-20 h-20 flex justify-center align-middle items-center shadow-lg font-bold ml-4 my-2 no-underline ${"bg-level-" + level}`)}>
+        <FontAwesomeIcon className="p-3" icon={[iconStyle, iconName]} />
       </div>
-    )
+    </Tooltip >
+  )
 };
 
-export function SkillMenu({buttons}) {
+type SkillMenuProps = {
+  direction: string,
+  buttons: Skill[]
+}
+
+export function SkillMenu({ direction, buttons }:SkillMenuProps) {
   return (
-      <div className="flex flex-wrap justify-center">
+    <div className="flex flex-wrap justify-end">
       {buttons.map((button) => (
         <SkillButton
-        key={button.label}
-        iconStyle={button.iconStyle}
-        iconName={button.iconName}
-        label={button.label}
-        level={button.level}
-      />
+          direction={direction}
+          key={button.label}
+          iconStyle={button.iconStyle}
+          iconName={button.iconName}
+          label={button.label}
+          level={button.level}
+        />
       ))}
-      </div>
-    )
+    </div>
+  )
 };
