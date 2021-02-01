@@ -11,17 +11,19 @@ import { useSpring, animated, interpolate } from 'react-spring'
 export default function Layout({ preview, children }) {
   // https://codesandbox.io/embed/r5x34869vq
   // https://codesandbox.io/embed/r5x34869vq
-  const [props, set] = useSpring<{ x: number, y: number }>(() => ({ x: 0, y: 0, config: { mass: 10, tension: 550, friction: 140 } }))
-  const onMove = useCallback(({ clientX: x, clientY: y }) => set({ x: x - window.innerWidth / 2, y: y - window.innerHeight / 2 }), [])
-  const transX1 = (x) => `translateX(${x / 15}px)`
-  const transY1 = (y) => `translateY(${y / 10}px)`
+  const [props, set] = useSpring<{ x: number, y: number , xy:number[]}>(() => ({ xy:[0,0], x: 0, y: 0, config: { mass: 10, tension: 550, friction: 140 } }))
+  const onMove = useCallback(({ clientX: x, clientY: y }) => set({ xy: [x - window.innerWidth / 2, y - window.innerHeight / 2]}), [])
+  const trans1 = interpolate(props.xy, (x,y) => `translate3d(${x / 30}px, ${y / 20}px, 0)`)
+  const trans2 = interpolate(props.xy, (x,y) => `translate3d(${x / 12.5}px, ${y / 10}px, 0)`)
+  const trans3 = interpolate(props.xy, (x,y) => `translate3d(${x / 7}px, ${y / 5}px, 0)`)
   return (
     <>
       <Meta />
-      <div id="#" onMouseMove={onMove} className={cn('overflow-hidden max-w-screen overflow-y-scroll min-h-screen')}>
-        <animated.div style={{ transform: props.x.interpolate(transX1) }} className="spring_trans flex items-center flex-grow">
-          <animated.div style={{ transform: props.y.interpolate(transY1)}} className="spring_trans lg:mx-40 lg:mt-20 lg:rounded-8 flex flex-grow items-center">
-            <Container>
+      <div id="#" onMouseMove={onMove} className={cn('bg-gray-200 overflow-hidden w-screen h-screen')}>
+        <animated.div style={{ transform: trans1 }} className="will-change-transform flex items-center flex-grow">
+          <animated.div style={{ transform: trans2 }} className="bg-blue-100 will-change-transform lg:mx-40 lg:mt-20 w-full h-full flex items-center">
+            <div className="m-3 text-gray-600">&copy; 2020 {CONST_MYNAME}</div>
+            <animated.div style={{ transform: trans3 }} className="will-change-transform">
               <section className="flex justify-center items-center text-center flex-col mb-8">
                 <Link href="/">
                   <a>
@@ -40,10 +42,10 @@ export default function Layout({ preview, children }) {
               <div>
                 {children}
               </div>
-            </Container>
+            </animated.div>
+            <Footer />
           </animated.div>
         </animated.div>
-        <Footer />
       </div>
     </>
   )
