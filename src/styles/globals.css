@@ -16,11 +16,10 @@
     font-family     : -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-weight     : 300;
     color           : var(--color-globalfont);
-    background-color: var(--color-globalbg)
+    background-color: var(--color-globalbg);
   }
 
   a {
-    color          : inherit;
     text-decoration: none;
   }
 

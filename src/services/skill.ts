@@ -18,7 +18,8 @@ export class SkillApi {
       label: rawSkill.label,
       iconStyle: rawSkill.iconStyle ? rawSkill.iconStyle : 'fas',
       iconName: rawSkill.iconName ? rawSkill.iconName : 'check-square',
-      level: rawSkill.level
+      level: rawSkill.level,
+      slot: rawSkill.slot ?? null
     };
   };
 
