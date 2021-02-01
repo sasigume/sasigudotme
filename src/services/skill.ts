@@ -1,4 +1,5 @@
 import { ContentfulClientApi, createClient } from "contentful";
+import { stringify } from "postcss";
 import { Skill } from "./skill.types";
 
 export class SkillApi {
@@ -19,7 +20,12 @@ export class SkillApi {
       iconStyle: rawSkill.iconStyle ? rawSkill.iconStyle : 'fas',
       iconName: rawSkill.iconName ? rawSkill.iconName : 'check-square',
       level: rawSkill.level,
-      slot: rawSkill.slot ?? null
+      slot: rawSkill.slot ?? null,
+      type: rawSkill.type ?? 'other',
+      power: rawSkill.power ?? 100,
+      start: rawSkill.start ?? '2016',
+      lastUsed: rawSkill.lastUsed ?? '2021',
+      description: rawSkill.description ?? 'ここに説明を入力'
     };
   };
 
