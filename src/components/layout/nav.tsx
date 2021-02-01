@@ -17,7 +17,7 @@ export default function Nav({ page }: NavProps) {
   const linkClass = "transition duration-200 hover:text-white flex justify-center h-20 relative items-center"
 
   return (
-    <section className="w-screen lg:fixed top-0 left-0 z-20 bg-green-900 uppercase px-10 flex justify-between items-center flex-row">
+    <section className="h-20 w-screen lg:fixed top-0 left-0 z-20 bg-green-900 uppercase px-10 flex justify-between items-center flex-row">
       <div className="flex flex-row font-bold">
         <Link href="/">
           <a className="block w-16 mr-4 p-2">
@@ -32,7 +32,7 @@ export default function Nav({ page }: NavProps) {
           </div>
         </div>
       </div>
-      <nav className="text-lg grid grid-cols-2 gap-x-4">
+      <nav className="hidden text-lg sm:grid grid-cols-2 gap-x-4">
         <Link href="/">
           <a className={cn(linkClass,{
               "text-gray-400" : page !== 'index',

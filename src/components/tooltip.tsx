@@ -19,12 +19,12 @@ export const Tooltip = (props) => {
 
   let direction
   if (props.direction == 'top') {
-    direction = "-top-4"
+    direction = "-top-6"
   } if (props.direction == 'bottom') {
-    direction = "-bottom-4"
+    direction = "-bottom-6"
   }
   else {
-    direction = "-top-4"
+    direction = "-top-6"
   }
 
 
@@ -36,7 +36,7 @@ export const Tooltip = (props) => {
     >
       {props.children}
       {active && (
-        <div className={`${direction} z-30 shadow-lg absolute bg-gray-700 p-3 text-left uppercase font-bold`}>
+        <div className={`${direction} z-30 whitespace-nowrap shadow-lg absolute bg-gray-700 p-3 text-left uppercase font-bold`}>
           {/* Content */}
           {props.content}
         </div>
