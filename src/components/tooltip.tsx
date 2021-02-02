@@ -30,7 +30,7 @@ export const Tooltip = (props) => {
     >
       {props.children}
       {active && (
-        <div className="border-t border-white left-10 -bottom-30 z-30 whitespace-nowrap shadow-xl absolute bg-gray-900 text-left">
+        <div className="border-t border-white left-10 -bottom-30 z-30 w-64 shadow-xl absolute bg-gray-900 text-left">
           <div className={(`py-2 px-3 text-xl ${"bg-level-" + props.level}`)}>
             <div className="font-bold">{props.label}</div>
             <div className="uppercase">LEVEL {props.level} {props.type}</div>
@@ -46,9 +46,9 @@ export const Tooltip = (props) => {
           </div>
           <div className="pt-1 pb-3 px-3">
             <div>START</div>
-            {props.start}
+            <div className="text-gray-300">{props.start}</div>
             <div>LAST USED</div>
-            {props.lastUsed}
+            <div className="text-gray-300">{props.lastUsed}</div>
           </div>
         </div>
       )}
