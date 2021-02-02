@@ -7,8 +7,8 @@ export function SkillButton({ label, iconStyle, iconName, level, type, power, de
 
   return (
     <Tooltip label={label} level={level} type={type} power={power} description={description} start={start} lastUsed={lastUsed}>
-      <div className={(`w-20 h-20 flex justify-center align-middle items-center shadow-lg ml-4 my-2 no-underline ${"bg-level-" + level}`)}>
-        <FontAwesomeIcon className="p-3" icon={[iconStyle, iconName]} />
+      <div className={(`p-2 flex justify-center align-middle items-center shadow-lg ml-4 my-2 no-underline ${"bg-level-" + level}`)}>
+        <FontAwesomeIcon className="w-16 h-16" icon={[iconStyle, iconName]} />
       </div>
     </Tooltip >
   )
