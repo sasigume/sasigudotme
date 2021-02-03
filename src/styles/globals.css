@@ -3,9 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --color-globalfont: #ffffff;
-  --color-globalbg: #616161;
-  --color-globalbg2:rgb(41, 41, 41)1;
+  --color-globalfont: #000;
+  --color-globalbg: #fff;
+  --color-globalbg2:#eee;
+
+  --color-level1: #4b4b4b;
+  --color-level2: #006188;
+  --color-level3: #6e008a;
+  --color-level4: #bbae00;
 }
 
 @layer base {

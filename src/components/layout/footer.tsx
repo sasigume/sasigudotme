@@ -41,7 +41,7 @@ const FooterLinkList = [
 
 export default function Footer() {
   return (
-    <footer className="z-0 bg-gray-800 w-screen fixed bottom-0 left-0 py-4 px-10 lg:px-40 flex flex-col md:flex-row items-center justify-between">
+    <footer className="z-20 bg-gray-50 w-screen fixed bottom-0 left-0 py-4 px-10 lg:px-40 flex flex-col md:flex-row items-center justify-between">
       {
         FooterLinkList.map((link) => (
         <FooterLink
