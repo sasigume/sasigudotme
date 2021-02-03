@@ -25,7 +25,7 @@ export class SkillApi {
       power: rawSkill.power ?? 100,
       start: rawSkill.start ?? '2016',
       lastUsed: rawSkill.lastUsed ?? '2021',
-      description: rawSkill.description ?? 'ここに説明を入力'
+      description: rawSkill.description ?? ''
     };
   };
 

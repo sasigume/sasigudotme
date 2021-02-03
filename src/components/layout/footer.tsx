@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 w-screen lg:fixed bottom-0 left-0 py-4 px-10 flex flex-row justify-between">
+    <footer className="z-50 bg-gray-800 w-screen lg:fixed bottom-0 left-0 py-4 px-10 flex flex-row justify-between">
       <div><a
         href={CONST_REPO_URL}
         className="inline hover:underline"
