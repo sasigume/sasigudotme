@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import moment from 'moment'
 import cn from 'classnames'
-import { CONST_MYNAME, CONST_BIRTHDAY, CONST_BIRTHYEAR } from '../../options/constants'
+import { CONST_MYNAME, CONST_BIRTHDAY } from '../../options/constants'
 
 import Logo from './logo'
 import Tooltip from '../tooltip'
@@ -53,11 +53,11 @@ type NavProps = {
 
 export default function Nav({ page }: NavProps) {
 
-  const birthDayFirst = CONST_BIRTHYEAR + '-' + CONST_BIRTHDAY
-  const birthDayLast = (moment.utc().year() - 1) + '-' + CONST_BIRTHDAY
-
-  const age = moment().diff(moment(birthDayFirst, 'YYYYMMDD'), 'years')
-  const exp = moment().diff(moment(birthDayLast, 'YYYYMMDD'), 'days')
+  const age = moment().diff(moment(CONST_BIRTHDAY, 'YYYYMMDD'), 'years')
+  const bdThisYear = moment().year() + '-' + moment(CONST_BIRTHDAY).format('MM-DD')
+  const diff = moment().diff(moment(bdThisYear, 'YYYYMMDD'), 'days')
+  let exp: number
+  diff < 0 ? exp = 365 + diff : exp = diff
 
   return (
     <nav className={cn('z-50 w-screen align-middle fixed top-0 left-0 bg-white uppercase px-10 flex md:justify-between items-center flex-col md:flex-row', {
@@ -78,7 +78,7 @@ export default function Nav({ page }: NavProps) {
               {CONST_MYNAME}
             </h1>
             <div className="tracking-widest text-lg">
-              // LEVEL {age}
+              {`//`} LEVEL {age}
             </div>
           </div>
 
