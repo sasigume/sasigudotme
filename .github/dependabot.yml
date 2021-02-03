@@ -3,6 +3,8 @@
 # Please see the documentation for all configuration options:
 # https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
+# Tahnk you https://blog.toshimaru.net/github-dependabot/
+
 version: 2
 updates:
 - package-ecosystem: npm
