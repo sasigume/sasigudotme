@@ -40,12 +40,12 @@ export default function Home({
           <Image layout="responsive" width={250} height={400} src={CONST_CHARACTER_IMAGE} className="" />
         </div>
         <div className="ml-6 relative">
-        <div className="text-right mt-5 absolute top-0 -left-20">
-          <div className="-mb-4">POWER</div>
-          <div className="text-blue-200 font-bold text-5xl">
-            {totalPower}
+          <div className="text-right absolute top-0 -left-20">
+            <div className="-mb-4">POWER</div>
+            <div className="text-blue-200 font-bold text-5xl">
+              {totalPower}
+            </div>
           </div>
-        </div>
           <SkillMenu buttons={sortedSkills.head ? sortedSkills.head.slice(0, 1) : []} />
           <SkillMenu buttons={sortedSkills.arm ? sortedSkills.arm.slice(0, 1) : []} />
           <SkillMenu buttons={sortedSkills.body ? sortedSkills.body.slice(0, 1) : []} />

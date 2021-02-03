@@ -8,10 +8,6 @@ import cn from 'classnames'
 
 import { useSpring, animated, interpolate } from 'react-spring'
 
-const WindowWidth = () => {
-  
-}
-
 type LayoutProps = {
   preview: Boolean,
   children: React.ReactNode,
@@ -29,7 +25,7 @@ export default function Layout({ preview, children, page }: LayoutProps) {
   return (
     <>
       <Meta />
-      <div id="#" onMouseMove={onMove} className={cn('overflow-hidden lg:w-screen lg:h-screen max-w-screen min-h-screen flex flex-col items-center')}>
+      <div id="#" onMouseMove={onMove} className={cn('bg-gradient-to-b from-gray-500 to-gray-700 overflow-hidden lg:w-screen lg:h-screen max-w-screen min-h-screen flex flex-col items-center')}>
         <Nav page={page} />
         {/* Only move when bigger than TWCSS's 'lg' size */}
         <animated.div style={winSize.width > 1023 ? { transform: trans } : {}} className="lg:h-full flex-grow py-10 lg:py-0 px-10 mx-auto flex-col justify-center flex will-change-transform">

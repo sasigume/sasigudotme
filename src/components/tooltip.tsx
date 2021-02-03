@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Tooltip = (props) => {
+
   let timeout;
   const [active, setActive] = useState(false);
 
@@ -30,7 +31,7 @@ export const Tooltip = (props) => {
     >
       {props.children}
       {active && (
-        <div className="border-t border-white left-10 -bottom-30 z-30 w-64 shadow-xl absolute bg-gray-900 text-left">
+        <div className="absolute border-t border-white left-10 -bottom-30 z-30 w-64 shadow-xl bg-gray-900 text-left">
           <div className={(`py-2 px-3 text-xl ${"bg-level-" + props.level}`)}>
             <div className="font-bold">{props.label}</div>
             <div className="uppercase">LEVEL {props.level} {props.type}</div>
