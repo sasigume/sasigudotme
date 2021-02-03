@@ -5,14 +5,11 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
-    schedule:
-      interval: "weekly"
-    target_branch: "master"
-    default_labels:
-      - "dependencies"
-    allowed_updates:
-      - match:
-        update_type: "all"
-    version_requirement_updates: "increase_versions"
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: '21:00'
+  open-pull-requests-limit: 10
+  reviewers:
+  - and0ry0
