@@ -1,0 +1,13 @@
+- name: Dependabot Auto Merge
+  # You may pin to the exact commit or the version.
+  # uses: ahmadnassri/action-dependabot-auto-merge@bacda948a54941e442c216f4c1c84240c8f9c04a
+  uses: ahmadnassri/action-dependabot-auto-merge@v2.2.0
+  with:
+    # The GitHub token used to merge the pull-request
+    github-token: 
+    # The command to pass to Dependabot as a comment
+    command: # optional, default is merge
+    # Auto-approve pull-requests
+    approve: # optional, default is true
+    # The version comparison target (major, minor, patch). This is ignored if .github/auto-merge.yml exists
+    target: # optional, default is patch
