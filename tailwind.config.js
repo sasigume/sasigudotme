@@ -40,10 +40,10 @@ module.exports = {
     },
     extend: {
       colors: {
-        'level-1': '#43864C', // UNCOMMON
-        'level-2': '#5177A4', // RARE
-        'level-3': '#2A1B34', // LEGENDARY
-        'level-4': '#CEAE33', // EXOTIC
+        'level-1': 'var(--color-level1)',
+        'level-2': 'var(--color-level2)',
+        'level-3': 'var(--color-level3)',
+        'level-4': 'var(--color-level4)',
         'globalbg': 'var(--color-globalbg)',
         'globalfont': 'var(--color-globalfont)'
       },

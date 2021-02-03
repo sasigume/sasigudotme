@@ -7,7 +7,7 @@ import { SkillMenu } from '../components/skill-list'
 import Layout from '../components/layout'
 import Tooltip from '../components/tooltip'
 
-type CharacterProps = {
+type WeaponsProps = {
   preview: boolean,
   allSkills: Skill[],
   sortedSkills: {
@@ -15,16 +15,13 @@ type CharacterProps = {
   }
 }
 
-export default function Character({
+export default function Weapons({
   preview,
   sortedSkills
-}: CharacterProps): ReactElement {
+}: WeaponsProps): ReactElement {
 
-  let powerArray: number[] = [100, 100, 100, 100, 100, 100, 100, 100]
-  let totalPower
-
-
-  console.log(Object.keys(sortedSkills).length)
+  let powerArray: number[]
+  let totalPower = 800
 
   // スロットは8種類だが未分類のnullも含めて9個
   if (Object.keys(sortedSkills).length == 9) {
@@ -42,7 +39,7 @@ export default function Character({
   }
 
   return (
-    <Layout page="character" preview={false}>
+    <Layout page="weapons" preview={false}>
       <div className="flex items-center justify-center">
         <div className="mr-6">
           <SkillMenu buttons={sortedSkills.weapon1 ? sortedSkills.weapon1.slice(0, 1) : []} />
@@ -51,7 +48,7 @@ export default function Character({
           <SkillMenu buttons={sortedSkills.weapon4 ? sortedSkills.weapon4.slice(0, 1) : []} />
         </div>
         <Tooltip label={"skin.png"} description={"適当に作ったスキン"}>
-          <div className="w-20 lg:w-64 ml-6">
+          <div className="w-20 lg:w-52">
             <Image layout="responsive" width={250} height={400} src={CONST_CHARACTER_IMAGE} className="" />
           </div>
         </Tooltip>
@@ -59,7 +56,7 @@ export default function Character({
           <Tooltip label={"POWER"} description={"装備しているスキルのパワーの合計"}>
             <div className="text-right absolute top-0 -left-24">
               <div className="-mb-4">POWER</div>
-              <div className="text-blue-200 font-bold text-5xl">
+              <div className="font-bold text-5xl">
                 {totalPower}
               </div>
             </div>
@@ -70,6 +67,7 @@ export default function Character({
           <SkillMenu left buttons={sortedSkills.leg ? sortedSkills.leg.slice(0, 1) : []} />
         </div>
       </div>
+      <p className="text-center">Power is just how confident I am for the skill. Each color indicates skill level.</p>
     </Layout>
   )
 }
