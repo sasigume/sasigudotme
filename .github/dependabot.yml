@@ -9,10 +9,10 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
-      target_branch: "master"
-      default_labels:
-        - "dependencies"
-      allowed_updates:
-        - match:
-          update_type: "all"
+    target_branch: "master"
+    default_labels:
+      - "dependencies"
+    allowed_updates:
+      - match:
+        update_type: "all"
     version_requirement_updates: "increase_versions"
