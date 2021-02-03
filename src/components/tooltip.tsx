@@ -34,8 +34,9 @@ export const Tooltip = (props) => {
         {props.children}
       </div>
       {active && (
-        <div className={cn('absolute border-t border-white lg:-right-64 lg:-bottom-40 z-20 w-64 shadow-xl bg-gray-900 text-left',{
-          'right-0' : props.left
+        <div className={cn('absolute border-t border-white top-0 z-20 w-64 shadow-xl bg-gray-900 text-left',{
+          'ml-4 left-24' : !props.left,
+          'mr-4 md:mr-0 md:ml-4 -left-64 md:left-24' : props.left
         })}>
 
           <div className={(`py-2 px-3 text-xl ${"bg-level-" + props.level}`)}>
