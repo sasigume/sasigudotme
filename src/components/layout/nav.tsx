@@ -22,7 +22,7 @@ export default function Nav({ page }: NavProps) {
   const linkClass = "transition duration-200 hover:text-white flex justify-center h-20 relative items-center"
 
   return (
-    <section className="z-50 h-20 w-screen lg:fixed top-0 left-0 bg-green-900 uppercase px-10 flex justify-between items-center flex-row">
+    <section className="z-50 h-20 w-screen fixed top-0 left-0 bg-green-900 uppercase px-10 flex justify-between items-center flex-row">
       <div className="flex flex-row -mb-8 lg:mt-4">
         <Link href="/">
           <a className="block w-16 lg:w-24 mr-4 p-2">
