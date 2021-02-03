@@ -2,6 +2,7 @@
 
 import React, { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import cn from 'classnames'
 
 export const Tooltip = (props) => {
 
@@ -29,28 +30,40 @@ export const Tooltip = (props) => {
       onMouseLeave={hideTip}
       className="relative"
     >
-      {props.children}
+      <div className="flex">
+        {props.children}
+      </div>
       {active && (
-        <div className="absolute border-t border-white left-10 -bottom-30 z-30 w-64 shadow-xl bg-gray-900 text-left">
+        <div className={cn('absolute border-t border-white top-0 z-20 w-64 shadow-xl bg-gray-900 text-left',{
+          'ml-4 left-24' : !props.left,
+          'mr-4 md:mr-0 md:ml-4 -left-64 md:left-24' : props.left
+        })}>
+
           <div className={(`py-2 px-3 text-xl ${"bg-level-" + props.level}`)}>
-            <div className="font-bold">{props.label}</div>
-            <div className="uppercase">LEVEL {props.level} {props.type}</div>
+            <div className="font-bold">{props.label ? props.label : 'INFO'}</div>
+            <div className="uppercase">{props.level ? `LEVEL${props.level}` : ''} {props.type ? props.type : ``}</div>
           </div>
           <div className="py-1 border-b border-gray-600 px-3">
-            <div className="flex items-center">
-              <div className="w-8 mr-2">
-                <FontAwesomeIcon icon={['fas', typeIcon]} />
+              <div className="flex items-center">
+                {props.type && <div className="w-8 mr-2">
+                  <FontAwesomeIcon icon={['fas', typeIcon]} />
+                </div>}
+                <div className="text-5xl font-bold">{props.power}</div>
               </div>
-              <div className="text-5xl font-bold">{props.power}</div>
-            </div>
+
             <div>{props.description}</div>
           </div>
-          <div className="pt-1 pb-3 px-3">
-            <div>START</div>
-            <div className="text-gray-300">{props.start}</div>
-            <div>LAST USED</div>
-            <div className="text-gray-300">{props.lastUsed}</div>
-          </div>
+
+            <div className="pt-1 pb-3 px-3">
+              {props.start && (<>
+                <div>START</div>
+                <div className="text-gray-300">{props.start}</div>
+              </>)}
+              {props.lastUsed && (<>
+                <div>LAST USED</div>
+                <div className="text-gray-300">{props.lastUsed}</div>
+              </>)}
+            </div>
         </div>
       )}
     </div>

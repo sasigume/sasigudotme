@@ -20,11 +20,12 @@ export default function Inventory({
 
   return (
     <Layout page="inventory" preview={false}>
-      <div dangerouslySetInnerHTML={{ __html: "<!-- This design is just parody of Destiny2 UI. Original Design Material : https://www.behance.net/gallery/60073341/Destiny-2-UI-Visual-Design -->" }} />
       <Head>
         <title>Inventory | {CONST_SITE_NAME}</title>
       </Head>
+      <div className="px-10">
       <SkillMenu buttons={allSkills} />
+      </div>
     </Layout>
   )
 }

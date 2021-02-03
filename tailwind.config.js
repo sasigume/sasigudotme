@@ -35,7 +35,8 @@ module.exports = {
       'skill': '1rem',
       'lg': '2rem',
       '5': '5rem',
-      '8': '8rem'
+      '8': '8rem',
+      'full': '100%'
     },
     extend: {
       colors: {
