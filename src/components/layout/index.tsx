@@ -27,7 +27,9 @@ export default function Layout({ preview, children, page }: LayoutProps) {
   const trans4 = interpolate(props.xy, (x, y) => `translate3d(${-x / 90}px, ${-y / 80}px, 0)`)
   const trans5 = interpolate(props.xy, (x, y) => `rotate(45deg) translate3d(${-x / 110}px, ${-y / 100}px, 0)`)
 
-  const bgParallaxClass = "opacity-10 hidden lg:block absolute top-0 bottom-0 left-0 right-0 m-auto border border-gray-200 will-change-transform"
+  const bgParallaxClass = "opacity-10 absolute top-0 bottom-0 left-0 right-0 m-auto border border-gray-200 will-change-transform"
+  const indexParallax = "opacity-50 absolute will-change-transform text-4xl top-0 bottom-0 m-auto"
+
   return (
     <>
       <Meta />
@@ -38,10 +40,10 @@ export default function Layout({ preview, children, page }: LayoutProps) {
           {children}
         </animated.div>
         <div className="z-0">
-          <animated.div style={winSize.width > 1023 ? { width: '26em', height: '26em', transform: trans2 } : {}} className={bgParallaxClass + ' bg-gray-200'}></animated.div>
-          <animated.div style={winSize.width > 1023 ? { width: '30em', height: '30em', transform: trans3 } : {}} className={bgParallaxClass + ' bg-gray-400'}></animated.div>
-          <animated.div style={winSize.width > 1023 ? { width: '34em', height: '34em', transform: trans4 } : {}} className={bgParallaxClass}></animated.div>
-          <animated.div style={winSize.width > 1023 ? { width: '38em', height: '38em', transform: trans5 } : {}} className={bgParallaxClass}></animated.div>
+          <animated.div style={{ width: '26vw', height: '26vw', transform: trans2 }} className={bgParallaxClass + ' bg-gray-200'}></animated.div>
+          <animated.div style={{ width: '30vw', height: '30vw', transform: trans3 }} className={bgParallaxClass + ' bg-gray-400'}></animated.div>
+          <animated.div style={{ width: '34vw', height: '34vw', transform: trans4 }} className={bgParallaxClass}></animated.div>
+          <animated.div style={{ width: '38vw', height: '38vw', transform: trans5 }} className={bgParallaxClass}></animated.div>
         </div>
         <Footer />
       </div>
