@@ -1,6 +1,6 @@
 {
   "name": "andoryocom",
-  "version": "7.7.9",
+  "version": "7.7.10",
   "private": true,
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",

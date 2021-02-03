@@ -23,7 +23,7 @@ export default function Inventory({
       <Head>
         <title>Inventory | {CONST_SITE_NAME}</title>
       </Head>
-      <div className="px-10">
+      <div className="pt-24 md:pt-0 px-10">
       <SkillMenu buttons={allSkills} />
       </div>
     </Layout>

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Tooltip from './tooltip'
 import {Skill} from '../services'
 
-export function SkillButton({ left, label, iconStyle, iconName, level, type, power, description, start, lastUsed }) {
+function SkillButton({ left, label, iconStyle, iconName, level, type, power, description, start, lastUsed }) {
 
   return (
     <Tooltip left={left} label={label} level={level} type={type} power={power} description={description} start={start} lastUsed={lastUsed}>
@@ -21,7 +21,7 @@ type SkillMenuProps = {
 
 export function SkillMenu({ left = false, buttons }:SkillMenuProps) {
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap justify-center md:justify-start">
       {buttons.map((button) => (
         <SkillButton
           left={left}
