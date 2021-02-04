@@ -10,8 +10,8 @@ updates:
 - package-ecosystem: npm
   directory: "/"
   schedule:
-    interval: weekly
-    time: '21:00'
+    interval: daily
+    time: '1:00'
   # open-pull-requests-limit: 10
   reviewers:
   - and0ry0
