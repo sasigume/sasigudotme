@@ -23,8 +23,8 @@ export class SkillApi {
       slot: rawSkill.slot ?? null,
       type: rawSkill.type ?? 'other',
       power: rawSkill.power ?? 100,
-      start: rawSkill.start ?? '2016',
-      lastUsed: rawSkill.lastUsed ?? '2021',
+      start: rawSkill.start ?? null,
+      lastUsed: rawSkill.lastUsed ?? null,
       description: rawSkill.description ?? ''
     };
   };

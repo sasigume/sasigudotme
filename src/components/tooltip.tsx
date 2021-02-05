@@ -57,11 +57,14 @@ export const Tooltip = (props) => {
           {(props.start || props.lastUsed) && (<>
             <div className=" border-t border-gray-600 pt-1 pb-3 px-3">
 
-              <div>START</div>
+              {props.start && (<>
+              <>USING SINCE</>
               <div className="text-gray-800">{props.start}</div>
+              </>)}
+              {props.lastUsed && (<>
               <div>LAST USED</div>
               <div className="text-gray-800">{props.lastUsed}</div>
-
+              </>)}
             </div>
           </>
           )}
