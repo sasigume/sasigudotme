@@ -22,6 +22,7 @@ export default function Weapons({
 
   let powerArray: number[]
   let totalPower = 800
+  let displayPower = 100
 
   // スロットは8種類だが未分類のnullも含めて9個
   if (Object.keys(sortedSkills).length == 9) {
@@ -36,6 +37,7 @@ export default function Weapons({
       sortedSkills.weapon4[0].power,
     ]
     totalPower = powerArray.reduce((a, b) => a + b, 0)
+    displayPower = Math.round(totalPower / 8)
   }
 
   return (
@@ -54,10 +56,10 @@ export default function Weapons({
         </Tooltip>
         <div className="ml-6 relative">
           <Tooltip label={"POWER"} description={"装備しているスキルのパワーの合計"}>
-            <div className="text-right absolute top-0 -left-24">
+            <div className="text-right absolute top-0 -left-16">
               <div className="-mb-4">POWER</div>
               <div className="font-bold text-5xl">
-                {totalPower}
+                {displayPower}
               </div>
             </div>
           </Tooltip>
