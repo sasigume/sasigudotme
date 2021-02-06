@@ -22,7 +22,7 @@ export class SkillApi {
       level: rawSkill.level,
       slot: rawSkill.slot ?? null,
       type: rawSkill.type ?? 'other',
-      power: rawSkill.power ?? 100,
+      power: rawSkill.power ?? 10,
       start: rawSkill.start ?? null,
       lastUsed: rawSkill.lastUsed ?? null,
       description: rawSkill.description ?? ''

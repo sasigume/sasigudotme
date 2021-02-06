@@ -34,7 +34,7 @@ export const Tooltip = (props) => {
         {props.children}
       </div>
       {active && (
-        <div className={cn('absolute border-t border-black top-0 z-50 w-64 shadow-xl bg-white text-left', {
+        <div className={cn('absolute border-t border-white top-0 z-50 w-64 shadow-xl bg-white text-left', {
           'ml-4 left-24': !props.left,
           'mr-4 md:mr-0 md:ml-4 -left-64 md:left-24': props.left,
           '-left-0 top-10': props.top

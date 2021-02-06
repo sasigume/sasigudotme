@@ -69,7 +69,7 @@ export default function Weapons({
           <SkillMenu left buttons={sortedSkills.leg ? sortedSkills.leg.slice(0, 1) : []} />
         </div>
       </div>
-      <p className="text-center">Power is just how confident I am for the skill. Each color indicates skill level.</p>
+      <p className="text-center">(元ネタはDestinyってゲームです)</p>
     </Layout>
   )
 }
