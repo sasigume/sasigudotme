@@ -1,12 +1,5 @@
 ![Screenshot on 2-3-2021](https://github.com/sasigume/andoryocom/blob/main/screenshots/2021-2-3.png?raw=true)
 
-## Content models required
-
-* This app  **requires these content models on your Contentful space** to run :
-  * 'skill'
-
-* Note that PostCSS purge is ignoring 'bg-level-(1~4)' to display book level.
-
 ## Thanks
 ### react-spring
 
