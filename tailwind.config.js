@@ -44,8 +44,6 @@ module.exports = {
         'level-2': 'var(--color-level2)',
         'level-3': 'var(--color-level3)',
         'level-4': 'var(--color-level4)',
-        'globalbg': 'var(--color-globalbg)',
-        'globalfont': 'var(--color-globalfont)'
       },
       minHeight: {
         '0': '0',

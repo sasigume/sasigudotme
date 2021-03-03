@@ -1,14 +1,14 @@
 import { CONST_RESUME_URL, CONST_REPO_URL, CONST_BLOG_URL, CONST_YOUTUBE_URL } from '../../options/constants'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from '@contentful/rich-text-types'
+import { Box, Center, Flex, Stack, useColorMode } from '@chakra-ui/react'
 
-function FooterLink({label, href, iconStyle, iconName}) {
+function FooterLink({ label, href, iconStyle, iconName }) {
   return (
-    <div>
+    <Box mr={3}>
       <a href={href} className="my-1 md:my-0 flex items-center md:flex-row hover:underline">
         <FontAwesomeIcon className="w-4 mr-2 inline" icon={[iconStyle, iconName]} />{label}
       </a>
-    </div>
+    </Box>
   )
 }
 
@@ -40,19 +40,24 @@ const FooterLinkList = [
 ]
 
 export default function Footer() {
+
+  const { colorMode } = useColorMode()
+
   return (
-    <footer className="z-20 bg-gray-50 w-screen fixed bottom-0 left-0 py-4 px-10 lg:px-40 flex flex-col md:flex-row items-center justify-between">
-      {
-        FooterLinkList.map((link) => (
-        <FooterLink
-          key={link.label}
-          label={link.label}
-          href={link.href}
-          iconStyle={link.iconStyle}
-          iconName={link.iconName}
-        />
-        ))
-      }
-    </footer>
+    <Box px={6} bg={colorMode === "light" ? "white" : "black"} bottom={0} style={{ zIndex: 5, width: "100vw" }} position="fixed" pt={4} pb={12}>
+      <Center>
+        <Flex alignItems="center" direction={{ base: "column", md: "row" }}>{
+          FooterLinkList.map((link) => (
+            <FooterLink
+              key={link.label}
+              label={link.label}
+              href={link.href}
+              iconStyle={link.iconStyle}
+              iconName={link.iconName}
+            />
+          ))
+        }</Flex>
+      </Center>
+    </Box>
   )
 }

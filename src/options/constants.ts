@@ -1,7 +1,7 @@
 const domain = "sasigu.me"
 const blog = "blog"
 
-export const CONST_MYNAME = "Ryo Ando"
+export const CONST_MYNAME = "sasigume"
 export const CONST_BIRTHDAY = "2000-11-20"
 export const CONST_SITE_NAME = CONST_MYNAME + "'s Portfolio"
 export const CONST_SITE_URL = "https://" + domain

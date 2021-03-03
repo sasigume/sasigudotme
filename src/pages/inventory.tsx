@@ -7,6 +7,7 @@ import Head from 'next/head'
 
 import { SkillMenu } from '../components/skill-list'
 import Layout from '../components/layout'
+import { Box } from '@chakra-ui/react'
 
 type InventoryProps = {
   preview: boolean,
@@ -23,9 +24,9 @@ export default function Inventory({
       <Head>
         <title>Inventory | {CONST_SITE_NAME}</title>
       </Head>
-      <div className="pt-40 md:pt-0 px-10 mb-40 md:mb-0">
+      <Box style={{height: "40vh"}} overflowY="scroll">
         <SkillMenu buttons={allSkills} />
-      </div>
+      </Box>
     </Layout>
   )
 }
