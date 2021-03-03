@@ -60,13 +60,8 @@ export default function Nav({ page }: NavProps) {
   diff < 0 ? exp = 365 + diff : exp = diff
 
   return (
-    <nav className={cn('z-50 w-screen align-middle fixed top-0 left-0 bg-white uppercase px-10 flex md:justify-between items-center flex-col md:flex-row', {
-      'md:h-20': page !== 'index',
-      'h-full justify-center pb-20': page == 'index'
-    })}>
-      <div className={cn('flex flex-row mb-4 md:-mb-8', {
-        'mt-4': page !== 'index'
-      })}>
+    <nav className={cn('z-50 w-screen align-middle fixed top-0 left-0 bg-white uppercase px-10 flex md:justify-between items-center flex-col md:flex-row md:h-20')}>
+      <div className={cn('mt-4 flex flex-row mb-4 md:-mb-8')}>
         <Link href="/">
           <a className="block w-16 md:w-24 mr-4 p-2">
             <Logo />
