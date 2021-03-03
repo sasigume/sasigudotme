@@ -1,28 +1,22 @@
-import Link from 'next/link'
 import moment from 'moment'
 import cn from 'classnames'
 import { CONST_MYNAME, CONST_BIRTHDAY } from '../../options/constants'
 
 import Logo from './logo'
-import Tooltip from '../tooltip'
+import { Tooltip, Link, Flex, Spacer, useColorMode, Box, Stack, VStack, Drawer } from '@chakra-ui/react'
+import LinkChakra from 'components/link-chakra'
 
 
 function NavLink({ label, href, targetPage, page }) {
-  const linkClass = "mx-1 md:mx-3 transition duration-200 hover:text-black flex justify-center h-10 md:h-20 relative items-center"
-  const active = <div className="absolute -bottom-1 w-full h-1 bg-black"></div>
+  const { colorMode } = useColorMode()
 
   return (
-      <Link href={href}>
-
-        <a className={cn(linkClass, {
-          "text-gray-600": page !== targetPage,
-          "text-black": page == targetPage
-        })}>
-          <div className="mx-5">{label}</div>
-
-          {page == targetPage ? active : ''}
-        </a>
-      </Link>
+    <LinkChakra href={href}>
+      <VStack justifyContent="flex-end" h={{base:12,md:24}} >
+        <div className="mx-5">{label}</div>
+        <>{(page == targetPage) ? (<Box h={1} bg={colorMode == "light" ? "black" : "white"} w="full" />) : (<Box h={1} bg={colorMode == "light" ? "white" : "black"} w="full" />)}</>
+      </VStack>
+    </LinkChakra>
   )
 }
 
@@ -53,6 +47,8 @@ type NavProps = {
 
 export default function Nav({ page }: NavProps) {
 
+  const { colorMode, toggleColorMode } = useColorMode()
+
   const age = moment().diff(moment(CONST_BIRTHDAY, 'YYYYMMDD'), 'years')
   const bdThisYear = moment().year() + '-' + moment(CONST_BIRTHDAY).format('MM-DD')
   const diff = moment().diff(moment(bdThisYear, 'YYYYMMDD'), 'days')
@@ -60,13 +56,13 @@ export default function Nav({ page }: NavProps) {
   diff < 0 ? exp = 365 + diff : exp = diff
 
   return (
-    <nav className={cn('z-50 w-screen align-middle fixed top-0 left-0 bg-white uppercase px-10 flex md:justify-between items-center flex-col md:flex-row md:h-20')}>
-      <div className={cn('mt-4 flex flex-row mb-4 md:-mb-8')}>
-        <Link href="/">
+    <Flex direction={{ base: "column", md: "row" }} bg={colorMode === "light" ? "white" : "black"} position="fixed" alignItems="center" top={0} left={0} area-label="メニュー" style={{ zIndex: 5, width: "100vw" }} px={3}>
+      <Flex mt={4} mb={{ base: 4, md: -8 }}>
+        <LinkChakra href="/">
           <a className="block w-16 md:w-24 mr-4 p-2">
             <Logo />
           </a>
-        </Link>
+        </LinkChakra>
         <div className="">
           <div>
             <h1 className="text-3xl font-bold">
@@ -77,14 +73,15 @@ export default function Nav({ page }: NavProps) {
             </div>
           </div>
 
-          <Tooltip label={exp + "/365日"} description={"誕生日からの経過日数"} top>
-            <div className="bg-gray-200 border w-40 md:w-64 md:mt-3 h-3 border-gray-400">
+          <Tooltip label={exp + "/365日(誕生日からの経過日数)"}>
+            <Box mt={{base:2,md:4}} className="bg-gray-200 border w-40 md:w-64 h-3 border-gray-400">
               <div className="h-full bg-green-600" style={{ width: `${exp / 365 * 100}%` }}></div>
-            </div>
+            </Box>
           </Tooltip >
         </div>
-      </div>
-      <nav className="flex flex-row">
+      </Flex>
+      <Spacer />
+      <Stack h={{base:12,md:24}} spacing={8} direction="row">
         {NavLinkList.map((link) => (
           <NavLink
             key={link.label}
@@ -93,7 +90,7 @@ export default function Nav({ page }: NavProps) {
             targetPage={link.targetPage}
             page={page}
           />))}
-      </nav>
-    </nav >
+      </Stack>
+    </Flex>
   )
 }

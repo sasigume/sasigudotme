@@ -1,3 +1,4 @@
+import { Center } from '@chakra-ui/react'
 import { ReactElement } from 'react'
 import Layout from '../components/layout'
 
@@ -11,8 +12,10 @@ export default function Home({
 
   return (
     <Layout page="index" preview={false}>
-      <div className="flex flex-col items-center">
-      </div>
+      <Center px={6}>
+        現在依頼は受け付けておりません。
+        詳細はResumeをご覧ください
+      </Center>
     </Layout>
   )
 }

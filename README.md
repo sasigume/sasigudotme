@@ -12,6 +12,3 @@ I'm a student living in Japan.
 ### react-spring
 
 https://codesandbox.io/embed/r5x34869vq
-### Tooltip
-
-https://dev.to/vtrpldn/how-to-make-an-extremely-reusable-tooltip-component-with-react-and-nothing-else-3pnk
