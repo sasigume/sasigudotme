@@ -24,7 +24,7 @@
     "framer-motion": "^3.9.1",
     "json2md": "^1.9.2",
     "moment": "^2.29.1",
-    "next": "10.0.6",
+    "next": "10.0.8",
     "postcss": "^8.2.6",
     "react": "17.0.1",
     "react-dom": "17.0.1",
